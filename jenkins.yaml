@@ -1,0 +1,96 @@
+jenkins:
+  systemMessage: "<h1>Testen von Enterprise Anwendungen</h1>"
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  markupFormatter:
+    rawHtml:
+      disableSyntaxHighlighting: false
+  mode: NORMAL
+  numExecutors: 1
+  primaryView:
+    all:
+      name: "all"
+  quietPeriod: 5
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+  slaveAgentPort: 50000
+  views:
+  - all:
+      name: "all"
+security:
+  apiToken:
+    usageStatisticsEnabled: false
+  remotingCLI:
+    enabled: false
+unclassified:
+  location:
+    adminAddress: "Admin <nobody@nowhere>"
+    url: "http://localhost:8081/"
+
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  maven:
+    installations:
+    - name: "mvn-3.6.0"
+      properties:
+      - installSource:
+          installers:
+            - maven:
+                id: "3.6.0"
+
+jobs:
+  - script: >
+      pipelineJob('pipeline-analysis-model') {
+          definition {
+              cpsScm {
+                  scriptPath 'Jenkinsfile.local'
+                  scm {
+                    git {
+                        remote { url 'https://github.com/jenkinsci/analysis-model.git' }
+                        branch '*/master'
+                        extensions {}
+                    }
+                  }
+              }
+          }
+      };
+      pipelineJob('pipeline-warnings-ng') {
+          definition {
+              cpsScm {
+                  scriptPath 'Jenkinsfile.local'
+                  scm {
+                    git {
+                        remote { url 'https://github.com/jenkinsci/warnings-ng-plugin.git' }
+                        branch '*/master'
+                        extensions {}
+                    }
+                  }
+              }
+          }
+      };
+      job('freestyle-analysis-model') {
+        scm {
+            git("https://github.com/jenkinsci/analysis-model.git")
+        }
+        steps {
+            maven {
+                mavenInstallation('3.6.0')
+                rootPOM("${projectDir}/pom.xml")
+                goals('verify')
+            }
+        }
+        publishers {
+            archiveJunit("${projectDir}/**/surefire-reports/*.xml")
+        }
+      };

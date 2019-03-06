@@ -3,13 +3,16 @@ jenkins:
   agentProtocols:
   - "JNLP4-connect"
   - "Ping"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  markupFormatter:
+    rawHtml:
+      disableSyntaxHighlighting: false
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: false
   disableRememberMe: false
-  markupFormatter:
-    rawHtml:
-      disableSyntaxHighlighting: false
   mode: NORMAL
   numExecutors: 1
   primaryView:
@@ -25,15 +28,6 @@ jenkins:
   views:
   - all:
       name: "all"
-security:
-  apiToken:
-    usageStatisticsEnabled: false
-  remotingCLI:
-    enabled: false
-unclassified:
-  location:
-    adminAddress: "Admin <nobody@nowhere>"
-    url: "http://localhost:8081/"
 
 tool:
   git:
@@ -48,7 +42,6 @@ tool:
           installers:
             - maven:
                 id: "3.6.0"
-
 jobs:
   - script: >
       pipelineJob('pipeline-analysis-model') {

@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "<h1>Testen von Enterprise Anwendungen</h1>"
+  systemMessage: "<h1>Warnings Next Generation Plugin Showcase</h1>"
   agentProtocols:
   - "JNLP4-connect"
   - "Ping"
@@ -36,7 +36,7 @@ tool:
       name: "Default"
   maven:
     installations:
-    - name: "mvn-3.6.0"
+    - name: "Default"
       properties:
       - installSource:
           installers:

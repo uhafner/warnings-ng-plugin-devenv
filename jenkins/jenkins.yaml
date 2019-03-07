@@ -29,6 +29,12 @@ jenkins:
   - all:
       name: "all"
 
+unclassified:
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: "http://localhost:8081/userContent/material-blue-grey.css"
+
 tool:
   git:
     installations:
@@ -42,6 +48,7 @@ tool:
           installers:
             - maven:
                 id: "3.6.0"
+
 jobs:
   - script: >
       pipelineJob('pipeline-analysis-model') {

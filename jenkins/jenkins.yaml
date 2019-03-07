@@ -33,10 +33,10 @@ tool:
   git:
     installations:
     - home: "git"
-      name: "Default"
+      name: "git-default"
   maven:
     installations:
-    - name: "Default"
+    - name: "mvn-default"
       properties:
       - installSource:
           installers:

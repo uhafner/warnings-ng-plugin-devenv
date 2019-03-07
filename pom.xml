@@ -31,6 +31,8 @@
     <module>analysis-model</module>
     <module>analysis-model-api-plugin</module>
     <module>warnings-ng-plugin</module>
+
+    <module>acceptance-test-harness</module>
   </modules>
 
 </project>

@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="acceptance-test-harness" />
         <module name="analysis-model-api" />
         <module name="warnings-ng" />
       </profile>
@@ -48,6 +49,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="acceptance-test-harness" target="1.8" />
       <module name="analysis-model" target="1.8" />
       <module name="analysis-model-api" target="1.8" />
       <module name="warnings-ng" target="8" />

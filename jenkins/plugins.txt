@@ -1,5 +1,4 @@
 ace-editor
-analysis-core
 analysis-model-api
 antisamy-markup-formatter
 apache-httpcomponents-client-4-api
@@ -45,6 +44,7 @@ pam-auth
 pipeline-build-step
 pipeline-graph-analysis
 pipeline-input-step
+pipeline-maven
 pipeline-milestone-step
 pipeline-model-api
 pipeline-model-declarative-agent

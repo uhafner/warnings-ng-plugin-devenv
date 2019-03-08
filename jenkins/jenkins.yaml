@@ -14,7 +14,7 @@ jenkins:
       excludeClientIPFromCrumb: false
   disableRememberMe: false
   mode: NORMAL
-  numExecutors: 1
+  numExecutors: 0
   primaryView:
     all:
       name: "all"
@@ -28,6 +28,18 @@ jenkins:
   views:
   - all:
       name: "all"
+  nodes:
+  - permanent:
+    labelString: "jdk java"
+    launcher:
+      jnlp:
+        workDirSettings:
+          disabled: false
+          failIfWorkDirIsMissing: false
+          internalDir: "remoting"
+    name: "java-agent"
+    numExecutors: 1
+    remoteFS: "/var/data"
 
 unclassified:
   simple-theme-plugin:

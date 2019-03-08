@@ -8,6 +8,7 @@ services:
       - ./jenkins-home:/var/jenkins_home
     ports:
       - 8081:8080
+      - 50000:50000
     environment:
       - VIRTUAL_HOST=jenkins.local
       - VIRTUAL_PORT=8081
@@ -21,3 +22,15 @@ services:
       - 80:80
       - 443:443
     restart: always
+  java-agent:
+    build: java-agent
+    volumes:
+      - ./agent-data:/var/data
+    environment:
+      - JENKINS_MASTER_SERVER=jenkins
+      - JENKINS_MASTER_PORT=8080
+      - JENKINS_MASTER_JNLP_PORT=50000
+      - JENKINS_TOKEN=6419cf9ecd7e991705ac12788f8c3e0fe1328d49b34cfee8cadd80a9d905fb1a
+      - SLAVE_NAME=java-agent
+    depends_on:
+      - jenkins

@@ -28,9 +28,5 @@ services:
       - ./agent-data:/var/data:cached
     environment:
       - JENKINS_MASTER_SERVER=jenkins
-      - JENKINS_MASTER_PORT=8080
-      - JENKINS_MASTER_JNLP_PORT=50000
-      - JENKINS_TOKEN=6419cf9ecd7e991705ac12788f8c3e0fe1328d49b34cfee8cadd80a9d905fb1a
-      - SLAVE_NAME=java-agent
     depends_on:
       - jenkins

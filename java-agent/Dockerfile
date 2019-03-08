@@ -1,22 +1,27 @@
 FROM openjdk:8-jdk-alpine
 
 RUN apk update \
-    && apk add --virtual build-dependencies \
-        bash \
-        git
+    && apk add bash git openssh \
+    && mkdir /root/.ssh \
+    && chmod 0700 /root/.ssh \
+    && ssh-keygen -A \
+    && sed -i s/^#PasswordAuthentication\ yes/PasswordAuthentication\ no/ /etc/ssh/sshd_config \
+    && echo "RSAAuthentication yes" > /etc/ssh/sshd_config \
+    && echo "UsePAM yes" > /etc/ssh/sshd_config \
+    && echo "PubkeyAuthentication yes" > /etc/ssh/sshd_config
+
+RUN echo "root:Docker!" | chpasswd
 
 RUN mkdir /var/data
 VOLUME /var/data
 
-COPY slave.jar .
-COPY wait-for-it.sh .
-COPY startup.sh .
-RUN chmod u+x startup.sh wait-for-it.sh
+COPY unsafe.pub /root/.ssh/authorized_keys
+COPY docker-entrypoint.sh /
+RUN chmod u+x docker-entrypoint.sh
 
-ENV JENKINS_MASTER_SERVER=localhost
-ENV JENKINS_MASTER_PORT=8081
-ENV JENKINS_MASTER_JNLP_PORT=50000
-ENV SLAVE_NAME=java-agent
-ENV JENKINS_TOKEN=6419cf9ecd7e991705ac12788f8c3e0fe1328d49b34cfee8cadd80a9d905fb1a
+EXPOSE 22
 
-CMD ["sh", "./startup.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+# -D in CMD below prevents sshd from becoming a daemon. -e is to log everything to stderr.
+CMD ["/usr/sbin/sshd", "-D", "-e"]

@@ -1,18 +1,14 @@
 jenkins:
-  systemMessage: "<h1>Warnings Next Generation Plugin Showcase</h1>"
   agentProtocols:
   - "JNLP4-connect"
   - "Ping"
-  authorizationStrategy:
-    loggedInUsersCanDoAnything:
-      allowAnonymousRead: false
-  markupFormatter:
-    rawHtml:
-      disableSyntaxHighlighting: false
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: false
   disableRememberMe: false
+  markupFormatter:
+    rawHtml:
+      disableSyntaxHighlighting: false
   mode: NORMAL
   numExecutors: 0
   primaryView:
@@ -24,24 +20,18 @@ jenkins:
     local:
       allowsSignup: false
       enableCaptcha: false
+      users:
+      - id: "admin"
   slaveAgentPort: 50000
+  systemMessage: "<h1>Warnings Next Generation Plugin Showcase</h1>"
   views:
   - all:
       name: "all"
-  nodes:
-  - permanent:
-    labelString: "jdk java"
-    launcher:
-      jnlp:
-        workDirSettings:
-          disabled: false
-          failIfWorkDirIsMissing: false
-          internalDir: "remoting"
-    name: "java-agent"
-    numExecutors: 1
-    remoteFS: "/var/data"
 
 unclassified:
+  location:
+    adminAddress: "Adresse nicht konfiguriert <nobody@nowhere>"
+    url: "http://localhost:8081/"
   simple-theme-plugin:
     elements:
     - cssUrl:
@@ -60,6 +50,17 @@ tool:
           installers:
             - maven:
                 id: "3.6.0"
+  jdk:
+    defaultProperties:
+    - installSource:
+        installers:
+        - jdkInstaller:
+            acceptLicense: false
+  pipelineMaven:
+    publisherOptions:
+    - junitPublisher:
+        disabled: true
+        healthScaleFactor: !!int '1.0'
 
 jobs:
   - script: >

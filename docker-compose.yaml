@@ -5,7 +5,7 @@ services:
       context: ./jenkins
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./jenkins-home:/var/jenkins_home
+      - ./jenkins-home:/var/jenkins_home:cached
     ports:
       - 8081:8080
       - 50000:50000
@@ -25,7 +25,7 @@ services:
   java-agent:
     build: java-agent
     volumes:
-      - ./agent-data:/var/data
+      - ./agent-data:/var/data:cached
     environment:
       - JENKINS_MASTER_SERVER=jenkins
       - JENKINS_MASTER_PORT=8080

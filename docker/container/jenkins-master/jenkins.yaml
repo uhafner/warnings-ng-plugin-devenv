@@ -40,11 +40,6 @@ jenkins:
       name: "java-agent"
       numExecutors: 1
       remoteFS: "/var/data"
-      nodeProperties:
-      - toolLocation:
-          locations:
-          - home: "/usr/bin//usr/libexec/git-core/git"
-            key: "hudson.plugins.git.GitTool$DescriptorImpl@git-default"
 
 security:
   remotingCLI:
@@ -98,10 +93,6 @@ unclassified:
         url: "http://localhost:8081/userContent/material-blue-grey.css"
 
 tool:
-  git:
-    installations:
-    - home: "git"
-      name: "git-default"
   maven:
     installations:
     - name: "mvn-default"
@@ -158,12 +149,12 @@ jobs:
         }
         steps {
             maven {
-                mavenInstallation('3.6.0')
-                rootPOM("${projectDir}/pom.xml")
+                mavenInstallation('mvn-default')
+                rootPOM("pom.xml")
                 goals('verify')
             }
         }
         publishers {
-            archiveJunit("${projectDir}/**/surefire-reports/*.xml")
+            archiveJunit("target/surefire-reports/*.xml")
         }
       };

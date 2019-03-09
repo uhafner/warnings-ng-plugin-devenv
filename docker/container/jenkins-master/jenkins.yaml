@@ -43,7 +43,7 @@ jenkins:
       nodeProperties:
       - toolLocation:
           locations:
-          - home: "/usr/bin/git"
+          - home: "/usr/bin//usr/libexec/git-core/git"
             key: "hudson.plugins.git.GitTool$DescriptorImpl@git-default"
 
 security:

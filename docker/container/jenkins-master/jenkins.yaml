@@ -143,18 +143,3 @@ jobs:
               }
           }
       };
-      job('freestyle-analysis-model') {
-        scm {
-            git("https://github.com/jenkinsci/analysis-model.git")
-        }
-        steps {
-            maven {
-                mavenInstallation('mvn-default')
-                rootPOM("pom.xml")
-                goals('verify')
-            }
-        }
-        publishers {
-            archiveJunit("target/surefire-reports/*.xml")
-        }
-      };

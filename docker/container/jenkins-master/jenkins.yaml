@@ -41,6 +41,10 @@ jenkins:
       numExecutors: 1
       remoteFS: "/var/data"
 
+security:
+  remotingCLI:
+    enabled: false
+
 credentials:
   system:
     domainCredentials:

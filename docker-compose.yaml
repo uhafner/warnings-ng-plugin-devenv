@@ -1,11 +1,11 @@
 version: "3"
 services:
-  jenkins:
+  jenkins-master:
     build:
-      context: ./jenkins
+      context: ./docker/container/jenkins-master
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./jenkins-home:/var/jenkins_home:cached
+      - ./docker/volumes/jenkins-home:/var/jenkins_home:cached
     ports:
       - 8081:8080
       - 50000:50000
@@ -23,10 +23,9 @@ services:
       - 443:443
     restart: always
   java-agent:
-    build: java-agent
+    build: ./docker/container/java-agent
     volumes:
-      - ./agent-data:/var/data:cached
-    environment:
-      - JENKINS_MASTER_SERVER=jenkins
+      - ./docker/volumes/agent-data:/var/data:cached
     depends_on:
-      - jenkins
+      - jenkins-master
+    restart: always

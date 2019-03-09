@@ -19,6 +19,9 @@ COPY unsafe.pub /root/.ssh/authorized_keys
 COPY docker-entrypoint.sh /
 RUN chmod u+x docker-entrypoint.sh
 
+RUN git config --global user.name "Jenkins Java Agent"
+RUN git config --global user.email "java.agent@jenkins.master"
+
 EXPOSE 22
 
 ENTRYPOINT ["/docker-entrypoint.sh"]

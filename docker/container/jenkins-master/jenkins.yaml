@@ -40,6 +40,11 @@ jenkins:
       name: "java-agent"
       numExecutors: 1
       remoteFS: "/var/data"
+      nodeProperties:
+      - toolLocation:
+          locations:
+          - home: "/usr/bin/git"
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@git-default"
 
 security:
   remotingCLI:

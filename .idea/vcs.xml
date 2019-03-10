@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/acceptance-test-harness" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/warnings-ng-plugin" vcs="Git" />

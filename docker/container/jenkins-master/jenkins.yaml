@@ -5,7 +5,7 @@ jenkins:
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: false
-  disableRememberMe: false
+  disableRememberMe: true
   markupFormatter:
     rawHtml:
       disableSyntaxHighlighting: false
@@ -81,7 +81,7 @@ credentials:
               MxDybQux1uk0hyCmMS757WkbTyi0pTWz7PgTIdfmYqhZVV8KRSUi \n
               -----END RSA PRIVATE KEY----- \n"
           scope: GLOBAL
-          username: "root"
+          username: "agent"
 
 unclassified:
   location:

@@ -10,12 +10,21 @@ RUN apk update \
     && echo "UsePAM yes" > /etc/ssh/sshd_config \
     && echo "PubkeyAuthentication yes" > /etc/ssh/sshd_config
 
-RUN echo "root:Docker!" | chpasswd
+USER root
 
 RUN mkdir /var/data
 VOLUME /var/data
 
-COPY unsafe.pub /root/.ssh/authorized_keys
+RUN addgroup -S jenkins && adduser -D agent -G jenkins
+RUN echo "agent:Docker!" | chpasswd
+
+USER agent
+
+RUN mkdir /home/agent/.ssh
+RUN chmod 700 /home/agent/.ssh
+COPY unsafe.pub /home/agent/.ssh/authorized_keys
+
+USER root
 COPY docker-entrypoint.sh /
 RUN chmod u+x docker-entrypoint.sh
 

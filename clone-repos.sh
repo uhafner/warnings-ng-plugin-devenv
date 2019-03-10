@@ -10,3 +10,7 @@ git clone git@github.com:jenkinsci/acceptance-test-harness.git || { echo "Clone 
 
 echo Done cloning. Note that you need to change the remotes for each
 echo of the repositories you want to contribute to.
+
+read -n 1 -s -r -p "Press any key to continue and compile the projects"
+
+mvn -V -U -e install -DskipTests

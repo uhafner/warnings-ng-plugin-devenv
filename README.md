@@ -23,17 +23,15 @@ set of Jenkins plugins in the docker container.
 The development environment has been tested on macOS Mojave and Ubuntu Linux 18.04 (in a virtual machine running on
 macOS). It still needs to be verified, which of these steps work on Windows. Pull requests are always welcome.   
 
-## Step by step guide
+## TLDR
 
-1. Read the contents of this README
-2. Clone the warnings plugin modules using the script `clone-repos.sh`.
-3. Import the project into Intellij
+1. Clone the warnings plugin modules using the script `clone-repos.sh`.
+2. Import the project into Intellij
     1. Start IntelliJ
     2. Select Open...
     3. Select the folder `warnings-ng-plugin-devenv`
     4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*
-4. Start Jenkins with `docker-compose up`    
-
+3. Start Jenkins with `docker-compose up`    
 
 ## Cloning the modules
 

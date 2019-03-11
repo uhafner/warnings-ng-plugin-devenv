@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/acceptance-test-harness/acceptance-test-harness.iml" filepath="$PROJECT_DIR$/acceptance-test-harness/acceptance-test-harness.iml" />
+      <module fileurl="file://$PROJECT_DIR$/analysis-model/analysis-model.iml" filepath="$PROJECT_DIR$/analysis-model/analysis-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/analysis-model-api-plugin/analysis-model-api.iml" filepath="$PROJECT_DIR$/analysis-model-api-plugin/analysis-model-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/warnings-ng-plugin/warnings-ng.iml" filepath="$PROJECT_DIR$/warnings-ng-plugin/warnings-ng.iml" />
+    </modules>
+  </component>
+</project>

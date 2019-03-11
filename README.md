@@ -112,5 +112,7 @@ and deploys it on success into the Jenkins instace.
 - `./skip.sh`: Builds the plugin using `mvn clean install -DskipTests` (skips all tests and static analysis) 
 and deploys it on success into the Jenkins instance.
 
-## Running UI tests
+### Running UI tests
+
+TBD
 

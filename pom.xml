@@ -5,12 +5,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>edu.hm.hafner</groupId>
-  <artifactId>warnings-ide</artifactId>
+  <artifactId>warnings-ng-plugin-devenv</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
-  <name>Warnings Next Generation Plugin DE</name>
+  <name>Warnings Next Generation Plugin development environment</name>
+  <description>Development environment for Jenkins' Warnings Next Generation Plugin.
+    Reduces the initial ramp-up time for new contributors. </description>
 
   <licenses>
     <license>

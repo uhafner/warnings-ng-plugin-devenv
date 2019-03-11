@@ -20,7 +20,7 @@ addgroup agent tempgroup
 chmod 770 /var/data
 chmod g+s  /var/data
 
-echo Added agent user to group GID $TARGET_GID
+echo Added user agent to group GID $TARGET_GID
 
 # Execute the CMD from the Dockerfile:
 exec "$@"

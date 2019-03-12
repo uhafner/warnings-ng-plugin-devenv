@@ -25,6 +25,15 @@ macOS). It still needs to be verified, which of these steps work on Windows. Pul
 
 ## TLDR
 
+### Installation Requirements
+
+- Docker
+- Docker-Compose
+- IntelliJ Ultimate
+- curl
+
+### Installation Steps
+
 1. Clone the warnings plugin modules using the script `clone-repos.sh`.
 2. Import the project into Intellij
     1. Start IntelliJ
@@ -70,6 +79,29 @@ port in the docker container). Use the provided `Jenkins (Remote Debugger)` Debu
 a debugger in IntelliJ.
 
 TODO: Debugging in agent
+
+## Running UI tests
+
+UI tests can be started using commandline scripts or the corresponding launcher.
+
+### Pooling of Jenkins Under Test (JUT)
+
+UI tests execute really slowly. This is mostly because each test wants to launch its own clean Jenkins, and we end up 
+mostly just waiting for Jenkins under test (JUT) to come up. This delay is also quite annoying when you are developing a 
+new test. Often you have to run the test under development multiple times before you get your test right. And every 
+time you run a test, you end up waiting for JUT to come up.
+
+To help cope with this situation, this project comes with a separate entry point that runs a JUT server. 
+The JUT server will maintain a fixed number of Jenkins instances booted. There's a corresponding PooledJenkinsController 
+implementation you'd use when you run a test, which asks the JUT server to hand off a fresh JUT.  
+
+Start the pooled Jenkins controller by calling the script `start-jut.sh`. This script creates a pool of Jenkins 
+instances that is handed out on request. Since each test requires several seconds it is sufficient to set the pool
+size to 1. I.e., as soon as a Jenkins instance has been handed out, the next one is prepared.
+
+https://github.com/jenkinsci/acceptance-test-harness/blob/master/docs/PRELAUNCH.md
+
+If you follow Getting Started section, you'll notice that the 
 
 ## Starting the Jenkins instance
 

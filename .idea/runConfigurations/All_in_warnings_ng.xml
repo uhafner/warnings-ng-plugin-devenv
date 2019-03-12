@@ -3,7 +3,7 @@
     <module name="warnings-ng" />
     <extension name="coverage" sample_coverage="false">
       <pattern>
-        <option name="PATTERN" value="io.jenkins.plugins.analysis.warnings.PluginArchitectureTest" />
+        <option name="PATTERN" value="io.jenkins.plugins.analysis.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

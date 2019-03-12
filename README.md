@@ -1,4 +1,4 @@
-# Warnings Next Generation plugin - Development Environment
+# Warnings Next Generation Plugin - Development Environment
 
 In order to reduce the initial ramp-up time for new contributors of the Warnings Next Generation Plugin I prepared a 
 docker based development environment that is described in this document. It consists of the following parts:
@@ -55,6 +55,21 @@ references all modules of the Warnings plugin. This project contains presets of 
 
 It should be possible to use other IDEs (Eclipse, Netbeans) as well. The analysis-model library has configuration files 
 (coding style, analysis configuration) for Eclipse, however, these files are not yet available for the other modules. 
+
+### Running unit and integration tests
+
+In order to run the unit and integrations tests of the modules analysis-model and warnings-ng use the provided 
+Run configurations `All in analysis-model`  and `All in warnings-ng`. These configurations are already configured
+to record the branch coverage of the corresponding module packages (`Run with Coverage` menu).   
+
+### Debugging the Jenkins instance
+
+The Jenkins master is always started in 'Debug' mode, i.e. it is listening to remote debug requests. 
+In order to debug your changes you simply need to attach a remote debugger at `localhost:8000` (mapped to the same
+port in the docker container). Use the provided `Jenkins (Remote Debugger)` Debug configuration to connect 
+a debugger in IntelliJ.
+
+TODO: Debugging in agent
 
 ## Starting the Jenkins instance
 

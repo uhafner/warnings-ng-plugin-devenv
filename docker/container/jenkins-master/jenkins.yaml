@@ -24,9 +24,6 @@ jenkins:
       - id: "admin"
   slaveAgentPort: 50000
   systemMessage: "<h1>Warnings Next Generation Plugin Showcase</h1>"
-  views:
-  - all:
-      name: "all"
   nodes:
   - permanent:
       launcher:

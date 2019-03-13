@@ -115,7 +115,7 @@ jobs:
       pipelineJob('pipeline-analysis-model') {
           definition {
               cpsScm {
-                  scriptPath 'Jenkinsfile.local'
+                  scriptPath 'Jenkinsfile.analysis'
                   scm {
                     git {
                         remote { url 'https://github.com/jenkinsci/analysis-model.git' }

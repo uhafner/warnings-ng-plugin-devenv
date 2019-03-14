@@ -6,7 +6,7 @@ CHROME_DRIVER_PATH=/usr/local/bin/chromedriver
 BROWSER=chrome
 RETRY=2
 TEST_CASE=$1
-ELASTIC=10 # increase if your machine is slow
+ELASTIC=2 # increase if your machine is slow
 
 if [ -z "$TEST_CASE" ];
 then
@@ -17,4 +17,5 @@ mvnOptions="-Dquite -Dsurefire.rerunFailingTestsCount=${RETRY} -Dwebdriver.gecko
 
 echo Running: env LC_NUMERIC="en_US.UTF-8" BROWSER=${BROWSER} mvn test -o -Dtest=${TEST_CASE} ${mvnOptions}
 
+cd acceptance-test-harness
 env LC_NUMERIC="en_US.UTF-8" BROWSER=${BROWSER} mvn test -o -Dtest=${TEST_CASE} ${mvnOptions}

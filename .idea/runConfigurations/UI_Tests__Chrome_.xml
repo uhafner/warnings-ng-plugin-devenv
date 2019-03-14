@@ -1,0 +1,23 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="UI Tests (Firefox)" type="JUnit" factoryName="JUnit">
+    <module name="acceptance-test-harness" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="plugins.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="PACKAGE_NAME" value="plugins" />
+    <option name="MAIN_CLASS_NAME" value="plugins.WarningsNextGenerationPluginTest" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="class" />
+    <option name="VM_PARAMETERS" value="-ea -Dwebdriver.gecko.driver=/usr/local/bin/geckodriver -DElasticTime.factor=2 -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver" />
+    <option name="PARAMETERS" value="" />
+    <envs>
+      <env name="BROWSER" value="chrome" />
+    </envs>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

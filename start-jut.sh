@@ -11,7 +11,7 @@ export JENKINS_HOME=$(cd ./docker/volumes/jenkins-home; pwd)
 export PLUGINS_DIR=$JENKINS_HOME/plugins
 
 if [ ! -d $PLUGINS_DIR ]; then
-    echo "${error}No Jenkins plugins found in ${PLUGINS_DIR}"
+    echo "${error}No Jenkins plugins found in ${PLUGINS_DIR}${norm}"
     exit 1;
 fi
 echo "${ok}Running Jenkins with plugins in ${PLUGINS_DIR}"

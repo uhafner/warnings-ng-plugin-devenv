@@ -27,10 +27,23 @@ macOS). It still needs to be verified, which of these steps work on Windows. Pul
 
 ### Installation Requirements
 
+#### Main Development
+
+The following tools are required (latest version):
 - Docker
-- Docker-Compose
+- Docker Compose
 - IntelliJ Ultimate
-- curl
+- Maven
+- JDK 8
+
+#### UI Testing
+
+Additionally, the following tools (latest version) are required:
+
+- firefox
+- gecko-driver
+- chrome
+- chrome-driver
 
 ### Installation Steps
 
@@ -40,7 +53,9 @@ macOS). It still needs to be verified, which of these steps work on Windows. Pul
     2. Select Open...
     3. Select the folder `warnings-ng-plugin-devenv`
     4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*
-3. Start Jenkins with `docker-compose up`    
+3. Start Jenkins with `docker-compose up`
+4. Login to Jenkins at: http://localhost:8081/ (admin:admin)
+5. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
 
 ## Cloning the modules
 
@@ -58,12 +73,12 @@ Contains tests for all Jenkins plugins including the Warnings plugin.
 
 ## Modifying and debugging code with IntelliJ
 
-IntelliJ (Ultimate) is the main supported development environment for the Warnings plugin. I prepared a project that
-references all modules of the Warnings plugin. This project contains presets of my 
+IntelliJ (Ultimate) is the main supported development environment for the Warnings plugin. A predefined project is stored 
+in the folder `.idea` that references all modules of the Warnings plugin. This project contains presets of my 
 [coding style](https://github.com/uhafner/codingstyle) and some other helpful configurations. 
 
 It should be possible to use other IDEs (Eclipse, Netbeans) as well. The analysis-model library has configuration files 
-(coding style, analysis configuration) for Eclipse, however, these files are not yet available for the other modules. 
+(coding style, analysis configuration) for Eclipse. However, these files are not yet available for the other modules. 
 
 ### Running unit and integration tests
 
@@ -80,28 +95,15 @@ a debugger in IntelliJ.
 
 TODO: Debugging in agent
 
-## Running UI tests
+### Running UI tests
 
-UI tests can be started using commandline scripts or the corresponding launcher.
+UI tests can be started using the corresponding launchers `UI Tests (Firefox)` or `UI Tests (Chrome)`. 
+Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
+installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
+your setup.
 
-### Pooling of Jenkins Under Test (JUT)
-
-UI tests execute really slowly. This is mostly because each test wants to launch its own clean Jenkins, and we end up 
-mostly just waiting for Jenkins under test (JUT) to come up. This delay is also quite annoying when you are developing a 
-new test. Often you have to run the test under development multiple times before you get your test right. And every 
-time you run a test, you end up waiting for JUT to come up.
-
-To help cope with this situation, this project comes with a separate entry point that runs a JUT server. 
-The JUT server will maintain a fixed number of Jenkins instances booted. There's a corresponding PooledJenkinsController 
-implementation you'd use when you run a test, which asks the JUT server to hand off a fresh JUT.  
-
-Start the pooled Jenkins controller by calling the script `start-jut.sh`. This script creates a pool of Jenkins 
-instances that is handed out on request. Since each test requires several seconds it is sufficient to set the pool
-size to 1. I.e., as soon as a Jenkins instance has been handed out, the next one is prepared.
-
-https://github.com/jenkinsci/acceptance-test-harness/blob/master/docs/PRELAUNCH.md
-
-If you follow Getting Started section, you'll notice that the 
+All UI tests require to run within a given subject under test (i.e, Jenkins under test, JUT), see section 
+[Acceptance Test Harness](#acceptance-test-harness) for more details.
 
 ## Starting the Jenkins instance
 
@@ -138,7 +140,7 @@ on the same MacBook (sounds kind of absurd).
 
 ## Deploying changed plugins to the Jenkins instance 
 
-Once your local development changes are done (i.e. the unit tests are all green) you should test your changes in the
+Once your local development changes are done (i.e., the unit tests are all green) you should test your changes in the
 Jenkins instance. This also helps to prepare an integration test or UI test for your change. There are three possible 
 kind of changes:
 
@@ -159,7 +161,42 @@ and deploys it on success into the Jenkins instace.
 - `./skip.sh`: Builds the plugin using `mvn clean install -DskipTests` (skips all tests and static analysis) 
 and deploys it on success into the Jenkins instance.
 
-### Running UI tests
+## Acceptance Test Harness
 
-TBD
+UI tests can be started using an IntelliJ launcher configuration or using a command line script. As already mentioned,
+all UI tests require to run within a given subject under test. In our case we use the latest available Jenkins LTS
+version and the predefined set of plugins from our docker image.      
+
+### Pooling of Jenkins Under Test (JUT)
+
+UI tests execute really slowly. This is mostly because each test wants to launch its own clean Jenkins, and we end up 
+mostly just waiting for Jenkins under test (JUT) to come up. This delay is also quite annoying when you are developing a 
+new test. Often you have to run the test under development multiple times before you get your test right. And every 
+time you run a test, you end up waiting for JUT to come up.
+
+To help cope with this situation, this project comes with a separate entry point that runs a JUT server. 
+The JUT server will maintain a fixed number of Jenkins instances booted. There's a corresponding PooledJenkinsController 
+implementation you'd use when you run a test, which asks the JUT server to hand off a fresh JUT.  
+
+Start the pooled Jenkins controller by calling the script `start-jut.sh`. This script creates a pool of Jenkins 
+instances that is handed out on request. Since each test requires several seconds it is sufficient to set the pool
+size to 1. I.e., as soon as a Jenkins instance has been handed out, the next one is prepared.
+
+For more details please refer to the corresponding 
+[documentation of the ATH](https://github.com/jenkinsci/acceptance-test-harness/blob/master/docs/PRELAUNCH.md).
+
+### Running UI tests in IntelliJ
+
+UI tests can be started using the corresponding launchers `UI Tests (Firefox)` or `UI Tests (Chrome)`. 
+Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
+installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
+your setup.
+
+### Running UI tests from the console
+
+You can also start the UI tests using the provided shell scrips `testFirefox.sh` or `testChrome.sh`. Note that
+you might need to adapt these scripts as well (see previous section).
+
+
+
 

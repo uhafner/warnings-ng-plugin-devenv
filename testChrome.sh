@@ -4,9 +4,21 @@ GECKO_DRIVER_PATH=/usr/local/bin/geckodriver
 CHROME_DRIVER_PATH=/usr/local/bin/chromedriver
 
 BROWSER=chrome
-RETRY=2
-TEST_CASE=$1
-ELASTIC=2 # increase if your machine is slow
+RETRY=2 # number of retries if a test fails due to timeout errors, etc.
+TEST_CASE=$1 # first commandline parameter (leave empty for all warnings plugin tests)
+ELASTIC=1 # increase if your machine is slow
+
+error="$(tput setaf 1)$(tput bold)"
+warn="$(tput setaf 3)$(tput bold)"
+ok="$(tput setaf 2)$(tput bold)"
+
+bold="$(tput bold)"
+norm="$(tput setaf 0)$(tput sgr0)"
+
+if [ ! -x ${CHROME_DRIVER_PATH} ]; then
+    echo "${error}Did not find Selenium driver for Chrome ${CHROME_DRIVER_PATH}${norm}"
+    exit 1;
+fi
 
 if [ -z "$TEST_CASE" ];
 then

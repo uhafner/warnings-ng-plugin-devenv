@@ -4,7 +4,7 @@ mark="$(tput setaf 2)$(tput bold)"
 bold="$(tput bold)"
 norm="$(tput setaf 0)$(tput sgr0)"
 
-echo ${mark}${bold}Clone of Jenkins plugins using SSH and your GitHub key
+echo ${mark}${bold}Clone of Jenkins plugins using HTTPS
 read -n 1 -s -r -p "${norm}Press any key to continue..."
 echo
 

@@ -16,6 +16,10 @@ bold="$(tput bold)"
 norm="$(tput setaf 0)$(tput sgr0)"
 
 if [ ! -x ${GECKO_DRIVER_PATH} ]; then
+    GECKO_DRIVER_PATH=$(which geckodriver)
+fi
+
+if [ ! -x ${GECKO_DRIVER_PATH} ]; then
     echo "${error}Did not find Selenium driver for Firefox ${GECKO_DRIVER_PATH}${norm}"
     exit 1;
 fi

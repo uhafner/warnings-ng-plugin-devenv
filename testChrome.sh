@@ -16,6 +16,10 @@ bold="$(tput bold)"
 norm="$(tput setaf 0)$(tput sgr0)"
 
 if [ ! -x ${CHROME_DRIVER_PATH} ]; then
+    CHROME_DRIVER_PATH=$(which chromedriver)
+fi
+
+if [ ! -x ${CHROME_DRIVER_PATH} ]; then
     echo "${error}Did not find Selenium driver for Chrome ${CHROME_DRIVER_PATH}${norm}"
     exit 1;
 fi

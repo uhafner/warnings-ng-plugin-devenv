@@ -19,6 +19,7 @@ docker-workflow
 durable-task
 email-ext
 filesystem_scm
+form-element-path
 git
 git-client
 git-server

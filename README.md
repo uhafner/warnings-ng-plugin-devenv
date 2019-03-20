@@ -40,22 +40,22 @@ The following tools are required (latest version):
 
 Additionally, the following tools (latest version) are required:
 
-- firefox
-- gecko-driver
-- chrome
-- chrome-driver
+- firefox and gecko-driver
+- chrome and chrome-driver
 
 ### Installation Steps
 
 1. Clone the warnings plugin modules using the script `clone-repos.sh`.
-2. Import the project into Intellij
+2. Import the project into Intellij:
     1. Start IntelliJ
     2. Select Open...
     3. Select the folder `warnings-ng-plugin-devenv`
-    4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*
-3. Start Jenkins with `docker-compose up`
-4. Login to Jenkins at: http://localhost:8081/ (admin:admin)
-5. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
+    4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*.
+3. Run the Test Launchers in IntelliJ for analysis-model and warnings-ng.
+4. Start Jenkins with `docker-compose up`.
+5. Login to Jenkins at: http://localhost:8081/ (admin:admin).
+6. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
+7. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
 
 ## Cloning the modules
 
@@ -160,6 +160,18 @@ and deploy it into the Jenkins instance. This task is provided by one of the fol
 and deploys it on success into the Jenkins instace.
 - `./skip.sh`: Builds the plugin using `mvn clean install -DskipTests` (skips all tests and static analysis) 
 and deploys it on success into the Jenkins instance.
+
+### Changing analysis model with breaking API changes
+
+TODO
+
+
+### IntelliJ Launchers to deploy the plugins 
+
+There are also two launchers in IntelliJ provided that build and deploy both plugins into Jenkins. 
+- `Build and Deploy analysis-model`: Builds analysis-model, rebuilds the wrapper plugin analysis-model-api and deploys 
+the created HPI file to the Jenkins instance.
+- `Build and Deploy warnings-ng`:  Builds the warnings-ng-plugin and deploys the created HPI file to the Jenkins instance.
 
 ## Acceptance Test Harness
 

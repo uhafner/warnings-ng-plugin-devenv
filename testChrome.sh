@@ -6,7 +6,7 @@ CHROME_DRIVER_PATH=/usr/local/bin/chromedriver
 BROWSER=chrome
 RETRY=2 # number of retries if a test fails due to timeout errors, etc.
 TEST_CASE=$1 # first commandline parameter (leave empty for all warnings plugin tests)
-ELASTIC=1 # increase if your machine is slow
+ELASTIC=2 # increase if your machine is slow
 
 error="$(tput setaf 1)$(tput bold)"
 warn="$(tput setaf 3)$(tput bold)"
@@ -31,7 +31,7 @@ fi
 
 mvnOptions="-Dquite -Dsurefire.rerunFailingTestsCount=${RETRY} -Dwebdriver.gecko.driver=${GECKO_DRIVER_PATH} -DElasticTime.factor=${ELASTIC} -Dwebdriver.chrome.driver=${CHROME_DRIVER_PATH}"
 
-echo Running: env LC_NUMERIC="en_US.UTF-8" BROWSER=${BROWSER} mvn test -o -Dtest=${TEST_CASE} ${mvnOptions}
+echo Running: env LC_NUMERIC="en_US.UTF-8" BROWSER=${BROWSER} mvn -V test -Dtest=${TEST_CASE} ${mvnOptions}
 
 cd acceptance-test-harness
-env LC_NUMERIC="en_US.UTF-8" BROWSER=${BROWSER} mvn test -o -Dtest=${TEST_CASE} ${mvnOptions}
+env LC_NUMERIC="en_US.UTF-8" BROWSER=${BROWSER} mvn -V test -Dtest=${TEST_CASE} ${mvnOptions}

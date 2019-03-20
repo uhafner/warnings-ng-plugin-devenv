@@ -5,6 +5,11 @@
     <mapping directory="$PROJECT_DIR$/acceptance-test-harness" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model-api-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/docker/volumes/agent-data/workspace/New - Pipeline - Model" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/docker/volumes/agent-data/workspace/pipeline-analysis-model" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/docker/volumes/agent-data/workspace/pipeline-warnings-ng" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/docker/volumes/jenkins-home/workspace/pipeline-analysis-model@script" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/docker/volumes/jenkins-home/workspace/pipeline-warnings-ng@script" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/warnings-ng-plugin" vcs="Git" />
   </component>
 </project>

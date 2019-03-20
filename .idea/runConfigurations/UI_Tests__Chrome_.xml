@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="UI Tests (Firefox)" type="JUnit" factoryName="JUnit">
+  <configuration default="false" name="UI Tests (Chrome)" type="JUnit" factoryName="JUnit">
     <module name="acceptance-test-harness" />
     <extension name="coverage">
       <pattern>

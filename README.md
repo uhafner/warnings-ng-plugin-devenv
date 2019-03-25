@@ -86,14 +86,24 @@ In order to run the unit and integrations tests of the modules analysis-model an
 Run configurations `All in analysis-model`  and `All in warnings-ng`. These configurations are already configured
 to record the branch coverage of the corresponding module packages (`Run with Coverage` menu).   
 
-### Debugging the Jenkins instance
+### Debugging 
+
+In order to debug code you first need to know where this code is running. If you are unsure, then run both remote
+debuggers, set some breakpoints and wait for the corresponding debugger to stop.
+
+#### Debugging Jenkins master
 
 The Jenkins master is always started in 'Debug' mode, i.e. it is listening to remote debug requests. 
 In order to debug your changes you simply need to attach a remote debugger at `localhost:8000` (mapped to the same
-port in the docker container). Use the provided `Jenkins (Remote Debugger)` Debug configuration to connect 
+port in the docker container). Use the provided `Jenkins Master (Remote Debugger)` Debug configuration to connect 
 a debugger in IntelliJ.
 
-TODO: Debugging in agent
+#### Debugging Jenkins Agent
+
+The Jenkins agent is also always started in 'Debug' mode, i.e. it is listening to remote debug requests. 
+In order to debug your changes you simply need to attach a remote debugger at `localhost:8001` (mapped to the same
+port in the docker container). Use the provided `Jenkins Agent (Remote Debugger)` Debug configuration to connect 
+a debugger in IntelliJ.
 
 ### Running UI tests
 

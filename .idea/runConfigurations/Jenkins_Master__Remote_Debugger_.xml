@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Jenkins (Remote Debugger)" type="Remote">
+  <configuration default="false" name="Jenkins Master (Remote Debugger)" type="Remote">
     <module name="warnings-ng" />
     <option name="USE_SOCKET_TRANSPORT" value="true" />
     <option name="SERVER_MODE" value="false" />

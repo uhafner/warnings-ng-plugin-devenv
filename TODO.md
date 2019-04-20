@@ -22,6 +22,12 @@
 - UI Details
     - Reference Table
     - Info View
+    - Console View
+    - Source View
+    - Other TABS
+    - Navigate to filtered view
+    - Number of visible TABS
+- Groovy Parser
 - UI Chart? API of Chart possible?
 
 

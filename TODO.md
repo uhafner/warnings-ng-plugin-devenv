@@ -15,6 +15,8 @@
 - Pipeline Snippet Generator generates snippet
 - Job DSL plugin
 - Agent (Mittel - Docker)
+- Time Stamper Plugin
+- Ansi Color Console
 
 ## Features
 - Security Agent Slave Enabled

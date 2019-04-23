@@ -32,5 +32,19 @@
 - Groovy Parser
 - UI Chart? API of Chart possible?
 
+# New Features
+- SVN Blames
+- Package Distribution chart (tree)
+- Map number of unit tests to issues
+- Map coverage to issues
+- Map mutation coverage to issues
+- Map cyclomatic complexity to issues
+- Map LOC to issues
+- Portlets
+- Column (NEW)
+- New Warnings Aggregation View
+- Maven Plugin Support: maven enforcer
+- Maven Plugin Support: API checks
+
 
 

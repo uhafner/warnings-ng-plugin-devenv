@@ -30,6 +30,7 @@
     - Navigate to filtered view
     - Number of visible TABS
 - Groovy Parser
+- Task Scanner ITest
 - UI Chart? API of Chart possible?
 
 # New Features

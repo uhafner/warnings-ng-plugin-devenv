@@ -1,7 +1,8 @@
 jenkins:
   agentProtocols:
-  - "JNLP4-connect"
-  - "Ping"
+    - "JNLP4-connect"
+    - "Ping"
+  authorizationStrategy: "loggedInUsersCanDoAnything"
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: false
@@ -20,39 +21,48 @@ jenkins:
     local:
       allowsSignup: false
       enableCaptcha: false
-      users:
-      - id: "admin"
-        password: ""
+  remotingSecurity:
+    enabled: false
   slaveAgentPort: 50000
   systemMessage: "<h1>Warnings Next Generation Plugin Showcase</h1>"
   nodes:
-  - permanent:
-      launcher:
-        sSHLauncher:
-          credentialsId: "java-agent-ssh-private-key"
-          host: "java-agent"
-          launchTimeoutSeconds: 210
-          maxNumRetries: 10
-          port: 22
-          retryWaitTime: 15
-          jvmOptions: "-agentlib:jdwp=transport=dt_socket,address=8001,suspend=n,server=y"
-      name: "java-agent"
-      numExecutors: 1
-      remoteFS: "/var/data"
+    - permanent:
+        launcher:
+          sSHLauncher:
+            credentialsId: "java-agent-ssh-private-key"
+            host: "java-agent"
+            launchTimeoutSeconds: 210
+            maxNumRetries: 10
+            port: 22
+            retryWaitTime: 15
+            jvmOptions: "-agentlib:jdwp=transport=dt_socket,address=8001,suspend=n,server=y"
+        name: "java-agent"
+        numExecutors: 1
+        remoteFS: "/var/data"
 
 security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: true
   remotingCLI:
     enabled: false
+  sSHD:
+    port: -1
 
 credentials:
   system:
     domainCredentials:
-    - credentials:
-      - basicSSHUserPrivateKey:
-          id: "java-agent-ssh-private-key"
-          privateKeySource:
-            directEntry:
-              privateKey: "-----BEGIN RSA PRIVATE KEY----- \n
+      - credentials:
+          - basicSSHUserPrivateKey:
+              id: "java-agent-ssh-private-key"
+              privateKeySource:
+                directEntry:
+                  privateKey: "-----BEGIN RSA PRIVATE KEY----- \n
               MIIEowIBAAKCAQEA86cZk1vZh/OwzJDEqga0nnKEh1QpCm1uSDjvuLp2pPDPHMp/ \n
               m9Il9O8ZAZ+IVCUXygO3s1BvBF/a7uVYp7XqjDiTj5Jwrs5lEtl4/1iXXKtwbpAc \n
               bsoiEaFDl7Amc4pUfwzsjaqY4yN4jW+JaLOf/+GqCjwpiyJxZ0N2ONlWoph9dvfH \n
@@ -79,8 +89,8 @@ credentials:
               SaT+v0IXJ8jP4gSiu4/gyJQpkn7yiMNhwYWlQt+1zyIkHjUsEG82Z8Mqpjx2EJgG \n
               MxDybQux1uk0hyCmMS757WkbTyi0pTWz7PgTIdfmYqhZVV8KRSUi \n
               -----END RSA PRIVATE KEY----- \n"
-          scope: GLOBAL
-          username: "agent"
+              scope: GLOBAL
+              username: "agent"
 
 unclassified:
   location:
@@ -88,29 +98,33 @@ unclassified:
     url: "http://localhost:8081/"
   simple-theme-plugin:
     elements:
-    - cssUrl:
-        url: "http://localhost:8081/userContent/material-blue-grey.css"
+      - cssUrl:
+          url: "http://localhost:8081/userContent/material-blue-grey.css"
+  timestamperConfig:
+    allPipelines: true
+    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
 
 tool:
   maven:
     installations:
-    - name: "mvn-default"
-      properties:
-      - installSource:
-          installers:
-            - maven:
-                id: "3.6.0"
+      - name: "mvn-default"
+        properties:
+          - installSource:
+              installers:
+                - maven:
+                    id: "3.6.0"
   jdk:
     defaultProperties:
-    - installSource:
-        installers:
-        - jdkInstaller:
-            acceptLicense: false
+      - installSource:
+          installers:
+            - jdkInstaller:
+                acceptLicense: false
   pipelineMaven:
     publisherOptions:
-    - junitPublisher:
-        disabled: true
-        healthScaleFactor: !!int '1.0'
+      - junitPublisher:
+          disabled: true
+          healthScaleFactor: !!int '1.0'
 
 jobs:
   - script: >

@@ -22,7 +22,8 @@ USER agent
 
 RUN mkdir /home/agent/.ssh
 RUN chmod 700 /home/agent/.ssh
-COPY unsafe.pub /home/agent/.ssh/authorized_keys
+COPY --chown=agent:jenkins unsafe.pub /home/agent/.ssh/authorized_keys
+RUN chmod 600 /home/agent/.ssh/authorized_keys
 
 USER root
 COPY docker-entrypoint.sh /

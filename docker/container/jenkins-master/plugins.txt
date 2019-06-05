@@ -9,7 +9,6 @@ cloudbees-folder
 code-coverage-api
 command-launcher
 configuration-as-code
-configuration-as-code-support
 credentials
 credentials-binding
 dashboard-view

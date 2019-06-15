@@ -22,13 +22,13 @@ jenkins:
       allowsSignup: false
       enableCaptcha: false
   remotingSecurity:
-    enabled: false
+    enabled: true
   slaveAgentPort: 50000
   systemMessage: "<h1>Warnings Next Generation Plugin Showcase</h1>"
   nodes:
     - permanent:
         launcher:
-          sSHLauncher:
+          ssh:
             credentialsId: "java-agent-ssh-private-key"
             host: "java-agent"
             launchTimeoutSeconds: 210
@@ -49,8 +49,6 @@ security:
     useBrowser: false
   globalJobDslSecurityConfiguration:
     useScriptSecurity: true
-  remotingCLI:
-    enabled: false
   sSHD:
     port: -1
 

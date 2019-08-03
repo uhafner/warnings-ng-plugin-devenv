@@ -12,6 +12,8 @@ jenkins:
       disableSyntaxHighlighting: false
   mode: NORMAL
   numExecutors: 0
+  globalDefaultFlowDurabilityLevel:
+    durabilityHint: PERFORMANCE_OPTIMIZED
   primaryView:
     all:
       name: "all"

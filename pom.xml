@@ -32,6 +32,8 @@
   <modules>
     <module>analysis-model</module>
     <module>analysis-model-api-plugin</module>
+    <module>forensics-api-plugin</module>
+    <module>git-forensics-plugin</module>
     <module>warnings-ng-plugin</module>
 
     <module>acceptance-test-harness</module>

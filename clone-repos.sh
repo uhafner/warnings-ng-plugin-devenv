@@ -10,6 +10,8 @@ echo
 
 git clone git@github.com:jenkinsci/analysis-model.git || { echo "Clone failed"; exit 1; }
 git clone git@github.com:jenkinsci/analysis-model-api-plugin.git || { echo "Clone failed"; exit 1; }
+git clone git@github.com:jenkinsci/forensics-api-plugin.git || { echo "Clone failed"; exit 1; }
+git clone git@github.com:jenkinsci/git-forensics-plugin.git || { echo "Clone failed"; exit 1; }
 git clone git@github.com:jenkinsci/warnings-ng-plugin.git || { echo "Clone failed"; exit 1; }
 
 git clone git@github.com:jenkinsci/acceptance-test-harness.git || { echo "Clone failed"; exit 1; }

@@ -6,27 +6,12 @@ jenkins:
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: false
-  disableRememberMe: true
+  disableRememberMe: false
   markupFormatter:
     rawHtml:
       disableSyntaxHighlighting: false
   mode: NORMAL
-  numExecutors: 0
-  globalDefaultFlowDurabilityLevel:
-    durabilityHint: PERFORMANCE_OPTIMIZED
-  primaryView:
-    all:
-      name: "all"
-  quietPeriod: 5
-  scmCheckoutRetryCount: 0
-  securityRealm:
-    local:
-      allowsSignup: false
-      enableCaptcha: false
-  remotingSecurity:
-    enabled: true
-  slaveAgentPort: 50000
-  systemMessage: "<h1>Warnings Next Generation Plugin Showcase</h1>"
+  myViewsTabBar: "standard"
   nodes:
     - permanent:
         launcher:
@@ -41,6 +26,29 @@ jenkins:
         name: "java-agent"
         numExecutors: 1
         remoteFS: "/var/data"
+  numExecutors: 0
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+  slaveAgentPort: 50000
+  systemMessage: "<h1>Warnings Next Generation Plugin Showcase</h1>"
+  updateCenter:
+    sites:
+      - id: "default"
+        url: "https://updates.jenkins.io/update-center.json"
+  views:
+    - all:
+        name: "all"
+  viewsTabBar: "standard"
 
 security:
   apiToken:
@@ -93,19 +101,50 @@ credentials:
               username: "agent"
 
 unclassified:
+  extendedEmailPublisher:
+    adminRequiredForTemplateTesting: false
+    allowUnregisteredEnabled: false
+    charset: "UTF-8"
+    debugMode: false
+    defaultBody: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:\r\n\r\nCheck\
+      \ console output at $BUILD_URL to view the results."
+    defaultContentType: "text/plain"
+    defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
+    maxAttachmentSize: -1
+    maxAttachmentSizeMb: 0
+    precedenceBulk: false
+    useSsl: false
+    watchingEnabled: false
+  gitHubPluginConfig:
+    hookUrl: "http://localhost:8080/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: false
+  globalDefaultFlowDurabilityLevel:
+    durabilityHint: PERFORMANCE_OPTIMIZED
   location:
     adminAddress: "Adresse nicht konfiguriert <nobody@nowhere>"
-    url: "http://localhost:8081/"
+    url: "http://localhost:8080/"
+  mailer:
+    charset: "UTF-8"
+    useSsl: false
+  mavenModuleSet:
+    localRepository: "default"
+  pollSCM:
+    pollingThreadCount: 10
   simple-theme-plugin:
     elements:
       - cssUrl:
-          url: "http://localhost:8081/userContent/material-blue-grey.css"
+          url: "http://localhost:8080/userContent/material-blue-grey.css"
   timestamperConfig:
     allPipelines: true
     elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
     systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
 
 tool:
+  git:
+    installations:
+      - home: "git"
+        name: "Default"
   maven:
     installations:
       - name: "mvn-default"
@@ -122,9 +161,16 @@ tool:
                 acceptLicense: false
   pipelineMaven:
     publisherOptions:
+      - jacocoPublisher:
+          disabled: true
       - junitPublisher:
           disabled: true
-          healthScaleFactor: !!int '1.0'
+          healthScaleFactor: 1.0
+    triggerDownstreamUponResultAborted: false
+    triggerDownstreamUponResultFailure: false
+    triggerDownstreamUponResultNotBuilt: false
+    triggerDownstreamUponResultSuccess: true
+    triggerDownstreamUponResultUnstable: false
 
 jobs:
   - script: >

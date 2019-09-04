@@ -1,7 +1,8 @@
-analysis-model
-analysis-model-api-plugin
 acceptance-test-harness
-warnings-ng-plugin
+analysis-model
+*-plugin
+
+node_modules
 
 .DS_Store
 

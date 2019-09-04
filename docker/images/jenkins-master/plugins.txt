@@ -39,6 +39,7 @@ mailer
 matrix-auth
 matrix-project
 maven-plugin
+mock-security-realm
 momentjs
 pam-auth
 pipeline-build-step

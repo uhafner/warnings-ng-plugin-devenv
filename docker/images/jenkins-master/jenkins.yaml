@@ -202,3 +202,55 @@ jobs:
               }
           }
       };
+      freeStyleJob('freestyle-warnings-ng') {
+          scm {
+              git {
+                  remote { url 'https://github.com/jenkinsci/warnings-ng-plugin.git' }
+                  branch '*/master'
+                  extensions {}
+              }
+          }
+          steps {
+              maven {
+                  mavenInstallation('mvn-default')
+                  goals('clean verify')
+                  properties(skipITs: true)
+              }
+          }
+          publishers {
+              recordIssues {
+                  sourceCodeEncoding('UTF-8')
+                  tools {
+                      mavenConsole {}
+                      java {}
+                      javaDoc {}
+                      errorProne {}
+                  }
+              }
+          }
+      };
+      freeStyleJob('freestyle-analysis-model') {
+          scm {
+              git {
+                  remote { url 'https://github.com/jenkinsci/warnings-ng-plugin.git' }
+                  branch '*/master'
+                  extensions {}
+              }
+          }
+          steps {
+              maven {
+                  mavenInstallation('mvn-default')
+                  goals('clean verify')
+                  properties(skipITs: true)
+              }
+          }
+          publishers {
+              recordIssues {
+                    sourceCodeEncoding('UTF-8')
+                    tools {
+                      mavenConsole {
+                      }
+                  }
+              }
+        }
+      };

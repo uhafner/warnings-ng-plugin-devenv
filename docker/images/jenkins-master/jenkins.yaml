@@ -191,7 +191,7 @@ jobs:
       pipelineJob('pipeline-warnings-ng') {
           definition {
               cpsScm {
-                  scriptPath 'Jenkinsfile.analysis'
+                  scriptPath 'doc/Jenkinsfile.analysis'
                   scm {
                     git {
                         remote { url 'https://github.com/jenkinsci/warnings-ng-plugin.git' }

@@ -45,9 +45,6 @@ jenkins:
     sites:
       - id: "default"
         url: "https://updates.jenkins.io/update-center.json"
-  views:
-    - all:
-        name: "all"
   viewsTabBar: "standard"
 
 security:
@@ -191,7 +188,7 @@ jobs:
       pipelineJob('pipeline-warnings-ng') {
           definition {
               cpsScm {
-                  scriptPath 'Jenkinsfile.analysis'
+                  scriptPath 'etc/Jenkinsfile.analysis'
                   scm {
                     git {
                         remote { url 'https://github.com/jenkinsci/warnings-ng-plugin.git' }
@@ -220,11 +217,23 @@ jobs:
           publishers {
               recordIssues {
                   sourceCodeEncoding('UTF-8')
+                  aggregatingResults(true)
                   tools {
                       mavenConsole {}
                       java {}
                       javaDoc {}
-                      errorProne {}
+                      taskScanner {
+                          highTags('FIXME')
+                          normalTags('TODO')
+                          includePattern('**/*.java')
+                          excludePattern('target/**/*')
+                      }
+                      spotBugs {
+                            useRankAsPriority(true)
+                      }
+                      checkStyle {}
+                      pmd {}
+                      cpd {}
                   }
               }
           }
@@ -247,9 +256,23 @@ jobs:
           publishers {
               recordIssues {
                     sourceCodeEncoding('UTF-8')
+                    aggregatingResults(true)
                     tools {
-                      mavenConsole {
+                      mavenConsole {}
+                      java {}
+                      javaDoc {}
+                      taskScanner {
+                          highTags('FIXME')
+                          normalTags('TODO')
+                          includePattern('**/*.java')
+                          excludePattern('target/**/*')
                       }
+                      spotBugs {
+                            useRankAsPriority(true)
+                      }
+                      checkStyle {}
+                      pmd {}
+                      cpd {}
                   }
               }
         }

@@ -66,7 +66,12 @@ Java object model. This module is not depending on Jenkins.
 - [analysis-model-api-plugin](https://github.com/jenkinsci/analysis-model-api-plugin): A simple wrapper for the 
 analysis model library. It provides the analysis-model classes as a Jenkins plugin. This overhead is required
 to simplify upgrades of the analysis-model module in Jenkins.
-- [warnings-ng-plugin](https://github.com/jenkinsci/warnings-ng-plugin): The actual plugin that contains all steps
+- [forensics-api-plugin](https://github.com/jenkinsci/forensics-api-plugin): A Jenkins plug-in that defines 
+an API to mine and analyze data from a source control repository. 
+- [git-forensics-plugin](https://github.com/jenkinsci/git-forensics-plugin): A Jenkins plugin that 
+mines and analyzes data from a Git repository. It implements all extension points of 
+the [forensics-api-plugin](https://github.com/jenkinsci/forensics-api-plugin). 
+- [warnings-ng-plugin](https://github.com/jenkinsci/warnings-ng-plugin): The main plugin that contains all steps 
 and UI classes. 
 - [acceptance-test-harness](https://github.com/jenkinsci/acceptance-test-harness) : Jenkins acceptance test harness. 
 Contains tests for all Jenkins plugins including the Warnings plugin.
@@ -83,7 +88,7 @@ It should be possible to use other IDEs (Eclipse, Netbeans) as well. The analysi
 ### Running unit and integration tests
 
 In order to run the unit and integrations tests of the modules analysis-model and warnings-ng use the provided 
-Run configurations `All in analysis-model`  and `All in warnings-ng`. These configurations are already configured
+Run configurations `All in [module-name]`. These configurations are already configured
 to record the branch coverage of the corresponding module packages (`Run with Coverage` menu).   
 
 ### Debugging 
@@ -120,27 +125,26 @@ All UI tests require to run within a given subject under test (i.e, Jenkins unde
 In order to see changes in the Warnings plugin modules it is required to deploy the plugins to a Jenkins instance that
 contain some jobs that use the plugins. If you have no such instance on your machine already configured, start the 
 provided Jenkins master in this project (you need to install [docker](https://www.docker.com) and 
-[docker-compose](https://docs.docker.com/compose/overview/)). Open a terminal and run `docker-compose up` 
-in the top level folder. This command creates the 
-docker containers of all application services. This will require some time when called the first time since the docker
-images will be composed. After the images have been created the following containers will be started:
+[docker-compose](https://docs.docker.com/compose/overview/)). Open a terminal and run `./jenkins.sh` 
+in the top level folder. This command is a wrapper to `docker-compose up`: it uses the right user and group settings
+so that the permissions of the docker volume for the Jenkins home folder are correctly set.
+This command creates a docker container for the Jenkins master and one for the Java agent.
+This will require some time when called the first time since the docker
+images will be composed. After the images have been created the following two containers will be started:
 - jenkins-master: [Official Jenkins LTS docker image](https://github.com/jenkinsci/docker) (Alpine Linux). The master is
 preconfigured using [JCasC](https://github.com/jenkinsci/configuration-as-code-plugin) to build Java applications 
 on an agent. The master is not allowed to run jobs.
 - java-agent: A minimal Java agent based on the 
 [official OpenJDK8 docker image](https://hub.docker.com/_/openjdk?tab=description) (Alpine Linux). Master and slave
 are connected using SSH.
-- nginx-proxy: A reverse proxy.  
 
-### Volumes
+### Volume for JENKINS_HOME
 
 The home directory of the Jenkins master (JENKINS_HOME) is mounted as a 
 [docker volume](https://docs.docker.com/storage/volumes/). I.e., it is visible on the host as a normal directory at
 `./docker/volumes/jenkins-home`. It will survive sessions and can be changed directly on the host, see 
 [official documentation](https://github.com/jenkinsci/docker/blob/master/README.md) for details. 
-
-The agent data directory (Jenkins workspace, tools downloads, shared maven repository etc.) is also mounted 
-as a docker volume under `./docker/volumes/jenkins-home`. 
+This helps to inspect the files that have been created by the Jenkins master.
 
 #### macOS notes
 
@@ -157,9 +161,12 @@ kind of changes:
 ### Changing analysis model without adding new API methods
  
 If you have only changes in the analysis-model module (and you added no new API methods) then you need to rebuild 
-the maven module `analysis-model.jar` and afterwards rebuild the associated Jenkins wrapper plugin 
-analysis-model-api-plugin. This plugin then needs to be deployed into the Jenkins instance. For this process the 
-script 
+and install the maven module `analysis-model.jar` and afterwards rebuild the associated Jenkins wrapper plugin 
+`analysis-model-api-plugin`. This plugin then needs to be deployed into the Jenkins instance.
+
+To simplify this process run the script `./go.sh` in the `analysis-model` module, it will install the 
+module `analysis-model.jar` in your local maven repository. Then this script  
+will build the actual plugin and deploy it into the Jenkins instance. 
 
 ### Changing the warnings plugin 
 
@@ -175,13 +182,17 @@ and deploys it on success into the Jenkins instance.
 
 TODO
 
+### Changing forensics-api-plugin and git-forensics-plugin
+
+TODO
 
 ### IntelliJ Launchers to deploy the plugins 
 
-There are also two launchers in IntelliJ provided that build and deploy both plugins into Jenkins. 
-- `Build and Deploy analysis-model`: Builds analysis-model, rebuilds the wrapper plugin analysis-model-api and deploys 
-the created HPI file to the Jenkins instance.
-- `Build and Deploy warnings-ng`:  Builds the warnings-ng-plugin and deploys the created HPI file to the Jenkins instance.
+The build scripts from the last section can also be started using one of the IntelliJ launchers 
+`Build and Deploy [module-name]`.
+These launchers build the corresponding plugin and deploy it into Jenkins. (Note: there is currently an 
+[IntelliJ bug](https://youtrack.jetbrains.com/issue/IDEA-218250) open, so that sometimes the script is 
+started in the wrong folder.)
 
 ## Acceptance Test Harness
 

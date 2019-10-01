@@ -241,7 +241,7 @@ jobs:
       freeStyleJob('freestyle-analysis-model') {
           scm {
               git {
-                  remote { url 'https://github.com/jenkinsci/warnings-ng-plugin.git' }
+                  remote { url 'https://github.com/jenkinsci/analysis-model.git' }
                   branch '*/master'
                   extensions {}
               }

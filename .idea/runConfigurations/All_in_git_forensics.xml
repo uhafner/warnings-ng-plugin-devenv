@@ -3,7 +3,7 @@
     <module name="git-forensics" />
     <extension name="coverage" sample_coverage="false">
       <pattern>
-        <option name="PATTERN" value="io.jenkins.plugins.forensics.*" />
+        <option name="PATTERN" value="io.jenkins.plugins.git.forensics.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

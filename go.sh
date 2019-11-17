@@ -24,6 +24,10 @@ cd ./popper-api-plugin
 ./go.sh
 cd ..
 
+cd ./forensics-api-plugin
+./go.sh
+cd ..
+
 cd ./warnings-ng-plugin
 ./go.sh
 cd ..

@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Build and Deploy warnings-ng" type="ShConfigurationType">
-    <option name="SCRIPT_PATH" value="$PROJECT_DIR$/warnings-ng-plugin/skip.sh" />
+    <option name="SCRIPT_PATH" value="$PROJECT_DIR$/warnings-ng-plugin/bin/skip.sh" />
     <option name="SCRIPT_OPTIONS" value="" />
     <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/warnings-ng-plugin" />
     <option name="INTERPRETER_PATH" value="/bin/bash" />

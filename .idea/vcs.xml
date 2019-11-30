@@ -13,6 +13,9 @@
     <mapping directory="$PROJECT_DIR$/font-awesome-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/forensics-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/git-forensics-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/jquery3-api-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/plugin-util-api-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/popper-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/warnings-ng-plugin" vcs="Git" />
   </component>
 </project>

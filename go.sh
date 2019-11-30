@@ -29,5 +29,5 @@ cd ./forensics-api-plugin
 cd ..
 
 cd ./warnings-ng-plugin
-./go.sh
+bin/go.sh
 cd ..

@@ -21,6 +21,8 @@
         <option value="$PROJECT_DIR$/git-forensics-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/warnings-ng-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/code-quality-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/plugin-util/pom.xml" />
+        <option value="$PROJECT_DIR$/plugin-util-api-plugin/pom.xml" />
       </list>
     </option>
   </component>
@@ -61,7 +63,7 @@
       </value>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

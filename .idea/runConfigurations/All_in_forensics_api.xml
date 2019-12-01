@@ -3,7 +3,7 @@
     <module name="forensics-api" />
     <extension name="coverage" sample_coverage="false">
       <pattern>
-        <option name="PATTERN" value="io.jenkins.plugins.forensics.util.*" />
+        <option name="PATTERN" value="io.jenkins.plugins.util.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

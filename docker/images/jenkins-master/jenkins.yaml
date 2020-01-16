@@ -165,6 +165,20 @@ tool:
 
 jobs:
   - script: >
+      pipelineJob('pipeline-codingstyle') {
+          definition {
+              cpsScm {
+                  scriptPath 'Jenkinsfile'
+                  scm {
+                    git {
+                        remote { url 'https://github.com/jenkinsci/codingstyle.git' }
+                        branch '*/master'
+                        extensions {}
+                    }
+                  }
+              }
+          }
+      };
       pipelineJob('pipeline-analysis-model') {
           definition {
               cpsScm {

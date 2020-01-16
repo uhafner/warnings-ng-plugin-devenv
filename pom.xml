@@ -30,13 +30,7 @@
   </developers>
 
   <modules>
-    <module>bootstrap4-api-plugin</module>
-    <module>data-tables-api-plugin</module>
-    <module>echarts-api-plugin</module>
-    <module>font-awesome-api-plugin</module>
-    <module>jquery3-api-plugin</module>
-    <module>popper-api-plugin</module>
-
+    <module>codingstyle</module>
     <module>analysis-model</module>
     <module>analysis-model-api-plugin</module>
     <module>forensics-api-plugin</module>

@@ -1,5 +1,7 @@
 acceptance-test-harness
 analysis-model
+codingstyle
+
 *-plugin
 
 node_modules

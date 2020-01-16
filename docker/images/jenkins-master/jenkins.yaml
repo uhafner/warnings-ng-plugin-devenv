@@ -112,10 +112,6 @@ unclassified:
     precedenceBulk: false
     useSsl: false
     watchingEnabled: false
-  gitHubPluginConfig:
-    hookUrl: "http://localhost:8080/github-webhook/"
-  gitSCM:
-    createAccountBasedOnEmail: false
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
   location:

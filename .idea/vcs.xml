@@ -5,17 +5,8 @@
     <mapping directory="$PROJECT_DIR$/acceptance-test-harness" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bootstrap4-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/code-quality-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/codingstyle" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/data-tables-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/echarts-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/font-awesome-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/forensics-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/git-forensics-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/jquery3-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/plugin-util-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/popper-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/warnings-ng-plugin" vcs="Git" />
   </component>
 </project>

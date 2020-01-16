@@ -52,8 +52,6 @@ security:
     creationOfLegacyTokenEnabled: false
     tokenGenerationOnCreationEnabled: false
     usageStatisticsEnabled: true
-  downloadSettings:
-    useBrowser: false
   globalJobDslSecurityConfiguration:
     useScriptSecurity: true
   sSHD:

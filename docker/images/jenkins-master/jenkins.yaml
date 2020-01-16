@@ -171,7 +171,7 @@ jobs:
                   scriptPath 'Jenkinsfile'
                   scm {
                     git {
-                        remote { url 'https://github.com/jenkinsci/codingstyle.git' }
+                        remote { url 'https://github.com/uhafner/codingstyle.git' }
                         branch '*/master'
                         extensions {}
                     }

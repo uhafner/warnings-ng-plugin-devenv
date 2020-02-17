@@ -53,9 +53,12 @@ Additionally, the following tools (latest version) are required:
     4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*.
 3. Run the Test Launchers in IntelliJ for analysis-model, forensics-api, git-forensics, and warnings-ng.
 4. Start Jenkins with `jenkins.sh`. 
-5. Login to Jenkins at: http://localhost:8080/ (admin:admin).
-6. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
-7. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
+5. Login to Jenkins at: http://localhost:8080/
+6. Use the following credentials: 
+    - User: admin
+    - Password: admin
+7. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
+8. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
 
 ## Cloning the modules
 
@@ -126,7 +129,8 @@ In order to see changes in the Warnings plugin modules it is required to deploy 
 contain some jobs that use the plugins. If you have no such instance on your machine already configured, start the 
 provided Jenkins master in this project (you need to install [docker](https://www.docker.com) and 
 [docker-compose](https://docs.docker.com/compose/overview/)). Open a terminal and run `./jenkins.sh` 
-in the top level folder. This command is a wrapper to `docker-compose up`: it uses the right user and group settings
+in the top level folder. This command is a wrapper to `docker-compose up`: 
+it uses the right user and group settings
 so that the permissions of the docker volume for the Jenkins home folder are correctly set.
 This command creates a docker container for the Jenkins master and one for the Java agent.
 This will require some time when called the first time since the docker
@@ -137,6 +141,10 @@ on an agent. The master is not allowed to run jobs.
 - java-agent: A minimal Java agent based on the 
 [official OpenJDK8 docker image](https://hub.docker.com/_/openjdk?tab=description) (Alpine Linux). Master and slave
 are connected using SSH.
+
+You can then open Jenkins at the URL http://localhost:8080/. Use the following credentials to log in as administrator: 
+- User: admin
+- Password: admin
 
 ### Volume for JENKINS_HOME
 

@@ -3,6 +3,7 @@ analysis-model
 codingstyle*
 
 *-plugin
+echarts-build-trends
 
 node_modules
 

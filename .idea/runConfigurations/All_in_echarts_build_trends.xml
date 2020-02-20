@@ -1,9 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="All in echarts-api" type="JUnit" factoryName="JUnit">
-    <module name="echarts-api" />
+  <configuration default="false" name="All in echarts-build-trends" type="JUnit" factoryName="JUnit">
+    <module name="echarts-build-trends" />
+    <useClassPathOnly />
     <extension name="coverage" sample_coverage="false">
       <pattern>
-        <option name="PATTERN" value="io.jenkins.plugins.*" />
+        <option name="PATTERN" value="edu.hm.hafner.echarts.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

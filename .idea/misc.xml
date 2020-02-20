@@ -26,6 +26,7 @@
         <option value="$PROJECT_DIR$/echarts-build-trends/pom.xml" />
         <option value="$PROJECT_DIR$/analysis-pom-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/codingstyle-pom/pom.xml" />
+        <option value="$PROJECT_DIR$/warnings-ng-ath/pom.xml" />
       </list>
     </option>
   </component>

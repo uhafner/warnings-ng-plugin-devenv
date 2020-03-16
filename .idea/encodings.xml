@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/analysis-model" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model-api-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model-api-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-model-api-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model/etc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bootstrap4-api-plugin" charset="UTF-8" />
@@ -40,9 +41,9 @@
     <file url="file://$PROJECT_DIR$/popper-api-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/popper-api-plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/popper-api-plugin/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/warnings-ng-ath/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/warnings-ng-plugin/ui-tests/src/main/java" charset="UTF-8" />
   </component>
 </project>

@@ -1,8 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Update supported tools" type="JUnit" factoryName="JUnit">
-    <module name="warnings-ng" />
+    <module name="warnings-ng-parent" />
     <extension name="coverage" sample_coverage="false">
       <pattern>
+        <option name="PATTERN" value="" />
         <option name="ENABLED" value="false" />
       </pattern>
     </extension>

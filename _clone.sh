@@ -26,8 +26,6 @@ git clone ${protocol}jenkinsci/forensics-api-plugin.git || { echo "Clone failed"
 git clone ${protocol}jenkinsci/git-forensics-plugin.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/warnings-ng-plugin.git || { echo "Clone failed"; exit 1; }
 
-git clone ${protocol}jenkinsci/acceptance-test-harness.git || { echo "Clone failed"; exit 1; }
-
 echo ${mark}${bold}Done cloning. Note that you need to change the remotes for each
 echo of the repositories you want to contribute to.
 

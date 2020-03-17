@@ -13,10 +13,7 @@ some jobs defined, that build some of the modules of the Warnings plugin. These 
 analysis tools so you immediately get an impression of the functionality of the Warnings plugin.
 - IntelliJ project that references the modules of the Warnings plugin. 
 This project contains presets of my [coding style](https://github.com/uhafner/codingstyle) and some other helpful 
-configurations. Note that IntelliJ (or global IntelliJ preferences) are not part of this project.
-- [Acceptance test harness](https://github.com/jenkinsci/acceptance-test-harness) project and some scripts to start
-the UI tests of the Warnings plugin. These tests will run by using a pooled Jenkins controller with the preconfigured
-set of Jenkins plugins in the docker container. 
+configurations. Note that IntelliJ (or global IntelliJ preferences) are not part of this project. 
 
 ## Supported operating systems
 
@@ -73,8 +70,6 @@ mines and analyzes data from a Git repository. It implements all extension point
 the [forensics-api-plugin](https://github.com/jenkinsci/forensics-api-plugin). 
 - [warnings-ng-plugin](https://github.com/jenkinsci/warnings-ng-plugin): The main plugin that contains all steps 
 and UI classes. 
-- [acceptance-test-harness](https://github.com/jenkinsci/acceptance-test-harness) : Jenkins acceptance test harness. 
-Contains tests for all Jenkins plugins including the Warnings plugin.
 
 ## Modifying and debugging code with IntelliJ
 

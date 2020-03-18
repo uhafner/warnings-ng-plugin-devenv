@@ -1,14 +1,15 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="UI Tests (Firefox)" type="JUnit" factoryName="JUnit">
-    <module name="acceptance-test-harness" />
+    <module name="warnings-ng-ui-tests" />
+    <useClassPathOnly />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="plugins.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
-    <option name="PACKAGE_NAME" value="plugins" />
-    <option name="MAIN_CLASS_NAME" value="plugins.WarningsNextGenerationPluginTest" />
+    <option name="PACKAGE_NAME" value="io.jenkins.plugins.analysis.warnings" />
+    <option name="MAIN_CLASS_NAME" value="io.jenkins.plugins.analysis.warnings.WarningsPluginUiTest" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="class" />
     <option name="VM_PARAMETERS" value="-ea -Dwebdriver.gecko.driver=/usr/local/bin/geckodriver -DElasticTime.factor=2 -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver" />

@@ -110,10 +110,8 @@ a debugger in IntelliJ.
 UI tests can be started using the corresponding launchers `UI Tests (Firefox)` or `UI Tests (Chrome)`. 
 Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
 installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
-your setup.
-
-All UI tests require to run within a given subject under test (i.e, Jenkins under test, JUT), see section 
-[Acceptance Test Harness](#acceptance-test-harness) for more details.
+your setup. UI tests are based on Jenkins [Acceptance Test Harness](https://github.com/jenkinsci/acceptance-test-harness) 
+project, see [project documentation](https://github.com/jenkinsci/acceptance-test-harness/tree/master/docs) for more details.
 
 ## Starting the Jenkins instance
 
@@ -188,42 +186,6 @@ The build scripts from the last section can also be started using one of the Int
 These launchers build the corresponding plugin and deploy it into Jenkins. (Note: there is currently an 
 [IntelliJ bug](https://youtrack.jetbrains.com/issue/IDEA-218250) open, so that sometimes the script is 
 started in the wrong folder.)
-
-## Acceptance Test Harness
-
-UI tests can be started using an IntelliJ launcher configuration or using a command line script. As already mentioned,
-all UI tests require to run within a given subject under test. In our case we use the latest available Jenkins LTS
-version and the predefined set of plugins from our docker image.      
-
-### Pooling of Jenkins Under Test (JUT)
-
-UI tests execute really slowly. This is mostly because each test wants to launch its own clean Jenkins, and we end up 
-mostly just waiting for Jenkins under test (JUT) to come up. This delay is also quite annoying when you are developing a 
-new test. Often you have to run the test under development multiple times before you get your test right. And every 
-time you run a test, you end up waiting for JUT to come up.
-
-To help cope with this situation, this project comes with a separate entry point that runs a JUT server. 
-The JUT server will maintain a fixed number of Jenkins instances booted. There's a corresponding PooledJenkinsController 
-implementation you'd use when you run a test, which asks the JUT server to hand off a fresh JUT.  
-
-Start the pooled Jenkins controller by calling the script `start-jut.sh`. This script creates a pool of Jenkins 
-instances that is handed out on request. Since each test requires several seconds it is sufficient to set the pool
-size to 1. I.e., as soon as a Jenkins instance has been handed out, the next one is prepared.
-
-For more details please refer to the corresponding 
-[documentation of the ATH](https://github.com/jenkinsci/acceptance-test-harness/blob/master/docs/PRELAUNCH.md).
-
-### Running UI tests in IntelliJ
-
-UI tests can be started using the corresponding launchers `UI Tests (Firefox)` or `UI Tests (Chrome)`. 
-Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
-installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
-your setup.
-
-### Running UI tests from the console
-
-You can also start the UI tests using the provided shell scrips `testFirefox.sh` or `testChrome.sh`. Note that
-you might need to adapt these scripts as well (see previous section).
 
 
 

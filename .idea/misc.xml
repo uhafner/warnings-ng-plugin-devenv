@@ -17,6 +17,7 @@
         <option value="$PROJECT_DIR$/acceptance-test-harness/pom.xml" />
         <option value="$PROJECT_DIR$/analysis-model/pom.xml" />
         <option value="$PROJECT_DIR$/analysis-model-api-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/autograding/pom.xml" />
         <option value="$PROJECT_DIR$/forensics-api-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/git-forensics-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/warnings-ng-plugin/pom.xml" />

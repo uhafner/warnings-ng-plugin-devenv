@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>edu.hm.hafner</groupId>
   <artifactId>warnings-ng-plugin-devenv</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>UNVERSIONED</version>
 
   <packaging>pom</packaging>
 
   <name>Warnings Plugin Aggregator</name>
   <description>Development environment for Jenkins' Warnings Next Generation Plugin.
-    Reduces the initial ramp-up time for new contributors. </description>
+    Reduces the initial ramp-up time for new contributors.
+  </description>
 
   <licenses>
     <license>
@@ -29,10 +31,33 @@
     </developer>
   </developers>
 
+  <properties>
+    <java.version>1.8</java.version>
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+  </properties>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven-compiler-plugin.version}</version>
+          <configuration>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+            <testSource>${java.version}</testSource>
+            <testTarget>${java.version}</testTarget>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
   <modules>
     <module>codingstyle</module>
     <module>analysis-model</module>
     <module>analysis-model-api-plugin</module>
+    <module>autograding-plugin</module>
     <module>forensics-api-plugin</module>
     <module>git-forensics-plugin</module>
     <module>warnings-ng-plugin</module>

@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/analysis-model" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/analysis-model-api-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model-api-plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model-api-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model/etc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/autograding-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/autograding-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codingstyle/etc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codingstyle/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/forensics-api-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/forensics-api-plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/forensics-api-plugin/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/git-forensics-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/git-forensics-plugin/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/warnings-ng-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/ui-tests/src/main/java" charset="UTF-8" />

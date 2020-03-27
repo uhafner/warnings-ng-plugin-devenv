@@ -22,6 +22,7 @@ git clone ${protocol}uhafner/codingstyle.git || { echo "Clone failed"; exit 1; }
 
 git clone ${protocol}jenkinsci/analysis-model.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/analysis-model-api-plugin.git || { echo "Clone failed"; exit 1; }
+git clone ${protocol}jenkinsci/autograding-plugin.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/forensics-api-plugin.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/git-forensics-plugin.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/warnings-ng-plugin.git || { echo "Clone failed"; exit 1; }

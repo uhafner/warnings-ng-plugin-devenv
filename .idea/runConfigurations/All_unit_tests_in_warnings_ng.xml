@@ -2,7 +2,7 @@
   <configuration default="false" name="All unit tests in warnings-ng" type="JUnit" factoryName="JUnit">
     <module name="warnings-ng" />
     <useClassPathOnly />
-    <extension name="coverage" sample_coverage="false">
+    <extension name="coverage" runner="jacoco">
       <pattern>
         <option name="PATTERN" value="io.jenkins.plugins.analysis.*" />
         <option name="ENABLED" value="true" />

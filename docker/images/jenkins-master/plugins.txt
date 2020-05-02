@@ -59,7 +59,6 @@ plain-credentials
 resource-disposer
 scm-api
 script-security
-simple-theme-plugin
 ssh-credentials
 ssh-slaves
 structs

@@ -161,6 +161,20 @@ tool:
 
 jobs:
   - script: >
+      pipelineJob('pipeline-autograding') {
+          definition {
+              cpsScm {
+                  scriptPath 'etc/Jenkinsfile.autograding'
+                  scm {
+                    git {
+                        remote { url 'https://github.com/jenkinsci/autograding-plugin.git' }
+                        branch '*/master'
+                        extensions {}
+                    }
+                  }
+              }
+          }
+      };
       pipelineJob('pipeline-codingstyle') {
           definition {
               cpsScm {
@@ -231,14 +245,21 @@ jobs:
                           highTags('FIXME')
                           normalTags('TODO')
                           includePattern('**/*.java')
-                          excludePattern('target/**/*')
+                          excludePattern('target/**/*,**/TaskScannerTest.java')
                       }
                       spotBugs {
+                            pattern('**/target/spotbugsXml.xml')
                             useRankAsPriority(true)
                       }
-                      checkStyle {}
-                      pmd {}
-                      cpd {}
+                      checkStyle {
+                            pattern('**/target/checkstyle-result.xml')
+                      }
+                      pmd {
+                            pattern('**/target/pmd.xml')
+                      }
+                      cpd {
+                            pattern('**/target/cpd.xml')
+                      }
                   }
               }
           }
@@ -273,11 +294,18 @@ jobs:
                           excludePattern('target/**/*')
                       }
                       spotBugs {
+                            pattern('**/target/spotbugsXml.xml')
                             useRankAsPriority(true)
                       }
-                      checkStyle {}
-                      pmd {}
-                      cpd {}
+                      checkStyle {
+                            pattern('**/target/checkstyle-result.xml')
+                      }
+                      pmd {
+                            pattern('**/target/pmd.xml')
+                      }
+                      cpd {
+                            pattern('**/target/cpd.xml')
+                      }
                   }
               }
         }

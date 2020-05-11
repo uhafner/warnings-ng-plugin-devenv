@@ -1,6 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="All in warnings-ng" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-    <module name="warnings-ng-parent" />
+  <configuration default="false" name="All in warnings" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <module name="warnings-ng" />
+    <useClassPathOnly />
     <extension name="coverage" sample_coverage="false">
       <pattern>
         <option name="PATTERN" value="io.jenkins.plugins.analysis.*" />

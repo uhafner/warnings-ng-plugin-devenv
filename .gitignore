@@ -1,8 +1,9 @@
 acceptance-test-harness
 analysis-model
-codingstyle
+codingstyle*
 
 *-plugin
+echarts-build-trends
 
 node_modules
 

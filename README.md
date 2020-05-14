@@ -13,12 +13,15 @@ some jobs defined, that build some of the modules of the Warnings plugin. These 
 analysis tools so you immediately get an impression of the functionality of the Warnings plugin.
 - IntelliJ project that references the modules of the Warnings plugin. 
 This project contains presets of my [coding style](https://github.com/uhafner/codingstyle) and some other helpful 
-configurations. Note that IntelliJ (or global IntelliJ preferences) are not part of this project. 
+configurations. Note that IntelliJ (or global IntelliJ preferences) are not part of this project.
+- [Acceptance test harness](https://github.com/jenkinsci/acceptance-test-harness) project and some scripts to start
+the UI tests of the Warnings plugin. These tests will run by using a pooled Jenkins controller with the preconfigured
+set of Jenkins plugins in the docker container. 
 
 ## Supported operating systems
 
-The development environment has been tested on macOS Mojave and Ubuntu Linux 18.04 (in a virtual machine running on
-macOS). It still needs to be verified, which of these steps work on Windows. Pull requests are always welcome.   
+The development environment has been tested on macOS Mojave Ubuntu Linux 18.04 (in a virtual machine running on
+macOS), and Windows. Pull requests are always welcome.   
 
 ## TLDR
 
@@ -70,6 +73,8 @@ mines and analyzes data from a Git repository. It implements all extension point
 the [forensics-api-plugin](https://github.com/jenkinsci/forensics-api-plugin). 
 - [warnings-ng-plugin](https://github.com/jenkinsci/warnings-ng-plugin): The main plugin that contains all steps 
 and UI classes. 
+- [acceptance-test-harness](https://github.com/jenkinsci/acceptance-test-harness): Jenkins acceptance test harness, 
+this module contains tests and page objects for all Jenkins plugins and core components.
 
 ## Modifying and debugging code with IntelliJ
 
@@ -111,8 +116,13 @@ UI tests can be started using the corresponding launchers `UI Tests (Firefox)` o
 Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
 installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
 your setup. UI tests are based on Jenkins [Acceptance Test Harness](https://github.com/jenkinsci/acceptance-test-harness) 
-project, see [project documentation](https://github.com/jenkinsci/acceptance-test-harness/tree/master/docs) for more details.
+project (ATH), see [project documentation](https://github.com/jenkinsci/acceptance-test-harness/tree/master/docs) for more details.
 
+For your convenience, the ATH module is also cloned into the workspace: this helps to navigate through the existing set
+of page objects and tests for other plugins (which can be used as starting point for your own UI tests). 
+It also provides the ATH JUT controller to pool the Jenkins instance 
+under test, see [section JUT Pooling](#pooling-of-jenkins-under-test-jut) for details.
+ 
 ## Starting the Jenkins instance
 
 In order to see changes in the Warnings plugin modules it is required to deploy the plugins to a Jenkins instance that
@@ -143,7 +153,7 @@ This helps to inspect the files that have been created by the Jenkins master.
 
 Note that volumes under macOS are quite slow. On my MacBook running the provided Jenkins job of the analysis-model in the
 docker container is slower than running the same Jenkins job in a docker container that is running in a linux virtual machine
-on the same MacBook (sounds kind of absurd).
+on the same MacBook (sounds kind of absurd :astonished:).
 
 ## Deploying changed plugins to the Jenkins instance 
 
@@ -186,6 +196,42 @@ The build scripts from the last section can also be started using one of the Int
 These launchers build the corresponding plugin and deploy it into Jenkins. (Note: there is currently an 
 [IntelliJ bug](https://youtrack.jetbrains.com/issue/IDEA-218250) open, so that sometimes the script is 
 started in the wrong folder.)
+
+## Acceptance Test Harness
+
+UI tests can be started using an IntelliJ launcher configuration or using a command line script. As already mentioned,
+all UI tests require to run within a given subject under test. In our case we use the latest available Jenkins LTS
+version and the predefined set of plugins from our docker image.      
+
+### Pooling of Jenkins Under Test (JUT)
+
+UI tests execute really slowly. This is mostly because each test wants to launch its own clean Jenkins, and we end up 
+mostly just waiting for Jenkins under test (JUT) to come up. This delay is also quite annoying when you are developing a 
+new test. Often you have to run the test under development multiple times before you get your test right. And every 
+time you run a test, you end up waiting for JUT to come up.
+
+To help cope with this situation, this project comes with a separate entry point that runs a JUT server. 
+The JUT server will maintain a fixed number of Jenkins instances booted. There's a corresponding PooledJenkinsController 
+implementation you'd use when you run a test, which asks the JUT server to hand off a fresh JUT.  
+
+Start the pooled Jenkins controller by calling the script `start-jut.sh`. This script creates a pool of Jenkins 
+instances that is handed out on request. Since each test requires several seconds it is sufficient to set the pool
+size to 1. I.e., as soon as a Jenkins instance has been handed out, the next one is prepared.
+
+For more details please refer to the corresponding 
+[documentation of the ATH](https://github.com/jenkinsci/acceptance-test-harness/blob/master/docs/PRELAUNCH.md).
+
+### Running UI tests in IntelliJ
+
+UI tests can be started using the corresponding launchers `UI Tests (Firefox)` or `UI Tests (Chrome)`. 
+Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
+installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
+your setup.
+
+### Running UI tests from the console
+
+You can also start the UI tests using the provided shell scrips `testFirefox.sh` or `testChrome.sh`. Note that
+you might need to adapt these scripts as well (see previous section).
 
 
 

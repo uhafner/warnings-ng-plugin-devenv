@@ -11,7 +11,7 @@
 
   <packaging>pom</packaging>
 
-  <name>Warnings Plugin Aggregator</name>
+  <name>Warnings Next Generation Plugin development environment</name>
   <description>Development environment for Jenkins' Warnings Next Generation Plugin.
     Reduces the initial ramp-up time for new contributors.
   </description>

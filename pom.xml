@@ -46,6 +46,8 @@
     <module>forensics-api-plugin</module>
     <module>git-forensics-plugin</module>
     <module>warnings-ng-plugin</module>
+
+    <module>autograding-plugin</module>
   </modules>
 
 </project>

@@ -12,7 +12,7 @@ services:
       - 50000:50000 # Jenkins JNLP port
     environment:
       - TRY_UPGRADE_IF_NO_MARKER=true
-      - JAVA_OPTS= -Dstapler.jelly.noCache=true  -Dhudson.remoting.ClassFilter=com.google.common.collect.ImmutableListMultimap -DexecutableWar.jetty.disableCustomSessionIdCookieName=true -DexecutableWar.jetty.sessionIdCookieName=warnings-ng-devenv -agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+      - JAVA_OPTS= -Dstapler.jelly.noCache=true -Djenkins.ui.refresh=true -Dhudson.remoting.ClassFilter=com.google.common.collect.ImmutableListMultimap -DexecutableWar.jetty.disableCustomSessionIdCookieName=true -DexecutableWar.jetty.sessionIdCookieName=warnings-ng-devenv -agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
     user: ${CURRENT_UID}
     restart: unless-stopped
   java-agent:

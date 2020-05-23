@@ -14,12 +14,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/acceptance-test-harness/pom.xml" />
         <option value="$PROJECT_DIR$/analysis-model/pom.xml" />
         <option value="$PROJECT_DIR$/analysis-model-api-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/forensics-api-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/git-forensics-plugin/pom.xml" />
-        <option value="$PROJECT_DIR$/code-quality-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/plugin-util/pom.xml" />
         <option value="$PROJECT_DIR$/plugin-util-api-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/echarts-build-trends/pom.xml" />

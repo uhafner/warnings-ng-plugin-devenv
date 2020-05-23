@@ -13,9 +13,8 @@
     <file url="file://$PROJECT_DIR$/bootstrap4-api-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bootstrap4-api-plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bootstrap4-api-plugin/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/code-quality-plugin" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/code-quality-plugin/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/code-quality-plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/checks-api-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/checks-api-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codingstyle/etc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codingstyle/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/data-tables-api-plugin/src/main/java" charset="UTF-8" />

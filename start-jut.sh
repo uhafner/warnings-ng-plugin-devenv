@@ -9,6 +9,7 @@ norm="$(tput setaf 0)$(tput sgr0)"
 # shellcheck disable=SC2164
 JENKINS_HOME=$(cd ./docker/volumes/jenkins-home; pwd)
 export JENKINS_HOME
+# export JENKINS_JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8002,suspend=n,server=y
 
 export PLUGINS_DIR=$JENKINS_HOME/plugins
 if [ ! -d $PLUGINS_DIR ]; then

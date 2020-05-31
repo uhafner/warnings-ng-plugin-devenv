@@ -3,6 +3,7 @@ analysis-model-api
 antisamy-markup-formatter
 apache-httpcomponents-client-4-api
 authentication-tokens
+autograding
 bouncycastle-api
 branch-api
 cloudbees-folder

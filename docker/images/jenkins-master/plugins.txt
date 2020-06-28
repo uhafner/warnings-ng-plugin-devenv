@@ -3,6 +3,7 @@ analysis-model-api
 antisamy-markup-formatter
 apache-httpcomponents-client-4-api
 authentication-tokens
+autograding
 bouncycastle-api
 branch-api
 cloudbees-folder
@@ -18,7 +19,6 @@ docker-workflow
 durable-task
 email-ext
 filesystem_scm
-file-operations
 form-element-path
 git
 git-client
@@ -61,7 +61,6 @@ plain-credentials
 resource-disposer
 scm-api
 script-security
-simple-theme-plugin
 ssh-credentials
 ssh-slaves
 structs

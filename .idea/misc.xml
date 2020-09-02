@@ -28,8 +28,8 @@
         <option value="$PROJECT_DIR$/autograding-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/autograding-model/pom.xml" />
         <option value="$PROJECT_DIR$/acceptance-test-harness/pom.xml" />
-        <option value="$PROJECT_DIR$/checks-api-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/git-forensics-plugin/ui-tests/pom.xml" />
+        <option value="$PROJECT_DIR$/../github-actions-autograding/pom.xml" />
       </list>
     </option>
   </component>

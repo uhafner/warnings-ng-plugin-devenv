@@ -18,8 +18,8 @@ cp -fv jquery3-api-plugin/target/*hpi $JENKINS_HOME/plugins/jquery3-api.jpi
 cp -fv popper-api-plugin/target/*hpi $JENKINS_HOME/plugins/popper-api.jpi
 cp -fv analysis-model-api-plugin/target/*hpi $JENKINS_HOME/plugins/analysis-model-api.jpi
 cp -fv forensics-api-plugin/target/*hpi $JENKINS_HOME/plugins/forensics-api.jpi
-cp -fv warnings-ng-plugin/target/*hpi $JENKINS_HOME/plugins/warnings-ng.jpi
-cp -fv git-forensics-plugin/target/*hpi $JENKINS_HOME/plugins/git-forensics.jpi
+cp -fv warnings-ng-plugin/plugin/target/*hpi $JENKINS_HOME/plugins/warnings-ng.jpi
+cp -fv git-forensics-plugin/plugin/target/*hpi $JENKINS_HOME/plugins/git-forensics.jpi
 
 CURRENT_UID="$(id -u):$(id -g)"
 export CURRENT_UID

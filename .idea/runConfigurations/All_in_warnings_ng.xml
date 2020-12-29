@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="All in warnings-ng" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+  <configuration default="false" name="All in warnings-ng" type="JUnit" factoryName="JUnit">
     <module name="warnings-ng" />
     <extension name="coverage" runner="jacoco">
       <pattern>
@@ -10,9 +10,12 @@
     <option name="PACKAGE_NAME" value="" />
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
-    <option name="TEST_OBJECT" value="package" />
+    <option name="TEST_OBJECT" value="pattern" />
     <option name="VM_PARAMETERS" value="-ea -Djava.awt.headless=true" />
     <option name="PARAMETERS" value="" />
+    <patterns>
+      <pattern testClass=".*Test" />
+    </patterns>
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

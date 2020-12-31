@@ -96,7 +96,7 @@ credentials:
               username: "agent"
 
 unclassified:
-  extendedEmailPublisher:
+  email-ext:
     adminRequiredForTemplateTesting: false
     allowUnregisteredEnabled: false
     charset: "UTF-8"
@@ -108,8 +108,9 @@ unclassified:
     maxAttachmentSize: -1
     maxAttachmentSizeMb: 0
     precedenceBulk: false
-    useSsl: false
     watchingEnabled: false
+    mailAccount:
+      useSsl: false
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
   location:

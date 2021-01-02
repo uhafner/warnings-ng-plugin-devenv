@@ -2,7 +2,7 @@ version: "3"
 services:
   jenkins-master:
     build:
-      context: ./docker/images/jenkins-master
+      context: docker/images/jenkins-controller
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./docker/volumes/jenkins-home:/var/jenkins_home:cached

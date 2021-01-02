@@ -3,22 +3,22 @@
 In order to reduce the initial ramp-up time for new contributors of the Warnings Next Generation Plugin I prepared a 
 docker based development environment that is described in this document. It consists of the following parts:
 
-- Scripts to checkout all modules of the warnings plugin from GitHub. 
-Depending on the part where you want to contribute you normally work with just one of these modules. 
+- Scripts to checkout all modules of the warnings plugin from GitHub.
+Depending on the part where you want to contribute you normally work with just one of these modules.
 However, it simplifies the development if all modules are already part of the workspace. Then you
 can switch at any time to one of the other modules.
-- Docker based Jenkins master and agent that has all required plugins installed to see the Warnings plugin in action. 
+- Docker based Jenkins master and agent that has all required plugins installed to see the Warnings plugin in action.
 This Jenkins instance is already configured properly to build Java modules on a Linux based agent. It also has
 some jobs defined, that build some of the modules of the Warnings plugin. These jobs record issues of several static
 analysis tools so you immediately get an impression of the functionality of the Warnings plugin.
-- IntelliJ project that references the modules of the Warnings plugin. 
+- IntelliJ project that references the modules of the Warnings plugin.
 This project contains presets of my [coding style](https://github.com/uhafner/codingstyle) and some other helpful 
 configurations. Note that IntelliJ (or global IntelliJ preferences) are not part of this project.
 
 ## Supported operating systems
 
 The development environment has been tested on macOS, Ubuntu Linux (in a virtual machine running on
-macOS), and Windows. Pull requests are always welcome.   
+macOS), and Windows. Pull requests are always welcome.
 
 ## TLDR
 
@@ -85,9 +85,10 @@ It should be possible to use other IDEs (Eclipse, Netbeans) as well. The analysi
 
 ### Running unit and integration tests
 
-In order to run the unit and integrations tests of the modules analysis-model and warnings-ng use the provided 
-Run configurations `All in [module-name]`. These configurations are already configured
-to record the branch coverage of the corresponding module packages (`Run with Coverage` menu).   
+Use the provided IntelliJ Run Configurations `All in [module-name]` to run the unit and integrations tests of the
+corrsponding module. These configurations are already configured
+to record the branch coverage of the corresponding module packages
+(use the `Run with Coverage` action).   
 
 ### Debugging 
 
@@ -110,12 +111,12 @@ a debugger in IntelliJ.
 
 ### Running UI tests
 
-UI tests can be started using the corresponding launchers `UI Tests (Firefox)` or `UI Tests (Chrome)`. 
+UI tests can be started using the corresponding launchers `UI Tests [module] (Firefox)` or `UI Tests [module] (Chrome)`. 
 Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
 installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
 your setup.
 
-All UI tests require to run within a given subject under test (i.e, Jenkins under test, JUT), see  
+All UI tests require to run within a given subject under test (i.e, Jenkins under test, JUT), see
 [Acceptance Test Harness](https://github.com/jenkinsci/acceptance-test-harness) project for more details.
 
 ## Starting the Jenkins instance
@@ -162,7 +163,7 @@ kind of changes:
 
 ### Changing analysis model without adding new API methods
  
-If you have only changes in the analysis-model module (and you added no new API methods) then you need to rebuild 
+If you have only changes in the `analysis-model` module (and you added no new API methods) then you need to rebuild 
 and install the maven module `analysis-model.jar` and afterwards rebuild the associated Jenkins wrapper plugin 
 `analysis-model-api-plugin`. This plugin then needs to be deployed into the Jenkins instance.
 
@@ -186,7 +187,11 @@ TODO
 
 ### Changing forensics-api-plugin and git-forensics-plugin
 
-TODO
+If you have changes in one of the Foresics Plugins (API or Git implementation) then you need to 
+rebuild these Jenkins plugins and deploy them into the Jenkins instance. 
+
+To simplify this process run the script `./go.sh` in the corresponding plugin folder, it will build the
+plugin and deploy it on success into the Jenkins instance.
 
 ### IntelliJ Launchers to deploy the plugins 
 
@@ -200,27 +205,9 @@ UI tests can be started using an IntelliJ launcher configuration or using a comm
 all UI tests require to run within a given subject under test. In our case we use the latest available Jenkins LTS
 version and the predefined set of plugins from our docker image.      
 
-### Pooling of Jenkins Under Test (JUT)
-
-UI tests execute really slowly. This is mostly because each test wants to launch its own clean Jenkins, and we end up 
-mostly just waiting for Jenkins under test (JUT) to come up. This delay is also quite annoying when you are developing a 
-new test. Often you have to run the test under development multiple times before you get your test right. And every 
-time you run a test, you end up waiting for JUT to come up.
-
-To help cope with this situation, this project comes with a separate entry point that runs a JUT server. 
-The JUT server will maintain a fixed number of Jenkins instances booted. There's a corresponding PooledJenkinsController 
-implementation you'd use when you run a test, which asks the JUT server to hand off a fresh JUT.  
-
-Start the pooled Jenkins controller by calling the script `start-jut.sh`. This script creates a pool of Jenkins 
-instances that is handed out on request. Since each test requires several seconds it is sufficient to set the pool
-size to 1. I.e., as soon as a Jenkins instance has been handed out, the next one is prepared.
-
-For more details please refer to the corresponding 
-[documentation of the ATH](https://github.com/jenkinsci/acceptance-test-harness/blob/master/docs/PRELAUNCH.md).
-
 ### Running UI tests in IntelliJ
 
-UI tests can be started using the corresponding launchers `UI Tests (Firefox)` or `UI Tests (Chrome)`. 
+UI tests can be started using the corresponding launchers `UI Tests Warnings (Firefox)` or `UI Warnings Tests (Chrome)`. 
 Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
 installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
 your setup.

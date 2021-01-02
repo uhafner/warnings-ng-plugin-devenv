@@ -3,7 +3,7 @@
     <module name="analysis-model" />
     <extension name="coverage" runner="jacoco">
       <pattern>
-        <option name="PATTERN" value="edu.hm.hafner.util.*" />
+        <option name="PATTERN" value="edu.hm.hafner.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

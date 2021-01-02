@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/../github-actions-autograding/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/acceptance-test-harness" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/acceptance-test-harness/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/acceptance-test-harness/src/main/resources" charset="UTF-8" />
@@ -12,8 +11,9 @@
     <file url="file://$PROJECT_DIR$/analysis-model/etc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/autograding-model/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/autograding-plugin/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/autograding-plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/autograding-plugin/plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/autograding-plugin/plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/autograding-plugin/ui-tests/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bootstrap4-api-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bootstrap4-api-plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bootstrap4-api-plugin/src/main/resources" charset="UTF-8" />

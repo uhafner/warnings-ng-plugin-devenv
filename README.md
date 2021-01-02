@@ -139,8 +139,8 @@ images will be composed. After the images have been created the following two co
 preconfigured using [JCasC](https://github.com/jenkinsci/configuration-as-code-plugin) to build Java applications 
 on an agent. The controller is not allowed to run jobs.
 - java-agent: A minimal Java agent based on the 
-[official OpenJDK8 docker image](https://hub.docker.com/_/openjdk?tab=description) (Alpine Linux). Controller and slave
-are connected using SSH.
+[official OpenJDK8 docker image](https://hub.docker.com/_/openjdk?tab=description) (Alpine Linux). 
+Controller and agent are connected using SSH.
 
 You can then open Jenkins at the URL http://localhost:8080/. Use the following credentials to log in as administrator: 
 - User: admin

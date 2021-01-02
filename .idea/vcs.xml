@@ -7,13 +7,9 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/acceptance-test-harness" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/autograding-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/codingstyle" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/docker/volumes/jenkins-home/workspace/pipeline-analysis-model@script" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/docker/volumes/jenkins-home/workspace/pipeline-codingstyle@script" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/forensics-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/git-forensics-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/warnings-ng-plugin" vcs="Git" />

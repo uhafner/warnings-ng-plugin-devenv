@@ -14,9 +14,6 @@ analysis tools so you immediately get an impression of the functionality of the 
 - IntelliJ project that references the modules of the Warnings plugin. 
 This project contains presets of my [coding style](https://github.com/uhafner/codingstyle) and some other helpful 
 configurations. Note that IntelliJ (or global IntelliJ preferences) are not part of this project.
-- [Acceptance test harness](https://github.com/jenkinsci/acceptance-test-harness) project and some scripts to start
-the UI tests of the Warnings plugin. These tests will run by using a pooled Jenkins controller with the preconfigured
-set of Jenkins plugins in the docker container. 
 
 ## Supported operating systems
 
@@ -118,8 +115,8 @@ Note that both launchers require an installation of the corresponding Selenium d
 installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
 your setup.
 
-All UI tests require to run within a given subject under test (i.e, Jenkins under test, JUT), see section 
-[Acceptance Test Harness](#acceptance-test-harness) for more details.
+All UI tests require to run within a given subject under test (i.e, Jenkins under test, JUT), see  
+[Acceptance Test Harness](https://github.com/jenkinsci/acceptance-test-harness) project for more details.
 
 ## Starting the Jenkins instance
 
@@ -177,10 +174,10 @@ will build the actual plugin and deploy it into the Jenkins instance.
 
 If you have only changes in the warnings-ng plugin then you need to rebuild the Jenkins plugin `warnings-ng.jpi` 
 and deploy it into the Jenkins instance. This task is provided by one of the following shell scripts:
-- `./clean.sh`: Builds the plugin using `mvn clean install` and deploys it on success into the Jenkins instance.
-- `./go.sh`: Builds the plugin using `mvn clean install -DskipITs` (skips the integration tests) 
+- `./bin/clean.sh`: Builds the plugin using `mvn clean install` and deploys it on success into the Jenkins instance.
+- `./bin/go.sh`: Builds the plugin using `mvn clean install -DskipITs` (skips the integration tests) 
 and deploys it on success into the Jenkins instace.
-- `./skip.sh`: Builds the plugin using `mvn clean install -DskipTests` (skips all tests and static analysis) 
+- `./bin/skip.sh`: Builds the plugin using `mvn clean install -DskipTests` (skips all tests and static analysis) 
 and deploys it on success into the Jenkins instance.
 
 ### Changing analysis model with breaking API changes
@@ -195,9 +192,7 @@ TODO
 
 The build scripts from the last section can also be started using one of the IntelliJ launchers 
 `Build and Deploy [module-name]`.
-These launchers build the corresponding plugin and deploy it into Jenkins. (Note: there is currently an 
-[IntelliJ bug](https://youtrack.jetbrains.com/issue/IDEA-218250) open, so that sometimes the script is 
-started in the wrong folder.)
+These launchers build the corresponding plugin and deploy it into Jenkins. 
 
 ## Acceptance Test Harness
 

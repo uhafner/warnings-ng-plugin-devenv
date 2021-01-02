@@ -94,6 +94,12 @@ credentials:
               -----END RSA PRIVATE KEY----- \n"
               scope: GLOBAL
               username: "agent"
+          - gitHubApp:
+              appID: "74721"
+              description: "GitHub App"
+              id: "github-app"
+              privateKey: ${GITHUB_APP}
+              scope: GLOBAL
 unclassified:
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED

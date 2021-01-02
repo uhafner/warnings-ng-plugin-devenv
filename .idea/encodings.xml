@@ -7,13 +7,16 @@
     <file url="file://$PROJECT_DIR$/analysis-model-api-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model/etc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/autograding-plugin/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/autograding-plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/autograding-plugin/plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/autograding-plugin/plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/autograding-plugin/ui-tests/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codingstyle/etc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codingstyle/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/forensics-api-plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/forensics-api-plugin/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/git-forensics-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/git-forensics-plugin/plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/git-forensics-plugin/plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/git-forensics-plugin/ui-tests/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/ui-tests/src/main/java" charset="UTF-8" />

@@ -96,21 +96,6 @@ credentials:
               username: "agent"
 
 unclassified:
-  email-ext:
-    adminRequiredForTemplateTesting: false
-    allowUnregisteredEnabled: false
-    charset: "UTF-8"
-    debugMode: false
-    defaultBody: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:\r\n\r\nCheck\
-      \ console output at $BUILD_URL to view the results."
-    defaultContentType: "text/plain"
-    defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
-    maxAttachmentSize: -1
-    maxAttachmentSizeMb: 0
-    precedenceBulk: false
-    watchingEnabled: false
-    mailAccount:
-      useSsl: false
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
   location:
@@ -119,8 +104,6 @@ unclassified:
   mailer:
     charset: "UTF-8"
     useSsl: false
-  mavenModuleSet:
-    localRepository: "default"
   pollSCM:
     pollingThreadCount: 10
   timestamperConfig:
@@ -162,20 +145,6 @@ tool:
 
 jobs:
   - script: >
-      pipelineJob('pipeline-autograding') {
-          definition {
-              cpsScm {
-                  scriptPath 'etc/Jenkinsfile.autograding'
-                  scm {
-                    git {
-                        remote { url 'https://github.com/jenkinsci/autograding-plugin.git' }
-                        branch '*/master'
-                        extensions {}
-                    }
-                  }
-              }
-          }
-      };
       pipelineJob('pipeline-codingstyle') {
           definition {
               cpsScm {

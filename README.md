@@ -20,7 +20,7 @@ set of Jenkins plugins in the docker container.
 
 ## Supported operating systems
 
-The development environment has been tested on macOS Mojave Ubuntu Linux 18.04 (in a virtual machine running on
+The development environment has been tested on macOS, Ubuntu Linux (in a virtual machine running on
 macOS), and Windows. Pull requests are always welcome.   
 
 ## TLDR
@@ -53,9 +53,12 @@ Additionally, the following tools (latest version) are required:
     4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*.
 3. Run the Test Launchers in IntelliJ for analysis-model, forensics-api, git-forensics, and warnings-ng.
 4. Start Jenkins with `jenkins.sh`. 
-5. Login to Jenkins at: http://localhost:8080/ (admin:admin).
-6. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
-7. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
+5. Login to Jenkins at: http://localhost:8080/
+6. Use the following credentials: 
+    - User: admin
+    - Password: admin
+7. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
+8. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
 
 ## Cloning the modules
 
@@ -73,8 +76,6 @@ mines and analyzes data from a Git repository. It implements all extension point
 the [forensics-api-plugin](https://github.com/jenkinsci/forensics-api-plugin). 
 - [warnings-ng-plugin](https://github.com/jenkinsci/warnings-ng-plugin): The main plugin that contains all steps 
 and UI classes. 
-- [acceptance-test-harness](https://github.com/jenkinsci/acceptance-test-harness): Jenkins acceptance test harness, 
-this module contains tests and page objects for all Jenkins plugins and core components.
 
 ## Modifying and debugging code with IntelliJ
 
@@ -115,14 +116,11 @@ a debugger in IntelliJ.
 UI tests can be started using the corresponding launchers `UI Tests (Firefox)` or `UI Tests (Chrome)`. 
 Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
 installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
-your setup. UI tests are based on Jenkins [Acceptance Test Harness](https://github.com/jenkinsci/acceptance-test-harness) 
-project (ATH), see [project documentation](https://github.com/jenkinsci/acceptance-test-harness/tree/master/docs) for more details.
+your setup.
 
-For your convenience, the ATH module is also cloned into the workspace: this helps to navigate through the existing set
-of page objects and tests for other plugins (which can be used as starting point for your own UI tests). 
-It also provides the ATH JUT controller to pool the Jenkins instance 
-under test, see [section JUT Pooling](#pooling-of-jenkins-under-test-jut) for details.
- 
+All UI tests require to run within a given subject under test (i.e, Jenkins under test, JUT), see section 
+[Acceptance Test Harness](#acceptance-test-harness) for more details.
+
 ## Starting the Jenkins instance
 
 In order to see changes in the Warnings plugin modules it is required to deploy the plugins to a Jenkins instance that
@@ -140,6 +138,10 @@ on an agent. The master is not allowed to run jobs.
 - java-agent: A minimal Java agent based on the 
 [official OpenJDK8 docker image](https://hub.docker.com/_/openjdk?tab=description) (Alpine Linux). Master and slave
 are connected using SSH.
+
+You can then open Jenkins at the URL http://localhost:8080/. Use the following credentials to log in as administrator: 
+- User: admin
+- Password: admin
 
 ### Volume for JENKINS_HOME
 

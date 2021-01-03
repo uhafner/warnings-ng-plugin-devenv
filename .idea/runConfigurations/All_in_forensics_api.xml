@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All in forensics-api" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
     <module name="forensics-api" />
-    <extension name="coverage" runner="jacoco">
+    <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="io.jenkins.plugins.util.*" />
+        <option name="PATTERN" value="io.jenkins.plugins.forensics.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

@@ -26,7 +26,7 @@ fi
 
 if [ -z "$TEST_CASE" ];
 then
-    TEST_CASE=WarningsPluginUiTest
+    TEST_CASE=SmokeTests
 fi
 
 mvnOptions="-Dquite -Dsurefire.rerunFailingTestsCount=${RETRY} -Dwebdriver.gecko.driver=${GECKO_DRIVER_PATH} -DElasticTime.factor=${ELASTIC} -Dwebdriver.chrome.driver=${CHROME_DRIVER_PATH}"

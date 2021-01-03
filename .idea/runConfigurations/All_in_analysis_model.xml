@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All in analysis-model" type="JUnit" factoryName="JUnit">
     <module name="analysis-model" />
-    <extension name="coverage" runner="jacoco">
+    <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="edu.hm.hafner.util.*" />
+        <option name="PATTERN" value="edu.hm.hafner.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

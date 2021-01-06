@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 protocol="$1"
 message="$2"
 

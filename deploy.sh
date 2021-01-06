@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 JENKINS_HOME=docker/volumes/jenkins-home
 
 echo "Removing plugins in $JENKINS_HOME"

@@ -1,10 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="All unit tests in warnings" type="JUnit" factoryName="JUnit">
-    <module name="analysis-model" />
+  <configuration default="false" name="UI Tests Git Forensics (Firefox)" type="JUnit" factoryName="JUnit">
+    <module name="git-forensics-ui-tests" />
     <useClassPathOnly />
-    <extension name="coverage" sample_coverage="false">
+    <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="io.jenkins.plugins.analysis.*" />
+        <option name="PATTERN" value="plugins.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
@@ -12,11 +12,14 @@
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="pattern" />
-    <option name="VM_PARAMETERS" value="-ea -Djava.awt.headless=true" />
+    <option name="VM_PARAMETERS" value="-ea -Dwebdriver.gecko.driver=/usr/local/bin/geckodriver -DElasticTime.factor=2 -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver" />
     <option name="PARAMETERS" value="" />
     <patterns>
-      <pattern testClass=".*Test" />
+      <pattern testClass=".*[a-z]UiTest|SmokeTest" />
     </patterns>
+    <envs>
+      <env name="BROWSER" value="firefox" />
+    </envs>
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

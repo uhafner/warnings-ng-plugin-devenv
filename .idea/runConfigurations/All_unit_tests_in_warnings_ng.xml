@@ -1,18 +1,22 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="All in forensics-api" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-    <module name="forensics-api" />
+  <configuration default="false" name="All unit tests in warnings-ng" type="JUnit" factoryName="JUnit">
+    <module name="warnings-ng" />
+    <useClassPathOnly />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="io.jenkins.plugins.forensics.*" />
+        <option name="PATTERN" value="io.jenkins.plugins.analysis.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
     <option name="PACKAGE_NAME" value="" />
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
-    <option name="TEST_OBJECT" value="package" />
-    <option name="VM_PARAMETERS" value="-ea -Djava.awt.headless=true" />
+    <option name="TEST_OBJECT" value="pattern" />
+    <option name="VM_PARAMETERS" value="-ea -Djava.awt.headless=true -Djson-unit.libraries=jackson2" />
     <option name="PARAMETERS" value="" />
+    <patterns>
+      <pattern testClass=".*[a-z]Test" />
+    </patterns>
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk-alpine
 
 RUN apk update \
-    && apk add bash git openssh \
+    && apk add bash git openssh dos2unix \
     && mkdir /root/.ssh \
     && chmod 0700 /root/.ssh \
     && ssh-keygen -A \
@@ -27,11 +27,13 @@ VOLUME /var/data
 
 COPY docker-entrypoint.sh /
 RUN chmod u+x docker-entrypoint.sh
+RUN dos2unix /docker-entrypoint.sh
 
 RUN git config --global user.name "Jenkins Java Agent"
 RUN git config --global user.email "java.agent@jenkins.master"
 
 EXPOSE 22
+
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 

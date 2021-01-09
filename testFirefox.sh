@@ -26,12 +26,12 @@ fi
 
 if [ -z "$TEST_CASE" ];
 then
-    TEST_CASE=WarningsNextGenerationPluginTest
+    TEST_CASE=SmokeTests
 fi
 
 mvnOptions="-Dquite -Dsurefire.rerunFailingTestsCount=${RETRY} -Dwebdriver.gecko.driver=${GECKO_DRIVER_PATH} -DElasticTime.factor=${ELASTIC} -Dwebdriver.chrome.driver=${CHROME_DRIVER_PATH}"
 
 echo Running: env LC_NUMERIC="en_US.UTF-8" BROWSER=${BROWSER} mvn -V test -Dtest=${TEST_CASE} ${mvnOptions}
 
-cd acceptance-test-harness
-env LC_NUMERIC="en_US.UTF-8" BROWSER=${BROWSER} mvn -V test -Dtest=${TEST_CASE} ${mvnOptions}
+cd warnings-ng-plugin/ui-tests
+env LC_NUMERIC="en_US.UTF-8" BROWSER=${BROWSER} mvn -V test -Dtest=${TEST_CASE} ${mvnOptions} -P-no-ui-tests-on-mac

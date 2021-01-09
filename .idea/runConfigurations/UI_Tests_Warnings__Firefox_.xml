@@ -1,21 +1,25 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="UI Tests (Firefox)" type="JUnit" factoryName="JUnit">
-    <module name="acceptance-test-harness" />
+  <configuration default="false" name="UI Tests Warnings (Firefox)" type="JUnit" factoryName="JUnit">
+    <module name="warnings-ng-ui-tests" />
+    <useClassPathOnly />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="io.jenkins.plugin.analysis.warnings.*" />
+        <option name="PATTERN" value="plugins.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
-    <option name="PACKAGE_NAME" value="plugins" />
-    <option name="MAIN_CLASS_NAME" value="plugins.WarningsNextGenerationPluginTest" />
+    <option name="PACKAGE_NAME" value="" />
+    <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
-    <option name="TEST_OBJECT" value="class" />
+    <option name="TEST_OBJECT" value="pattern" />
     <option name="VM_PARAMETERS" value="-ea -Dwebdriver.gecko.driver=/usr/local/bin/geckodriver -DElasticTime.factor=2 -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver" />
     <option name="PARAMETERS" value="" />
     <envs>
       <env name="BROWSER" value="firefox" />
     </envs>
+    <patterns>
+      <pattern testClass=".*[a-z]UiTest|SmokeTest" />
+    </patterns>
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

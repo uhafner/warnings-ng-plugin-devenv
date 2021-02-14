@@ -23,3 +23,10 @@ services:
     depends_on:
       - jenkins-master
     restart: unless-stopped
+  java11-agent:
+    build: ./docker/images/java11-agent
+    ports:
+      - 8002:8002   # Jenkins Agent Debugging Port
+    depends_on:
+      - jenkins-master
+    restart: unless-stopped

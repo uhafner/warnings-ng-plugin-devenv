@@ -7,6 +7,7 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/../acceptance-test-harness" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../autograding-github-action" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../echarts" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../git-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../github-api" vcs="Git" />

@@ -6,11 +6,11 @@
 
   <groupId>edu.hm.hafner</groupId>
   <artifactId>warnings-ng-plugin-devenv</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>UNVERSIONED</version>
 
   <packaging>pom</packaging>
 
-  <name>Warnings Next Generation Plugin development environment</name>
+  <name>Warnings plugin development environment</name>
   <description>Development environment for Jenkins' Warnings Next Generation Plugin.
     Reduces the initial ramp-up time for new contributors. </description>
 

@@ -17,15 +17,26 @@ jenkins:
         launcher:
           ssh:
             credentialsId: "java-agent-ssh-private-key"
-            host: "java-agent"
+            host: "java11-agent"
             launchTimeoutSeconds: 210
             maxNumRetries: 10
             port: 22
             retryWaitTime: 15
             jvmOptions: "-agentlib:jdwp=transport=dt_socket,address=8001,suspend=n,server=y"
-        name: "java-agent"
+            javaPath: "/opt/java/openjdk/bin/java"
+            sshHostKeyVerificationStrategy:
+              manuallyTrustedKeyVerificationStrategy:
+                requireInitialManualTrust: false
+        name: "java11-agent"
         numExecutors: 1
         remoteFS: "/var/data"
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "JAVA_HOME"
+                  value: "/opt/java/openjdk"
+                - key: "MAVEN_HOME"
+                  value: "/opt/maven"
   numExecutors: 0
   primaryView:
     all:
@@ -106,10 +117,6 @@ unclassified:
     useSsl: false
   pollSCM:
     pollingThreadCount: 10
-  timestamperConfig:
-    allPipelines: true
-    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
-    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
 
 tool:
   git:

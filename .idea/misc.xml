@@ -16,7 +16,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/analysis-model/pom.xml" />
         <option value="$PROJECT_DIR$/analysis-model-api-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/forensics-api-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/git-forensics-plugin/pom.xml" />
@@ -29,14 +28,14 @@
         <option value="$PROJECT_DIR$/warnings-ng-plugin/ui-tests/pom.xml" />
         <option value="$PROJECT_DIR$/autograding-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/git-forensics-plugin/ui-tests/pom.xml" />
-        <option value="$PROJECT_DIR$/../git-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/autograding-model/pom.xml" />
         <option value="$PROJECT_DIR$/../autograding-github-action/pom.xml" />
+        <option value="$PROJECT_DIR$/analysis-model/pom.xml" />
       </list>
     </option>
   </component>
   <component name="NullableNotNullManager">
-    <option name="myDefaultNullable" value="edu.umd.cs.findbugs.annotations.Nullable" />
+    <option name="myDefaultNullable" value="javax.annotation.CheckForNull" />
     <option name="myDefaultNotNull" value="edu.umd.cs.findbugs.annotations.NonNull" />
     <option name="myNullables">
       <value>
@@ -78,6 +77,9 @@
         </list>
       </value>
     </option>
+    <instrumentedNotNulls>
+      <option value="edu.umd.cs.findbugs.annotations.NonNull" />
+    </instrumentedNotNulls>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="AdoptOpenJDK 11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

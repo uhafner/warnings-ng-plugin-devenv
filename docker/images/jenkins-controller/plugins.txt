@@ -23,6 +23,7 @@ file-operations
 form-element-path
 git
 git-client
+git-forensics
 git-server
 github
 github-api

@@ -17,31 +17,19 @@ jenkins:
         launcher:
           ssh:
             credentialsId: "java-agent-ssh-private-key"
-            host: "java-agent"
-            launchTimeoutSeconds: 210
-            maxNumRetries: 10
-            port: 22
-            retryWaitTime: 15
-            jvmOptions: "-agentlib:jdwp=transport=dt_socket,address=8001,suspend=n,server=y"
-        name: "java-agent"
-        numExecutors: 1
-        remoteFS: "/var/data"
-    - permanent:
-        launcher:
-          ssh:
-            credentialsId: "java-agent-ssh-private-key"
             host: "java11-agent"
             launchTimeoutSeconds: 210
             maxNumRetries: 10
             port: 22
             retryWaitTime: 15
-            jvmOptions: "-agentlib:jdwp=transport=dt_socket,address=8002,suspend=n,server=y"
+            jvmOptions: "-agentlib:jdwp=transport=dt_socket,address=8001,suspend=n,server=y"
             javaPath: "/opt/java/openjdk/bin/java"
             sshHostKeyVerificationStrategy:
               manuallyTrustedKeyVerificationStrategy:
                 requireInitialManualTrust: false
         name: "java11-agent"
         numExecutors: 1
+        remoteFS: "/var/data"
         nodeProperties:
           - envVars:
               env:
@@ -166,3 +154,141 @@ tool:
     triggerDownstreamUponResultNotBuilt: false
     triggerDownstreamUponResultSuccess: true
     triggerDownstreamUponResultUnstable: false
+
+jobs:
+  - script: >
+      pipelineJob('pipeline-codingstyle') {
+          definition {
+              cpsScm {
+                  scriptPath 'Jenkinsfile'
+                  scm {
+                    git {
+                        remote { url 'https://github.com/uhafner/codingstyle.git' }
+                        branch '*/master'
+                        extensions {}
+                    }
+                  }
+              }
+          }
+      };
+      pipelineJob('pipeline-analysis-model') {
+          definition {
+              cpsScm {
+                  scriptPath 'etc/Jenkinsfile.analysis'
+                  scm {
+                    git {
+                        remote { url 'https://github.com/jenkinsci/analysis-model.git' }
+                        branch '*/master'
+                        extensions {}
+                    }
+                  }
+              }
+          }
+      };
+      pipelineJob('pipeline-warnings-ng') {
+          definition {
+              cpsScm {
+                  scriptPath 'etc/Jenkinsfile.analysis'
+                  scm {
+                    git {
+                        remote { url 'https://github.com/jenkinsci/warnings-ng-plugin.git' }
+                        branch '*/master'
+                        extensions {}
+                    }
+                  }
+              }
+          }
+      };
+      freeStyleJob('freestyle-warnings-ng') {
+          scm {
+              git {
+                  remote { url 'https://github.com/jenkinsci/warnings-ng-plugin.git' }
+                  branch '*/master'
+                  extensions {}
+              }
+          }
+          steps {
+              maven {
+                  mavenInstallation('mvn-default')
+                  goals('clean verify')
+                  rootPOM('plugin/pom.xml')
+                  properties(skipITs: true)
+              }
+          }
+          publishers {
+              recordIssues {
+                  sourceCodeEncoding('UTF-8')
+                  aggregatingResults(true)
+                  tools {
+                      mavenConsole {}
+                      java {}
+                      javaDoc {}
+                      taskScanner {
+                          highTags('FIXME')
+                          normalTags('TODO')
+                          includePattern('**/*.java')
+                          excludePattern('target/**/*,**/TaskScannerTest.java')
+                      }
+                      spotBugs {
+                            pattern('**/target/spotbugsXml.xml')
+                            useRankAsPriority(true)
+                      }
+                      checkStyle {
+                            pattern('**/target/checkstyle-result.xml')
+                      }
+                      pmd {
+                            pattern('**/target/pmd.xml')
+                      }
+                      cpd {
+                            pattern('**/target/cpd.xml')
+                      }
+                  }
+              }
+          }
+      };
+      freeStyleJob('freestyle-analysis-model') {
+          scm {
+              git {
+                  remote { url 'https://github.com/jenkinsci/analysis-model.git' }
+                  branch '*/master'
+                  extensions {}
+              }
+          }
+          steps {
+              maven {
+                  mavenInstallation('mvn-default')
+                  goals('clean verify')
+                  properties(skipITs: true)
+              }
+          }
+          publishers {
+              recordIssues {
+                    sourceCodeEncoding('UTF-8')
+                    aggregatingResults(true)
+                    tools {
+                      mavenConsole {}
+                      java {}
+                      javaDoc {}
+                      taskScanner {
+                          highTags('FIXME')
+                          normalTags('TODO')
+                          includePattern('**/*.java')
+                          excludePattern('target/**/*')
+                      }
+                      spotBugs {
+                            pattern('**/target/spotbugsXml.xml')
+                            useRankAsPriority(true)
+                      }
+                      checkStyle {
+                            pattern('**/target/checkstyle-result.xml')
+                      }
+                      pmd {
+                            pattern('**/target/pmd.xml')
+                      }
+                      cpd {
+                            pattern('**/target/cpd.xml')
+                      }
+                  }
+              }
+        }
+      };

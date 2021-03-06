@@ -5,7 +5,7 @@
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis-model" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="edu.hm.hafner.analysis.registry.*" />
+        <option name="PATTERN" value="edu.hm.hafner.analysis.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

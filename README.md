@@ -33,7 +33,7 @@ Latest version of the following tools:
 - Docker Compose
 - IntelliJ Ultimate
 - Maven
-- JDK 8
+- JDK 11 (LTS)
 
 #### UI Testing
 

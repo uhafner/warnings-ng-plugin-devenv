@@ -49,14 +49,19 @@ Latest version of the following tools:
     2. Select Open...
     3. Select the folder `warnings-ng-plugin-devenv`
     4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*.
-3. Run the Test Launchers in IntelliJ for analysis-model, forensics-api, git-forensics, and warnings-ng.
-4. Start Jenkins with `jenkins.sh`. 
-5. Login to Jenkins at: http://localhost:8080/
-6. Use the following credentials: 
+3. After the import in IntelliJ, compilation errors may occur in some projects. Please check in those projects that all
+sub-folders of `{project}/target/generated-sources` and `{project}/target/generated-test-sources` are
+marked as `Sources Root` and `Test Sources Root`, respectively. (Right click on those folders and mark them 
+accordingly with **Mark Directory as**).
+   Execute `mvn verify -DskipTests` to convince yourself that the compilation is error-free.
+4. Run the Test Launchers in IntelliJ for analysis-model, forensics-api, git-forensics, and warnings-ng.
+5. Start Jenkins with `jenkins.sh`. 
+6. Login to Jenkins at: http://localhost:8080/
+7. Use the following credentials: 
     - User: admin
     - Password: admin
-7. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
-8. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
+8. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
+9. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
 
 ## Cloning the modules
 
@@ -225,7 +230,6 @@ your setup.
 
 You can also start the UI tests using the provided shell scrips `testFirefox.sh` or `testChrome.sh`. Note that
 you might need to adapt these scripts as well (see previous section).
-
 
 
 

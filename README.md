@@ -49,10 +49,10 @@ Latest version of the following tools:
     2. Select Open...
     3. Select the folder `warnings-ng-plugin-devenv`
     4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*.
-3. After all projects have been cloned, compilation errors may occur. Please remember that
-   the folders `{project}/target/generated-sources` and `{project}/target/generated-test-sources` are
-   marked as `Sources Root` and respectively `Test Sources Root` for the error-producing project (Right click on
-   respective folder above > Mark Directory as).
+3. After the import in IntelliJ, compilation errors may occur in some projects. Please check in those projects that all
+sub-folders of `{project}/target/generated-sources` and `{project}/target/generated-test-sources` are
+marked as `Sources Root` and `Test Sources Root`, respectively. (Right click on those folders and mark them 
+accordingly with **Mark Directory as**).
    Execute `mvn verify -DskipTests` to convince yourself that the compilation is error-free.
 4. Run the Test Launchers in IntelliJ for analysis-model, forensics-api, git-forensics, and warnings-ng.
 5. Start Jenkins with `jenkins.sh`. 
@@ -230,7 +230,6 @@ your setup.
 
 You can also start the UI tests using the provided shell scrips `testFirefox.sh` or `testChrome.sh`. Note that
 you might need to adapt these scripts as well (see previous section).
-
 
 
 

@@ -14,6 +14,7 @@
     <mapping directory="$PROJECT_DIR$/autograding-model" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/autograding-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/bootstrap4-api-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bootstrap5-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/codingstyle" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/codingstyle-pom" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/data-tables-api-plugin" vcs="Git" />
@@ -25,6 +26,7 @@
     <mapping directory="$PROJECT_DIR$/jquery3-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/plugin-util-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/popper-api-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/popper2-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/warnings-ng-plugin" vcs="Git" />
   </component>
 </project>

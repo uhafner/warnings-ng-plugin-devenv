@@ -30,6 +30,8 @@
         <option value="$PROJECT_DIR$/autograding-model/pom.xml" />
         <option value="$PROJECT_DIR$/analysis-model/pom.xml" />
         <option value="$PROJECT_DIR$/warnings-ng-plugin/plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/bootstrap5-api-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/popper2-api-plugin/pom.xml" />
       </list>
     </option>
   </component>
@@ -79,6 +81,20 @@
     <instrumentedNotNulls>
       <option value="edu.umd.cs.findbugs.annotations.NonNull" />
     </instrumentedNotNulls>
+  </component>
+  <component name="PDMPlugin">
+    <option name="customRuleSets">
+      <list>
+        <option value="$PROJECT_DIR$/codingstyle/etc/pmd-configuration.xml" />
+      </list>
+    </option>
+    <option name="options">
+      <map>
+        <entry key="Encoding" value="" />
+        <entry key="Target JDK" value="1.8" />
+      </map>
+    </option>
+    <option name="skipTestSources" value="false" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="AdoptOpenJDK 11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

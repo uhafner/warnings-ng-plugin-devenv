@@ -15,6 +15,8 @@
     <file url="file://$PROJECT_DIR$/bootstrap4-api-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bootstrap4-api-plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bootstrap4-api-plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bootstrap5-api-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bootstrap5-api-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codingstyle/etc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codingstyle/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/data-tables-api-plugin/src/main/java" charset="UTF-8" />
@@ -42,6 +44,8 @@
     <file url="file://$PROJECT_DIR$/popper-api-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/popper-api-plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/popper-api-plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/popper2-api-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/popper2-api-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/plugin/src/main/resources" charset="UTF-8" />

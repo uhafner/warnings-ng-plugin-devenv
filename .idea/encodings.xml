@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../autograding-github-action/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../junit-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../junit-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model-api-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-model-api-plugin/src/main/java" charset="UTF-8" />
@@ -17,6 +20,8 @@
     <file url="file://$PROJECT_DIR$/bootstrap4-api-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bootstrap5-api-plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bootstrap5-api-plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code-coverage-api-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code-coverage-api-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codingstyle/etc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codingstyle/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/data-tables-api-plugin/src/main/java" charset="UTF-8" />
@@ -46,6 +51,8 @@
     <file url="file://$PROJECT_DIR$/popper-api-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/popper2-api-plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/popper2-api-plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pull-request-monitoring-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pull-request-monitoring-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/warnings-ng-plugin/plugin/src/main/resources" charset="UTF-8" />

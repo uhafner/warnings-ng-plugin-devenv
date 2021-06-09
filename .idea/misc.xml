@@ -32,6 +32,10 @@
         <option value="$PROJECT_DIR$/warnings-ng-plugin/plugin/pom.xml" />
         <option value="$PROJECT_DIR$/bootstrap5-api-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/popper2-api-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/../junit-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/code-coverage-api-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/../autograding-github-action/pom.xml" />
+        <option value="$PROJECT_DIR$/pull-request-monitoring-plugin/pom.xml" />
       </list>
     </option>
   </component>

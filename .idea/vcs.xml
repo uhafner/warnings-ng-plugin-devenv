@@ -5,8 +5,16 @@
       <inspection_tool class="SubjectBodySeparation" enabled="true" level="WARNING" enabled_by_default="true" />
     </profile>
   </component>
+  <component name="GithubSharedProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="master" />
+      </list>
+    </option>
+  </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/../autograding-github-action" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../junit-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model-api-plugin" vcs="Git" />
@@ -15,6 +23,7 @@
     <mapping directory="$PROJECT_DIR$/autograding-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/bootstrap4-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/bootstrap5-api-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/code-coverage-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/codingstyle" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/codingstyle-pom" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/data-tables-api-plugin" vcs="Git" />

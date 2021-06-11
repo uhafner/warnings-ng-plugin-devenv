@@ -36,6 +36,7 @@
     <mapping directory="$PROJECT_DIR$/plugin-util-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/popper-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/popper2-api-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pull-request-monitoring-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/warnings-ng-plugin" vcs="Git" />
   </component>
 </project>

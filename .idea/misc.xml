@@ -32,11 +32,24 @@
         <option value="$PROJECT_DIR$/warnings-ng-plugin/plugin/pom.xml" />
         <option value="$PROJECT_DIR$/bootstrap5-api-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/popper2-api-plugin/pom.xml" />
-        <option value="$PROJECT_DIR$/../junit-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/code-coverage-api-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/../autograding-github-action/pom.xml" />
+        <option value="$PROJECT_DIR$/../bom/pom.xml" />
         <option value="$PROJECT_DIR$/pull-request-monitoring-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/../metrics-aggregation-plugin/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/../bom/bom-2.249.x/pom.xml" />
+        <option value="$PROJECT_DIR$/../bom/bom-2.263.x/pom.xml" />
+        <option value="$PROJECT_DIR$/../bom/bom-2.277.x/pom.xml" />
+        <option value="$PROJECT_DIR$/../bom/bom-2.289.x/pom.xml" />
+        <option value="$PROJECT_DIR$/../bom/bom-latest/pom.xml" />
+        <option value="$PROJECT_DIR$/../bom/sample-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/bootstrap4-api-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/popper-api-plugin/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="NullableNotNullManager">

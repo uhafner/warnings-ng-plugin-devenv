@@ -56,5 +56,10 @@
       <option name="name" value="jenkins-ci" />
       <option name="url" value="https://repo.jenkins-ci.org/releases/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="incrementals.repo.jenkins-ci.org" />
+      <option name="name" value="incrementals.repo.jenkins-ci.org" />
+      <option name="url" value="https://repo.jenkins-ci.org/incrementals/" />
+    </remote-repository>
   </component>
 </project>

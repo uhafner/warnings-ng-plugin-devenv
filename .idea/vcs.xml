@@ -14,14 +14,14 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/../autograding-github-action" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../junit-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../bom" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../metrics-aggregation-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-pom-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/autograding-model" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/autograding-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bootstrap4-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/bootstrap5-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/code-coverage-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/codingstyle" vcs="Git" />
@@ -34,9 +34,7 @@
     <mapping directory="$PROJECT_DIR$/git-forensics-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/jquery3-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/plugin-util-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/popper-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/popper2-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/pull-request-monitoring-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/warnings-ng-plugin" vcs="Git" />
   </component>
 </project>

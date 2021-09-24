@@ -1,9 +1,9 @@
-# Warnings Plugin - Development Environment
+# Warnings and Code Coverage Plugins - Development Environment
 
 This docker based development environment is for new contributors of the Warnings Next Generation 
-to reduce the initial ramp-up time. It consists of the following parts:
+and Code Coverage Plugins to reduce the initial ramp-up time. It consists of the following parts:
 
-- Scripts to check out all modules of the Warnings plugin from GitHub.
+- Scripts to check out all modules of these Jenkins plugins from GitHub.
 Depending on the part where you want to contribute to, you usually work with just one of these modules.
 However, it simplifies the development if all modules are already part of the workspace. Then you
 can switch at any time to one of the other modules.
@@ -31,9 +31,9 @@ macOS), and Windows. Pull requests are always welcome.
 Latest version of the following tools:
 - Docker
 - Docker Compose
-- IntelliJ Ultimate
+- IntelliJ Ultimate (or Community)
 - Maven
-- JDK 8
+- JDK 11
 
 #### UI Testing
 
@@ -43,14 +43,18 @@ Latest version of the following tools:
 
 ### Installation Steps
 
-1. Clone the Warnings plugin modules using the script `clone-repos.sh`.
+1. Clone and build the plugin modules using the script `clone-repos.sh`. You must wait until the build succeeds
+before opening IntelliJ, otherwise IntelliJ will not find all generated classes. First time Maven users need to wait a couple
+of minutes until all dependencies have been downloaded from Maven central.
 2. Import the project into Intellij:
     1. Start IntelliJ
     2. Select Open...
     3. Select the folder `warnings-ng-plugin-devenv`
-    4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*.
-3. Run the Test Launchers in IntelliJ for analysis-model, forensics-api, git-forensics, and warnings-ng.
-4. Start Jenkins with `jenkins.sh`. 
+    4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*. 
+    5. When IntelliJ asks : *Trust And Open Maven project* select *Trust Project* (see [IntelliJ Online Help](https://www.jetbrains.com/help/idea/project-security.html))
+3. Run the Test Launchers in IntelliJ for analysis-model, code-covarege-api, forensics-api, git-forensics, and warnings-ng.
+4. Start Jenkins with `jenkins.sh`. This command builds the Jenkins Docker image, downloads all registered plugins and 
+initializes the Jenkins workspace with some jobs. This requires some minutes as well.    
 5. Login to Jenkins at: http://localhost:8080/
 6. Use the following credentials: 
     - User: admin
@@ -68,6 +72,8 @@ Java object model. This module is not depending on Jenkins.
 - [analysis-model-api-plugin](https://github.com/jenkinsci/analysis-model-api-plugin): A simple wrapper for the 
 analysis model library. It provides the analysis-model classes as a Jenkins plugin. This overhead is required
 to simplify upgrades of the analysis-model module in Jenkins.
+- [code-coverage-api-plugin](https://github.com/jenkinsci/code-coverage-api-plugin): A plugin to read code coverage 
+reports and show the corresponding results in Jenkins.
 - [forensics-api-plugin](https://github.com/jenkinsci/forensics-api-plugin): A Jenkins plug-in that defines 
 an API to mine and analyze data from a source control repository. 
 - [git-forensics-plugin](https://github.com/jenkinsci/git-forensics-plugin): A Jenkins plugin that 
@@ -154,9 +160,12 @@ The home directory of the Jenkins controller (JENKINS_HOME) is mounted as a
 [official documentation](https://github.com/jenkinsci/docker/blob/master/README.md) for details. 
 This helps to inspect the files that have been created by the Jenkins controller.
 
-#### macOS notes
+Due to a performance problem in Jenkins' Job DSL plugin, setting up the new Jenkins instance is very slow.
+Therefore, it makes sense to remove the job's configuration part of your `jenkins.yaml` file after the Jobs have been
+created. You can overwrite the content of the file `./docker/volumes/jenkins-home/jenkins.yaml` in your newly created
+Jenkins instance with the content in `jenkins-no-jobs.yaml`.
 
-Note that volumes under macOS are quite slow. On my MacBook running the provided Jenkins job of the `analysis-model` in the
+Volumes under macOS are quite slow. On my MacBook running the provided Jenkins job of the `analysis-model` in the
 docker container is slower than running the same Jenkins job in a docker container that is running in a linux virtual machine
 on the same MacBook (sounds kind of absurd :astonished:).
 

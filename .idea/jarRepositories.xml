@@ -7,11 +7,6 @@
       <option name="url" value="https://repo.jenkins-ci.org/incrementals/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="github" />
-      <option name="name" value="uhafner" />
-      <option name="url" value="https://maven.pkg.github.com/uhafner" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="repo.jenkins-ci.org" />
       <option name="name" value="repo.jenkins-ci.org" />
       <option name="url" value="https://repo.jenkins-ci.org/public" />
@@ -22,24 +17,9 @@
       <option name="url" value="https://repo.jenkins-ci.org/releases/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="repository.jboss.org" />
-      <option name="name" value="repository.jboss.org" />
-      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Maven Central repository" />
       <option name="url" value="https://repo1.maven.org/maven2" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="maven.jenkins-ci.org-sn" />
-      <option name="name" value="maven.jenkins-ci.org-sn" />
-      <option name="url" value="https://repo.jenkins-ci.org/snapshots/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="incrementals" />
-      <option name="name" value="incrementals" />
-      <option name="url" value="https://repo.jenkins-ci.org/incrementals/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss.community" />
@@ -50,16 +30,6 @@
       <option name="id" value="central" />
       <option name="name" value="central" />
       <option name="url" value="https://repo1.maven.org/maven2" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="jenkins-ci" />
-      <option name="name" value="jenkins-ci" />
-      <option name="url" value="https://repo.jenkins-ci.org/releases/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="incrementals.repo.jenkins-ci.org" />
-      <option name="name" value="incrementals.repo.jenkins-ci.org" />
-      <option name="url" value="https://repo.jenkins-ci.org/incrementals/" />
     </remote-repository>
   </component>
 </project>

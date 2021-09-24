@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="PMD-IDEA">
-    <option name="rulesPath" value="" />
-    <option name="checkTests" value="true" />
-    <option name="pmdVersion" value="6.30.0" />
-    <option name="jdkVersion" value="11" />
-  </component>
-</project>

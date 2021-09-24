@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts-alpine
+FROM jenkins/jenkins:alpine
 
 USER root
 RUN addgroup -g 102 docker

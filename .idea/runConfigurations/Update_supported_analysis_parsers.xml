@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Update supported analysis parsers" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="edu.hm.hafner.analysis.registry.ParserRegistry" />
+    <module name="analysis-model" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis-model" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="edu.hm.hafner.analysis.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

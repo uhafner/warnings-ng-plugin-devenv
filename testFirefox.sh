@@ -1,7 +1,7 @@
 #!/bin/bash
 
-GECKO_DRIVER_PATH=/usr/local/bin/geckodriver
-CHROME_DRIVER_PATH=/usr/local/bin/chromedriver
+GECKO_DRIVER_PATH=/opt/bin/geckodriver
+CHROME_DRIVER_PATH=/opt/bin/chromedriver
 
 BROWSER=firefox
 RETRY=2 # number of retries if a test fails due to timeout errors, etc.

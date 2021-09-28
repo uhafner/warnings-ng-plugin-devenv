@@ -12,7 +12,7 @@
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="pattern" />
-    <option name="VM_PARAMETERS" value="-ea -Dwebdriver.gecko.driver=/usr/local/bin/geckodriver -DElasticTime.factor=2 -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver" />
+    <option name="VM_PARAMETERS" value="-ea -Dwebdriver.gecko.driver=/opt/bin/geckodriver -DElasticTime.factor=2 -Dwebdriver.chrome.driver=/opt/bin/chromedriver" />
     <option name="PARAMETERS" value="" />
     <envs>
       <env name="BROWSER" value="firefox" />

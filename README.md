@@ -123,7 +123,7 @@ a debugger in IntelliJ.
 
 UI tests can be started using the corresponding launchers `UI Tests [module] (Firefox)` or `UI Tests [module] (Chrome)`. 
 Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
-installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
+installed in `/opt/bin` on your local machine then you need to adapt the launcher configurations to match
 your setup.
 
 All UI tests require to run within a given subject under test (i.e, Jenkins under test, JUT), see
@@ -227,7 +227,7 @@ version and the predefined set of plugins from our docker image.
 
 UI tests can be started using the corresponding launchers `UI Tests Warnings (Firefox)` or `UI Warnings Tests (Chrome)`. 
 Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
-installed in `/usr/local/bin` on your local machine then you need to adapt the launcher configurations to match
+installed in `/opt/bin` on your local machine then you need to adapt the launcher configurations to match
 your setup.
 
 ### Running UI tests from the console

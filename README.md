@@ -29,11 +29,11 @@ macOS), and Windows. Pull requests are always welcome.
 #### Main Development
 
 Latest version of the following tools:
-- Docker
-- Docker Compose
+- Docker and Docker Compose (for Windows: install [Docker Desktop](https://www.docker.com/products/docker-desktop))
 - IntelliJ Ultimate (or Community)
 - Maven
 - JDK 11
+- Git
 
 #### UI Testing
 
@@ -43,9 +43,14 @@ Latest version of the following tools:
 
 ### Installation Steps
 
+If errors occur, note the troubleshooting hints [below](#installation---troubleshooting).
+
+**For Windows users:**
+In order to execute the Shell scripts, use the Git Bash.
+
 1. Clone and build the plugin modules using the script `clone-repos.sh`. You must wait until the build succeeds
 before opening IntelliJ, otherwise IntelliJ will not find all generated classes. First time Maven users need to wait a couple
-of minutes until all dependencies have been downloaded from Maven central.
+of minutes until all dependencies have been downloaded from Maven central. 
 2. Import the project into Intellij:
     1. Start IntelliJ
     2. Select Open...
@@ -53,14 +58,35 @@ of minutes until all dependencies have been downloaded from Maven central.
     4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*. 
     5. When IntelliJ asks : *Trust And Open Maven project* select *Trust Project* (see [IntelliJ Online Help](https://www.jetbrains.com/help/idea/project-security.html))
 3. Run the Test Launchers in IntelliJ for analysis-model, code-covarege-api, forensics-api, git-forensics, and warnings-ng.
-4. Start Jenkins with `jenkins.sh`. This command builds the Jenkins Docker image, downloads all registered plugins and 
+4. For Windows users: start Docker Desktop
+5. Start Jenkins with `jenkins.sh`. This command builds the Jenkins Docker image, downloads all registered plugins and 
 initializes the Jenkins workspace with some jobs. This requires some minutes as well.    
-5. Login to Jenkins at: http://localhost:8080/
-6. Use the following credentials: 
+6. Login to Jenkins at: http://localhost:8080/
+7. Use the following credentials: 
     - User: admin
     - Password: admin
-7. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
-8. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
+8. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
+9. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
+
+### Installation - Troubleshooting
+
+#### Step 1 - Installation failed
+If all downloads has succeeded, but the installation failed due to errors, fix them 
+and execute `mvn -V -U -e install –DskipTests` to retry only the installation.
+
+#### Step 3 - "Command line is too long."
+If the error "Command line is too long." occurs, execute following steps:
+1. Click *Edit Configuration* and select the failed run configuration 
+   (or click on the Test Launcher's name within the error message)
+3. Click *Build and run* > *Modify options* > *Shorten command line*
+4. Within the appeared field *Shorten command line*, select `@argfile (Java9+)`
+5. Click *Apply* and *OK* and execute the Test Launcher again
+6. (Possibly, IntelliJ has to be restarted if no tests has been found)
+
+#### Step 3 - Jenkins test timeout
+If tests fail due to a Jenkins test timeout, execute following steps:
+1. Click *Edit Configuration* and select the failed run configuration
+2. Add to *VM options*: `-Djenkins.test.timeout=1000`. This increases the timeout limit to 1000 seconds.
 
 ## Cloning the modules
 

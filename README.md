@@ -82,6 +82,13 @@ the [forensics-api-plugin](https://github.com/jenkinsci/forensics-api-plugin).
 - [warnings-ng-plugin](https://github.com/jenkinsci/warnings-ng-plugin): The main plugin that contains all steps 
 and UI classes. 
 
+## Forking some modules
+
+When you are planning to provide a pull request for one of the plugins you need to create a fork of the repository
+and make all changes in this fork. I created 
+[a GitHub collaboration documentation](https://github.com/uhafner/codingstyle/blob/main/doc/Arbeiten-mit-GitHub.md) 
+in my coding style project. Currently, this guide is only available in German.
+
 ## Modifying and debugging code with IntelliJ
 
 IntelliJ (Ultimate) is the main supported development environment for the Warnings plugin. A predefined project is stored 

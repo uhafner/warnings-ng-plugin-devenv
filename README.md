@@ -29,7 +29,7 @@ macOS), and Windows. Pull requests are always welcome.
 #### Main Development
 
 Latest version of the following tools:
-- Docker and Docker Compose (for Windows: install [Docker Desktop](https://www.docker.com/products/docker-desktop))
+- Docker and Docker Compose (for Windows and macOS: install [Docker Desktop](https://www.docker.com/products/docker-desktop))
 - IntelliJ Ultimate (or Community)
 - Maven
 - JDK 11
@@ -71,7 +71,7 @@ initializes the Jenkins workspace with some jobs. This requires some minutes as 
 ### Installation - Troubleshooting
 
 #### Step 1 - Installation failed
-If all downloads has succeeded, but the installation failed due to errors, fix them 
+If all downloads have succeeded, but the installation failed due to errors, fix them 
 and execute `mvn -V -U -e install –DskipTests` to retry only the installation.
 
 #### Step 3 - "Command line is too long."

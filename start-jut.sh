@@ -25,8 +25,10 @@ JENKINS_WAR="$(cd ./acceptance-test-harness/; pwd)/jenkins.war"
 export JENKINS_WAR
 if [ ! -f $JENKINS_WAR ]; then
     echo "${warn}Jenkins war does not exist at ${JENKINS_WAR}"
-    echo "${norm}Downloading latest LTS..."
-    curl -L "https://get.jenkins.io/war-stable/latest/jenkins.war" > $JENKINS_WAR || exit 1;
+#    echo "${norm}Downloading latest LTS..."
+#    curl -L "https://get.jenkins.io/war-stable/latest/jenkins.war" > $JENKINS_WAR || exit 1;
+    echo "${norm}Downloading latest release..."
+    curl -L "https://get.jenkins.io/war/latest/jenkins.war" > $JENKINS_WAR || exit 1;
 fi
 
 echo "${ok}Using Jenkins under test ${JENKINS_WAR}${norm}"

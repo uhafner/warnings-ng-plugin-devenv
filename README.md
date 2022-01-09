@@ -7,15 +7,13 @@ and Code Coverage Plugins to reduce the initial ramp-up time. It consists of the
 Depending on the part where you want to contribute to, you usually work with just one of these modules.
 However, it simplifies the development if all modules are already part of the workspace. Then you
 can switch at any time to one of the other modules.
-- Docker based Jenkins controller that has all required plugins installed to see the Warnings plugin in action.
+- Docker based Jenkins controller that has all required plugins installed to see these plugins in action.
 This Jenkins controller is already configured properly using [JCasC](https://github.com/jenkinsci/configuration-as-code-plugin) 
 to build Java modules on a Linux based agent (also provided as docker container). 
-It already contains some jobs that build the modules of the Warnings plugin.
-These jobs record warnings of several static
-analysis tools, so you immediately get an impression of the functionality of the Warnings plugin.
-- IntelliJ project that references the modules of the Warnings plugin.
+It already contains some jobs that use all of these plugins (tests, coverage, static analysis).
+- IntelliJ project that configures these plugins as Maven modules.
 This project contains presets of my [coding style](https://github.com/uhafner/codingstyle) and some other helpful 
-configurations. 
+configurations. Especially, it has runners configured to debug Jenkins plugins either on the controller or agent.
 
 ## Supported operating systems
 

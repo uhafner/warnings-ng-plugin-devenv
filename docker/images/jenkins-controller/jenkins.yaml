@@ -162,7 +162,7 @@ jobs:
                   scm {
                     git {
                         remote { url 'https://github.com/uhafner/codingstyle.git' }
-                        branch '*/master'
+                        branch '*/main'
                         extensions {}
                     }
                   }

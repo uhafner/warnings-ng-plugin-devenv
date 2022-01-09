@@ -42,12 +42,12 @@ version-resolver:
       - 'feature'
       - 'enhancement'
       - 'deprecated'
-  patch:
-    labels:
       - 'dependencies'
       - 'documentation'
       - 'tests'
       - 'internal'
+  patch:
+    labels:
       - 'bug'
   default: minor
 

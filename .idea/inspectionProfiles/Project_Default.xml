@@ -11,6 +11,13 @@
       <option name="REPORT_FOREACH_PARAMETERS" value="false" />
       <option name="REPORT_IMPLICIT_FINALS" value="false" />
     </inspection_tool>
+    <inspection_tool class="MavenPackageUpdate" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="excludeList">
+        <list>
+          <option value="com.j2html:j2html" />
+        </list>
+      </option>
+    </inspection_tool>
     <inspection_tool class="MavenRedundantGroupId" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="OptionalGetWithoutIsPresent" enabled="true" level="INFORMATION" enabled_by_default="true">
       <scope name="Production" level="WARNING" enabled="true" />
@@ -22,10 +29,7 @@
       <option name="m_ignoreForPropertySetters" value="true" />
       <option name="m_ignoreForAbstractMethods" value="false" />
     </inspection_tool>
-    <inspection_tool class="SerializableHasSerialVersionUIDField" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ignoreAnonymousInnerClasses" value="false" />
-      <option name="superClassString" value="java.awt.Component" />
-    </inspection_tool>
+    <inspection_tool class="SerializableHasSerialVersionUIDField" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SwitchStatementsWithoutDefault" enabled="false" level="INFORMATION" enabled_by_default="false">
       <option name="m_ignoreFullyCoveredEnums" value="true" />
     </inspection_tool>

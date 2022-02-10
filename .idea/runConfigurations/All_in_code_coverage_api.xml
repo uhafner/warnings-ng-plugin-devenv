@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All in code-coverage-api" type="JUnit" factoryName="JUnit">
-    <module name="code-coverage-api" />
+    <module name="code-coverage-api-parent" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="edu.hm.hafner.*" />
+        <option name="PATTERN" value="io.jenkins.plugins.coverage.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

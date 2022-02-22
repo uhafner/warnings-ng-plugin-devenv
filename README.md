@@ -58,13 +58,17 @@ of minutes until all dependencies have been downloaded from Maven central.
 3. Run the Test Launchers in IntelliJ for analysis-model, code-covarege-api, forensics-api, git-forensics, and warnings-ng.
 4. For Windows users: start Docker Desktop
 5. Start Jenkins with `jenkins.sh`. This command builds the Jenkins Docker image, downloads all registered plugins and 
-initializes the Jenkins workspace with some jobs. This requires some minutes as well.    
+initializes the Jenkins workspace with some jobs. This requires some minutes as well (see Step 9).
 6. Login to Jenkins at: http://localhost:8080/
 7. Use the following credentials: 
     - User: admin
     - Password: admin
 8. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
-9. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
+9. Due to a [severe performance problem](https://issues.jenkins.io/browse/JENKINS-60125) in Jenkins' Job DSL Plugin the
+   configuration of the jobs requires a lot of time during startup of Jenkins. But we can remove that section after all
+   jobs have been successfully created. Simply delete the `jobs` section from the JCasC configuration file  
+   `docker/volumes/jenkins-home/jenkins.yml` (see original file [jenkins.yaml](https://github.com/uhafner/warnings-ng-plugin-devenv/blob/main/docker/images/jenkins-controller/jenkins.yaml#L156-L292))
+10. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
 
 ### Installation - Troubleshooting
 

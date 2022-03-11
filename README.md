@@ -15,6 +15,8 @@ It already contains some jobs that use all of these plugins (tests, coverage, st
 This project contains presets of my [coding style](https://github.com/uhafner/codingstyle) and some other helpful 
 configurations. Especially, it has runners configured to debug Jenkins plugins either on the controller or agent.
 
+I presented this development environment in a [recorded Jenkins Online Meetup](https://youtu.be/u3eCEw6l8t0) in January 2022.
+
 ## Supported operating systems
 
 The development environment has been tested on macOS, Ubuntu Linux (in a virtual machine running on

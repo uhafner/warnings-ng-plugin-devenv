@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All in code-coverage-api" type="JUnit" factoryName="JUnit">
-    <module name="code-coverage-api-parent" />
+    <module name="code-coverage-api" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="io.jenkins.plugins.coverage.*" />

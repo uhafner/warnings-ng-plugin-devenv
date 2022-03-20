@@ -2,8 +2,7 @@
 github-app.pem
 
 acceptance-test-harness
-analysis-model
-autograding-model
+*-model
 codingstyle*
 
 *-plugin

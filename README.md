@@ -213,13 +213,9 @@ Jenkins. This also helps to prepare an integration test or UI test for your chan
 
 ### Changing analysis model without adding new API methods
  
-If you have only changes in the `analysis-model` module (and you added no new API methods) then you need to rebuild 
-and install the maven module `analysis-model.jar` and afterwards rebuild the associated Jenkins wrapper plugin 
-`analysis-model-api-plugin`. This plugin then needs to be deployed to Jenkins.
+If you have only changes in the `analysis-model` module (and you added no new API methods) then you need to rebuild and install the maven module `analysis-model.jar` and afterwards rebuild the associated Jenkins wrapper plugin `analysis-model-api-plugin`. This plugin then needs to be deployed to Jenkins.
 
-To simplify this process run the script `./go.sh` in the `analysis-model` module, it will install the 
-module `analysis-model.jar` in your local maven repository. Then this script  
-will build the actual plugin and deploy it to Jenkins. 
+This process is simplified by running the script `./bin/go.sh` in the `analysis-model` module, it will install the module `analysis-model.jar` in your local maven repository. Then this script will build the actual plugin and deploy it to Jenkins. 
 
 ### Changing the warnings plugin 
 

@@ -13,7 +13,7 @@ rm -rfv $JENKINS_HOME/plugins/git-forensics*
 rm -rfv $JENKINS_HOME/plugins/warnings-ng*
 
 cp -fv analysis-model-api-plugin/target/*hpi $JENKINS_HOME/plugins/analysis-model-api.jpi
-cp -fv code-coverage-api-plugin/target/*hpi $JENKINS_HOME/plugins/code-coverage-api.jpi
+cp -fv code-coverage-api-plugin/plugin/target/*hpi $JENKINS_HOME/plugins/code-coverage-api.jpi
 cp -fv forensics-api-plugin/target/*hpi $JENKINS_HOME/plugins/forensics-api.jpi
 cp -fv git-forensics-plugin/plugin/target/*hpi $JENKINS_HOME/plugins/git-forensics.jpi
 cp -fv warnings-ng-plugin/plugin/target/*hpi $JENKINS_HOME/plugins/warnings-ng.jpi

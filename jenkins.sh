@@ -8,4 +8,6 @@ docker compose build
 CURRENT_UID="$(id -u):$(id -g)"
 export CURRENT_UID
 echo Running docker compose with user ID $CURRENT_UID
-docker compose up
+
+#docker compose up seems not to work in the same way, Jenkins will not be recreated
+docker-compose up --always-recreate-deps

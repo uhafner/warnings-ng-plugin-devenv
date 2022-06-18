@@ -10,8 +10,8 @@
     </option>
     <option name="locations">
       <list>
-        <ConfigurationLocation id="35f87e01-b200-43da-a51e-eeeab8978472" type="BUNDLED" scope="All" description="Sun Checks">(bundled)</ConfigurationLocation>
-        <ConfigurationLocation id="bbf03175-220a-4460-9a8b-5cb362a85c59" type="BUNDLED" scope="All" description="Google Checks">(bundled)</ConfigurationLocation>
+        <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">(bundled)</ConfigurationLocation>
+        <ConfigurationLocation id="bundled-google-checks" type="BUNDLED" scope="All" description="Google Checks">(bundled)</ConfigurationLocation>
         <ConfigurationLocation id="1dee74e3-48e7-4afd-9c8b-49c17cf5174a" type="LOCAL_FILE" scope="All" description="Ullrich Hafner's CheckStyle Configuration">$PROJECT_DIR$/codingstyle/etc/checkstyle-configuration.xml</ConfigurationLocation>
       </list>
     </option>

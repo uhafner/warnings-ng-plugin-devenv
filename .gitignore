@@ -4,6 +4,7 @@ github-app.pem
 acceptance-test-harness
 *-model
 codingstyle*
+autograding-github-action
 
 *-plugin
 echarts-build-trends

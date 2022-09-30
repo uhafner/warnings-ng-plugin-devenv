@@ -17,7 +17,7 @@ jenkins:
         launcher:
           ssh:
             credentialsId: "java-agent-ssh-private-key"
-            host: "java11-agent"
+            host: "java-agent"
             launchTimeoutSeconds: 210
             maxNumRetries: 10
             port: 22
@@ -25,7 +25,7 @@ jenkins:
             jvmOptions: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8001"
             javaPath: "/opt/java/openjdk/bin/java"
             sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
-        name: "java11-agent"
+        name: "java-agent"
         numExecutors: 1
         remoteFS: "/var/data"
         nodeProperties:
@@ -133,7 +133,7 @@ tool:
           - installSource:
               installers:
                 - maven:
-                    id: "3.6.3"
+                    id: "3.8.6"
   jdk:
     defaultProperties:
       - installSource:

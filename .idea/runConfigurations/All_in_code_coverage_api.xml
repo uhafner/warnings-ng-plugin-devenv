@@ -3,7 +3,7 @@
     <module name="code-coverage-api" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="io.jenkins.plugins.coverage.*" />
+        <option name="PATTERN" value="io.jenkins.plugins.coverage.metrics.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

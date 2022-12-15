@@ -1,8 +1,9 @@
 #!/bin/bash
 
-find . -name workflows -exec cp -vR etc/github/workflows/* {} \;
+#find . -name workflows -exec cp -vR etc/github/workflows/* {} \;
 
-#find . -name ci.yml -exec cp -vR etc/github/workflows/ci.yml {} \;
+find . -name check-md-links.json -execdir git add {} \;
+#find . -name .github -exec cp -vR etc/github/check-md-links.json {} \;
 #find . -name ci.yml -exec cp -vR etc/github/workflows/ci.yml {} \;
 
 #find . -name assertj-templates -exec cp -v etc/assertj-templates/* {} \;

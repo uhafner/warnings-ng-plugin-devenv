@@ -14,7 +14,6 @@
     <mapping directory="$PROJECT_DIR$/analysis-pom-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/autograding-github-action" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/autograding-model" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/autograding-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/bootstrap5-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/code-coverage-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/codingstyle" vcs="Git" />

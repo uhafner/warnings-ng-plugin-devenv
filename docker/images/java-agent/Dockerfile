@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11-alpine
+FROM eclipse-temurin:17-alpine
 
 RUN apk update \
     && apk add bash git openssh dos2unix curl \
@@ -48,8 +48,8 @@ COPY docker-entrypoint.sh /
 RUN chmod u+x docker-entrypoint.sh
 RUN dos2unix /docker-entrypoint.sh
 
-RUN git config --global user.name "Jenkins Java 11 Agent"
-RUN git config --global user.email "java11.agent@jenkins.master"
+RUN git config --global user.name "Jenkins Java Agent"
+RUN git config --global user.email "java.agent@jenkins.master"
 
 EXPOSE 22
 

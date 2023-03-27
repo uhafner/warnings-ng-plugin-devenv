@@ -17,7 +17,7 @@ jenkins:
         launcher:
           ssh:
             credentialsId: "java-agent-ssh-private-key"
-            host: "java11-agent"
+            host: "java-agent"
             launchTimeoutSeconds: 210
             maxNumRetries: 10
             port: 22
@@ -25,7 +25,7 @@ jenkins:
             jvmOptions: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8001"
             javaPath: "/opt/java/openjdk/bin/java"
             sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
-        name: "java11-agent"
+        name: "java-agent"
         numExecutors: 1
         remoteFS: "/var/data"
         nodeProperties:
@@ -133,7 +133,7 @@ tool:
           - installSource:
               installers:
                 - maven:
-                    id: "3.6.3"
+                    id: "3.8.6"
   jdk:
     defaultProperties:
       - installSource:
@@ -183,25 +183,11 @@ jobs:
               }
           }
       };
-      pipelineJob('pipeline-warnings-ng') {
-          definition {
-              cpsScm {
-                  scriptPath 'etc/Jenkinsfile.analysis'
-                  scm {
-                    git {
-                        remote { url 'https://github.com/jenkinsci/warnings-ng-plugin.git' }
-                        branch '*/master'
-                        extensions {}
-                    }
-                  }
-              }
-          }
-      };
-      freeStyleJob('freestyle-warnings-ng') {
+      freeStyleJob('freestyle-coverage-model') {
           scm {
               git {
-                  remote { url 'https://github.com/jenkinsci/warnings-ng-plugin.git' }
-                  branch '*/master'
+                  remote { url 'https://github.com/jenkinsci/coverage-model.git' }
+                  branch '*/main'
                   extensions {}
               }
           }
@@ -209,7 +195,6 @@ jobs:
               maven {
                   mavenInstallation('mvn-default')
                   goals('clean verify')
-                  rootPOM('plugin/pom.xml')
                   properties(skipITs: true)
               }
           }
@@ -225,68 +210,225 @@ jobs:
                           highTags('FIXME')
                           normalTags('TODO')
                           includePattern('**/*.java')
-                          excludePattern('target/**/*,**/TaskScannerTest.java')
-                      }
-                      spotBugs {
-                            pattern('**/target/spotbugsXml.xml')
-                            useRankAsPriority(true)
-                      }
-                      checkStyle {
-                            pattern('**/target/checkstyle-result.xml')
-                      }
-                      pmd {
-                            pattern('**/target/pmd.xml')
-                      }
-                      cpd {
-                            pattern('**/target/cpd.xml')
-                      }
-                  }
-              }
-          }
-      };
-      freeStyleJob('freestyle-analysis-model') {
-          scm {
-              git {
-                  remote { url 'https://github.com/jenkinsci/analysis-model.git' }
-                  branch '*/master'
-                  extensions {}
-              }
-          }
-          steps {
-              maven {
-                  mavenInstallation('mvn-default')
-                  goals('clean verify')
-                  properties(skipITs: true)
-              }
-          }
-          publishers {
-              recordIssues {
-                    sourceCodeEncoding('UTF-8')
-                    aggregatingResults(true)
-                    tools {
-                      mavenConsole {}
-                      java {}
-                      javaDoc {}
-                      taskScanner {
-                          highTags('FIXME')
-                          normalTags('TODO')
-                          includePattern('**/*.java')
                           excludePattern('target/**/*')
                       }
                       spotBugs {
-                            pattern('**/target/spotbugsXml.xml')
-                            useRankAsPriority(true)
+                          pattern('**/target/spotbugsXml.xml')
+                          useRankAsPriority(true)
                       }
                       checkStyle {
-                            pattern('**/target/checkstyle-result.xml')
+                          pattern('**/target/checkstyle-result.xml')
                       }
                       pmd {
-                            pattern('**/target/pmd.xml')
+                          pattern('**/target/pmd.xml')
                       }
                       cpd {
-                            pattern('**/target/cpd.xml')
+                          pattern('**/target/cpd.xml')
                       }
                   }
               }
-        }
+              recordCoverage {
+                  tools {
+                      coverageTool {
+                          parser('JACOCO')
+                      }
+                  }
+                  qualityGates {
+                      coverageQualityGate {
+                          threshold(70)
+                          metric('LINE')
+                          baseline('PROJECT')
+                          criticality('UNSTABLE')
+                      }
+                  } 
+                  enabledForFailure(true)
+                  skipPublishingChecks(true)
+                  sourceCodeEncoding('UTF-8')
+                  sourceCodeRetention('EVERY_BUILD')
+              }   
+          }
+      };
+      pipelineJob('releases-analysis-model') {
+          definition {
+              cps {
+                  script '''
+                      node {
+                          def url = "https://github.com/jenkinsci/analysis-model.git"
+                          def tags = "git ls-remote -t --sort v:refname --refs $url | cut -f1 | tail -n +50"
+                          env.COUNT = sh(script: tags + " | wc -l", returnStdout: true).trim()
+                          if (env.COUNT.toInteger() > env.BUILD_NUMBER.toInteger()) {
+
+                              stage('Checkout') {
+                                  echo "Build: ${BUILD_NUMBER}"
+                                  env.HASH = sh(script: tags + " | head -n ${BUILD_NUMBER} | tail -1", returnStdout: true).trim()
+                                  echo "Hash: ${HASH}"
+                                  checkout([$class           : 'GitSCM',
+                                            branches         : [[name: "${HASH}"]],
+                                            userRemoteConfigs: [[url: "$url"]]])
+                              }
+
+                              stage ('Git mining') {
+                                      discoverGitReferenceBuild()
+                                      mineRepository()
+                                      gitDiffStat()
+                              }
+
+                              stage ('Build, Test, and Static Analysis') {
+                                  withMaven(maven: 'mvn-default', mavenLocalRepo: '/var/data/m2repository', mavenOpts: '-Xmx768m -Xms512m') {
+                                      sh "mvn -V -U --fail-never -e clean verify -Denforcer.skip -Dmaven.test.failure.ignore"
+                                  }
+
+                                  recordIssues tools: [java(), javaDoc()], aggregatingResults: 'true', id: 'java', name: 'Java'
+                                  recordIssues tool: errorProne()
+
+                                  junit(allowEmptyResults: true, testResults: '**/target/*-reports/TEST-*.xml')
+
+                                  publishCoverage(adapters: [jacocoAdapter('target/site/jacoco/jacoco.xml')], sourceFileResolver: sourceFiles('STORE_ALL_BUILD'))
+                                  recordIssues tools: [checkStyle(pattern: 'target/checkstyle-result.xml'),
+                                      spotBugs(pattern: 'target/spotbugsXml.xml'),
+                                      pmdParser(pattern: 'target/pmd.xml'),
+                                      cpd(pattern: 'target/cpd.xml'),
+                                      revApi(pattern: 'target/revapi-result.json'),
+                                      taskScanner(highTags:'FIXME', normalTags:'TODO', includePattern: '**/*.java', excludePattern: 'target/**/*')],
+                                      qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
+                              }
+
+                              build(job: env.JOB_NAME, wait: false)
+
+                          } 
+                          else {
+                              echo "Stopping after ${COUNT} tags"
+                          }
+                      }
+                  '''
+              }
+          }
+      };
+      pipelineJob('releases-forensics') {
+          definition {
+              cps {
+                  script '''
+                    node ('java-11-agent') {
+                      def url = "https://github.com/jenkinsci/forensics-api-plugin.git"
+                      def tags = "git ls-remote -t --sort v:refname --refs $url | cut -f1 | tail -n +30"
+                      env.COUNT = sh(script: tags + " | wc -l", returnStdout: true).trim()
+      
+                      stage('Checkout') {
+                          echo "Build: ${BUILD_NUMBER}"
+                          env.HASH = sh(script: tags + " | head -n ${BUILD_NUMBER} | tail -1", returnStdout: true).trim()
+                          echo "Hash: ${HASH}"
+                          checkout([$class           : 'GitSCM',
+                                    branches         : [[name: "${HASH}"]],
+                                    userRemoteConfigs: [[url: "$url"]]])
+                      }
+
+                      stage ('Git mining') {
+                              discoverGitReferenceBuild()
+                              mineRepository()
+                              gitDiffStat()
+                      }
+
+                      stage ('Build, Test, and Static Analysis') {
+                          withMaven(maven: 'mvn-default', mavenLocalRepo: '/var/data/m2repository', mavenOpts: '-Xmx768m -Xms512m') {
+                              sh "mvn -V -U --fail-never -e clean verify -Denforcer.skip -Dmaven.test.failure.ignore"
+                          }
+
+                          recordIssues tools: [java(), javaDoc()], aggregatingResults: 'true', id: 'java', name: 'Java'
+                          recordIssues tool: errorProne()
+
+                          junit(allowEmptyResults: true, testResults: '**/target/*-reports/TEST-*.xml')
+
+                          recordCoverage(tools: [[parser: 'JACOCO', pattern: 'target/site/jacoco/jacoco.xml']], 
+                              sourceCodeRetention: 'EVERY_BUILD',
+                              qualityGates: [
+                                  [threshold: 60.0, metric: 'LINE', baseline: 'PROJECT', unstable: true], 
+                                  [threshold: 60.0, metric: 'BRANCH', baseline: 'PROJECT', unstable: true]])
+                          recordIssues tools: [checkStyle(pattern: 'target/checkstyle-result.xml'),
+                              spotBugs(pattern: 'target/spotbugsXml.xml'),
+                              pmdParser(pattern: 'target/pmd.xml'),
+                              cpd(pattern: 'target/cpd.xml'),
+                              revApi(pattern: 'target/revapi-result.json'),
+                              taskScanner(highTags:'FIXME', normalTags:'TODO', includePattern: '**/*.java', excludePattern: 'target/**/*')],
+                              qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
+                      }
+      
+                      if (env.COUNT.toInteger() > env.BUILD_NUMBER.toInteger()) {
+                         build(job: env.JOB_NAME, wait: false)
+                      }
+                      else {
+                         echo "Stopping after ${COUNT} tags"
+                      }
+                  '''
+              }
+          }
+      };
+      pipelineJob('releases-coverage-model') {
+          definition {
+              cps {
+                  script '''
+                    node ('java-11-agent') {
+                        def url = "https://github.com/uhafner/coverage-model.git"
+                        def tags = "git ls-remote -t --sort v:refname --refs $url | cut -f1"
+                        env.COUNT = sh(script: tags + " | wc -l", returnStdout: true).trim()
+
+                        stage('Checkout') {
+                            echo "Build: ${BUILD_NUMBER}"
+                            env.HASH = sh(script: tags + " | head -n ${BUILD_NUMBER} | tail -1", returnStdout: true).trim()
+                            echo "Hash: ${HASH}"
+                            checkout([$class           : 'GitSCM',
+                                      branches         : [[name: "${HASH}"]],
+                                      userRemoteConfigs: [[url: "$url"]]])
+                        }
+
+                        stage ('Git mining') {
+                                discoverGitReferenceBuild()
+                                mineRepository()
+                                gitDiffStat()
+                        }
+
+                        stage ('Build, Test, and Static Analysis') {
+                            withMaven(maven: 'mvn-default', mavenLocalRepo: '/var/data/m2repository', mavenOpts: '-Xmx768m -Xms512m') {
+                                sh "mvn -V -U --fail-never -e clean verify -Denforcer.skip -Dmaven.test.failure.ignore"
+                            }
+
+                            recordIssues tools: [java(), javaDoc()], aggregatingResults: 'true', id: 'java', name: 'Java'
+                            recordIssues tool: errorProne()
+
+                            junit(allowEmptyResults: true, testResults: '**/target/*-reports/TEST-*.xml')
+
+                            recordCoverage(tools: [[parser: 'JACOCO', pattern: 'target/site/jacoco/jacoco.xml']], 
+                                sourceCodeRetention: 'EVERY_BUILD',
+                                qualityGates: [
+                                    [threshold: 60.0, metric: 'LINE', baseline: 'PROJECT', unstable: true], 
+                                    [threshold: 60.0, metric: 'BRANCH', baseline: 'PROJECT', unstable: true]])
+                            recordIssues tools: [checkStyle(pattern: 'target/checkstyle-result.xml'),
+                                spotBugs(pattern: 'target/spotbugsXml.xml'),
+                                pmdParser(pattern: 'target/pmd.xml'),
+                                cpd(pattern: 'target/cpd.xml'),
+                                revApi(pattern: 'target/revapi-result.json'),
+                                taskScanner(highTags:'FIXME', normalTags:'TODO', includePattern: '**/*.java', excludePattern: 'target/**/*')],
+                                qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
+                        }
+
+                        stage ('Mutation Coverage') {
+                            withMaven(mavenLocalRepo: '/var/data/m2repository', mavenOpts: '-Xmx768m -Xms512m') {
+                                sh "mvn org.pitest:pitest-maven:mutationCoverage"
+                            }
+                            recordCoverage(tools: [[parser: 'PIT', pattern: 'target/pit-reports/mutations.xml']],
+                                id: 'pit', name: 'Mutation Coverage',
+                                sourceCodeRetention: 'EVERY_BUILD',
+                                qualityGates: [
+                                    [threshold: 60.0, metric: 'MUTATION', baseline: 'PROJECT', unstable: true]])
+                        }
+
+                        if (env.COUNT.toInteger() > env.BUILD_NUMBER.toInteger()) {
+                            build(job: env.JOB_NAME, wait: false)
+                        } 
+                        else {
+                            echo "Stopping after ${COUNT} tags"
+                        }
+                }
+                  '''
+              }
+          }
       };

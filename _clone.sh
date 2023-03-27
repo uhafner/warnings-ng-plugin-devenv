@@ -24,7 +24,7 @@ git clone ${protocol}uhafner/codingstyle.git || { echo "Clone failed"; exit 1; }
 
 git clone ${protocol}jenkinsci/analysis-model.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/analysis-model-api-plugin.git || { echo "Clone failed"; exit 1; }
-git clone ${protocol}uhafner/coverage-model.git || { echo "Clone failed"; exit 1; }
+git clone ${protocol}jenkinsci/coverage-model.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/code-coverage-api-plugin.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/forensics-api-plugin.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/git-forensics-plugin.git || { echo "Clone failed"; exit 1; }

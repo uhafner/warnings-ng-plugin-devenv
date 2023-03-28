@@ -1,9 +1,8 @@
-ace-editor
 analysis-model-api
+ansicolor
 antisamy-markup-formatter
 apache-httpcomponents-client-4-api
 authentication-tokens
-autograding
 bouncycastle-api
 branch-api
 cloudbees-folder
@@ -27,13 +26,12 @@ git-forensics
 git-server
 github
 github-api
+github-checks
 github-branch-source
-handlebars
-jackson2-api
+jackson2
 javadoc
 jdk-tool
 job-dsl
-jquery-detached
 jsch
 junit
 locale
@@ -42,9 +40,7 @@ mailer
 matrix-auth
 matrix-project
 maven-plugin
-metrics-aggregation
 mock-security-realm
-momentjs
 pam-auth
 pipeline-build-step
 pipeline-graph-analysis

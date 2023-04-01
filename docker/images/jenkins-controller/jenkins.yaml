@@ -367,7 +367,7 @@ jobs:
               cps {
                   script '''
                     node ('java-11-agent') {
-                        def url = "https://github.com/uhafner/coverage-model.git"
+                        def url = "https://github.com/jenkinsci/coverage-model.git"
                         def tags = "git ls-remote -t --sort v:refname --refs $url | cut -f1"
                         env.COUNT = sh(script: tags + " | wc -l", returnStdout: true).trim()
 

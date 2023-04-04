@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="All in coverage-model" type="JUnit" factoryName="JUnit">
+    <module name="coverage-model" />
+    <extension name="coverage" sample_coverage="false" />
+    <option name="PACKAGE_NAME" value="" />
+    <option name="MAIN_CLASS_NAME" value="" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="package" />
+    <option name="VM_PARAMETERS" value="-ea  -Djava.awt.headless=true" />
+    <option name="PARAMETERS" value="" />
+    <envs>
+      <env name="BROWSER" value="chrome" />
+    </envs>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

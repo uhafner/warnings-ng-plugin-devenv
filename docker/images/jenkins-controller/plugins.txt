@@ -28,7 +28,7 @@ github
 github-api
 github-checks
 github-branch-source
-jackson2
+jackson2-api
 javadoc
 jdk-tool
 job-dsl

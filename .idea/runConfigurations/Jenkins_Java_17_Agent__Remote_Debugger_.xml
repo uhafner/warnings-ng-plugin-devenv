@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Jenkins Agent (Remote Debugger)" type="Remote">
+  <configuration default="false" name="Jenkins Java 17 Agent (Remote Debugger)" type="Remote">
     <module name="git-forensics" />
     <option name="USE_SOCKET_TRANSPORT" value="true" />
     <option name="SERVER_MODE" value="false" />

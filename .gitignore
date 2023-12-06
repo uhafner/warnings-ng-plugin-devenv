@@ -5,7 +5,8 @@ acceptance-test-harness
 *-model
 codingstyle*
 autograding-github-action
-
+*-api
+*-pom
 *-plugin
 echarts-build-trends
 

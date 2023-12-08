@@ -5,6 +5,8 @@ acceptance-test-harness
 *-model
 codingstyle*
 autograding-github-action
+analysis-dashboard
+bootstrap5-api
 *-api
 *-pom
 *-plugin

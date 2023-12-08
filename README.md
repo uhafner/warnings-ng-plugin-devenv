@@ -1,13 +1,14 @@
-# Warnings and Code Coverage Plugins - Development Environment
+# Development Environment for Jenkins Quality Assurance Plugins 
 
-This docker based development environment is for new contributors of the Warnings Next Generation 
-and Code Coverage Plugins to reduce the initial ramp-up time. It consists of the following parts:
+This docker-based development environment is for new contributors of the Warnings Next Generation 
+and Coverage Plugins to reduce the initial ramp-up time. 
+It consists of the following parts:
 
 - Scripts to check out all modules of these Jenkins plugins from GitHub.
 Depending on the part where you want to contribute to, you usually work with just one of these modules.
 However, it simplifies the development if all modules are already part of the workspace. Then you
 can switch at any time to one of the other modules.
-- Docker based Jenkins controller that has all required plugins installed to see these plugins in action.
+- Docker-based Jenkins controller that has all required plugins installed to see these plugins in action.
 This Jenkins controller is already configured properly using [JCasC](https://github.com/jenkinsci/configuration-as-code-plugin) 
 to build Java modules on a Linux based agent (also provided as docker container). 
 It already contains some jobs that use all of these plugins (tests, coverage, static analysis).

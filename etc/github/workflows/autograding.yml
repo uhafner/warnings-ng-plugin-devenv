@@ -8,7 +8,8 @@ on:
   pull_request:
 
 jobs:
-  Build:
+  autograde:
+    name: 'Build and autograde'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

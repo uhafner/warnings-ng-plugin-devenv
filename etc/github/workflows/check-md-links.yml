@@ -3,10 +3,11 @@ name: 'Check Markdown links'
 on: push
 
 jobs:
-  markdown-link-check:
+  check-markdown-links:
+    name: 'Check Markdown links'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
           check-modified-files-only: 'no'

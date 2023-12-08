@@ -1,12 +1,14 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="All in code-coverage-api" type="JUnit" factoryName="JUnit">
-    <module name="code-coverage-api" />
+  <configuration default="false" name="All in coverage plugin" type="JUnit" factoryName="JUnit">
+    <module name="coverage" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="io.jenkins.plugins.coverage.metrics.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="ALTERNATIVE_JRE_PATH" value="21" />
     <option name="PACKAGE_NAME" value="io.jenkins.plugins.coverage.metrics" />
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />

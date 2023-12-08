@@ -32,14 +32,11 @@
   <modules>
 
     <module>analysis-model</module>
-    <module>analysis-model-api-plugin</module>
+    <module>analysis-model-api</module>
 
     <module>coverage-model</module>
-    <module>code-coverage-api-plugin</module>
 
-    <module>forensics-api-plugin</module>
-    <module>git-forensics-plugin</module>
-
+    <module>coverage-plugin</module>
     <module>warnings-ng-plugin</module>
 
   </modules>

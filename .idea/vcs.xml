@@ -8,27 +8,28 @@
     </profile>
   </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$/../hochschule/analysis-dashboard" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/analysis-dashboard" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/analysis-model-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/analysis-pom-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/analysis-model-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/analysis-pom" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/autograding-github-action" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/autograding-model" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bootstrap5-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/code-coverage-api-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/autograding-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bootstrap5-api" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/codingstyle" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/codingstyle-pom" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/coverage-model" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/data-tables-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/echarts-api-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/coverage-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data-tables-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/echarts-api" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/echarts-build-trends" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/font-awesome-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/forensics-api-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/font-awesome-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/forensics-api" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/git-forensics-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/jquery3-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/plugin-util-api-plugin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/prism-api-plugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/jquery3-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/plugin-util-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/prism-api" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/warnings-ng-plugin" vcs="Git" />
   </component>
 </project>

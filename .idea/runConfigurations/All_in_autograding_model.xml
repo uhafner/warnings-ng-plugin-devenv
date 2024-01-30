@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All in analysis-model" type="JUnit" factoryName="JUnit">
-    <module name="autograding-model" />
+    <module name="analysis-model" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="edu.hm.hafner.*" />

@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11-alpine
+FROM eclipse-temurin:22-alpine
 
 RUN apk update \
     && apk add bash git openssh dos2unix curl \

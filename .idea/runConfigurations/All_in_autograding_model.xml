@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="All in analysis-model" type="JUnit" factoryName="JUnit">
+  <configuration default="false" name="All in autograding-model" type="JUnit" factoryName="JUnit">
     <module name="autograding-model" />
     <extension name="coverage">
       <pattern>

@@ -11,7 +11,7 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-dashboard" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-model" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/analysis-model-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/analysis-model-api-plugin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/analysis-pom" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/autograding-github-action" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/autograding-gitlab-action" vcs="Git" />

@@ -34,4 +34,4 @@ echo of the repositories you want to contribute to.
 read -n 1 -s -r -p "${norm}Press any key to compile the projects..."
 echo
 
-mvn -V -U -e install -DskipTests
+mvn -V -U -e verify -Pskip

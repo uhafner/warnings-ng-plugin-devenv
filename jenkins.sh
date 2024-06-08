@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker pull jenkins/jenkins:alpine
+docker pull jenkins/jenkins:alpine-jdk21
 
 docker compose build --pull
 

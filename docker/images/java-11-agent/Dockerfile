@@ -1,8 +1,8 @@
-FROM eclipse-temurin:11-alpine
+FROM eclipse-temurin:11-ubi9-minimal
 
-RUN apk update \
-    && apk add bash git openssh dos2unix curl \
-    && mkdir /root/.ssh \
+RUN microdnf makecache \
+    && microdnf -y install bash git openssh openssh-server dos2unix \
+    && mkdir -p /root/.ssh \
     && chmod 0700 /root/.ssh \
     && ssh-keygen -A \
     && sed -i s/^#PasswordAuthentication\ yes/PasswordAuthentication\ no/ /etc/ssh/sshd_config \
@@ -31,7 +31,7 @@ RUN mkdir -p /opt/maven /opt/maven/ref \
   && rm -f /tmp/apache-maven.tar.gz \
   && ln -s /opt/maven/bin/mvn /usr/bin/mvn
 
-RUN addgroup -S jenkins && adduser -D agent -G jenkins
+RUN groupadd -r jenkins && useradd -g jenkins agent 
 RUN echo "agent:Docker!" | chpasswd
 
 RUN mkdir /home/agent/.ssh

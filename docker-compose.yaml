@@ -15,10 +15,10 @@ services:
       - JAVA_OPTS= -Dstapler.jelly.noCache=true  -Dhudson.remoting.ClassFilter=com.google.common.collect.ImmutableListMultimap -DexecutableWar.jetty.disableCustomSessionIdCookieName=true -DexecutableWar.jetty.sessionIdCookieName=warnings-ng-devenv -agentlib:jdwp=transport=dt_socket,address=*:8000,suspend=n,server=y
     user: ${CURRENT_UID}
     restart: unless-stopped
-  java-agent:
+  java-17-agent:
     build: ./docker/images/java-agent
     ports:
-      - 8001:8001   # Jenkins Agent Debugging Port
+      - 8003:8003   # Jenkins Agent Debugging Port
     depends_on:
       - jenkins-controller
     restart: unless-stopped
@@ -28,4 +28,10 @@ services:
       - 8002:8002   # Jenkins Agent Debugging Port
     depends_on:
       - jenkins-controller
+  java-agent:
+    build: ./docker/images/java-21-agent
+    ports:
+      - 8001:8001   # Jenkins Agent Debugging Port
+    depends_on:
+      - jenkins-controller 
     restart: unless-stopped

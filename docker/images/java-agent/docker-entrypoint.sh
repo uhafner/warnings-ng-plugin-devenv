@@ -14,14 +14,9 @@ if [ ! -d "/var/run/sshd" ]; then
   mkdir -p /var/run/sshd
 fi
 
-TARGET_GID=$(stat -c "%g" /var/data)
-addgroup -g $TARGET_GID tempgroup
-addgroup agent tempgroup
 chmod 770 /var/data
 chmod g+s  /var/data
 chown agent:jenkins /var/data
-
-echo Added user agent to group GID $TARGET_GID
 
 # Execute the CMD from the Dockerfile:
 exec "$@"

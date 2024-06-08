@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-ubi9-minimal
+FROM eclipse-temurin:21-ubi9-minimal
 
 RUN microdnf makecache \
     && microdnf -y install bash git openssh openssh-server dos2unix \

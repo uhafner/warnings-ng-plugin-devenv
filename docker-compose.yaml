@@ -28,7 +28,7 @@ services:
       - 8002:8002   # Jenkins Agent Debugging Port
     depends_on:
       - jenkins-controller
-  java-22-agent:
+  java-21-agent:
     build: ./docker/images/java-21-agent
     ports:
       - 8003:8003   # Jenkins Agent Debugging Port

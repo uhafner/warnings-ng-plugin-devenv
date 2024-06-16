@@ -28,4 +28,10 @@ services:
       - 8002:8002   # Jenkins Agent Debugging Port
     depends_on:
       - jenkins-controller
+  java-21-agent:
+    build: ./docker/images/java-21-agent
+    ports:
+      - 8003:8003   # Jenkins Agent Debugging Port
+    depends_on:
+      - jenkins-controller 
     restart: unless-stopped

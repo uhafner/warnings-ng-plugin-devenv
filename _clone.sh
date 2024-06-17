@@ -25,9 +25,7 @@ git clone ${protocol}uhafner/codingstyle.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/analysis-model.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/analysis-model-api-plugin.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/coverage-model.git || { echo "Clone failed"; exit 1; }
-git clone ${protocol}jenkinsci/code-coverage-api-plugin.git || { echo "Clone failed"; exit 1; }
-git clone ${protocol}jenkinsci/forensics-api-plugin.git || { echo "Clone failed"; exit 1; }
-git clone ${protocol}jenkinsci/git-forensics-plugin.git || { echo "Clone failed"; exit 1; }
+git clone ${protocol}jenkinsci/coverage-plugin.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/warnings-ng-plugin.git || { echo "Clone failed"; exit 1; }
 
 echo ${mark}${bold}Done cloning. Note that you need to change the remotes for each
@@ -36,4 +34,4 @@ echo of the repositories you want to contribute to.
 read -n 1 -s -r -p "${norm}Press any key to compile the projects..."
 echo
 
-mvn -V -U -e install -DskipTests
+mvn -V -U -e verify -Pskip

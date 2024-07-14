@@ -35,11 +35,10 @@
 
     <module>analysis-model</module>
     <module>analysis-model-api-plugin</module>
+    <module>warnings-ng-plugin</module>
 
     <module>coverage-model</module>
     <module>coverage-plugin</module>
-
-    <module>warnings-ng-plugin</module>
 
   </modules>
 

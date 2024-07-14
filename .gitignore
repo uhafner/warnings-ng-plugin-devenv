@@ -2,11 +2,11 @@
 github-app.pem
 
 acceptance-test-harness
-*-model
+analysis-model*
+coverage-model*
 codingstyle*
-autograding-github-action
+*-action
 analysis-dashboard
-bootstrap5-api
 *-api
 *-pom
 *-plugin

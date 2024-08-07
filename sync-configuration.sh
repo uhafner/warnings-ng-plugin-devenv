@@ -17,7 +17,9 @@ find . -name ci.yml -exec cp -vR etc/github/workflows/ci.yml {} \;
 #find . -name enforce-labels.yml -exec cp -vR etc/github/workflows/enforce-labels.yml {} \;
 #find . -name run-release-drafter.yml -exec cp -vR etc/github/workflows/run-release-drafter.yml {} \;
 #find . -name sync-labels.yml -exec cp -vR etc/github/workflows/sync-labels.yml {} \;
-find . -name codeql.yml -exec cp -vR etc/github/workflows/codeql.yml {} \;
-find . -name coverage.yml -exec cp -vR etc/github/workflows/coverage.yml {} \;
+#find . -name codeql.yml -exec cp -vR etc/github/workflows/codeql.yml {} \;
+#find . -name coverage.yml -exec cp -vR etc/github/workflows/coverage.yml {} \;
 
 #find . -maxdepth 4 -path '*plugin*autograding.yml' -exec rm -f {} \;
+
+#find . -name quality-monitor.yml -exec cp -vR etc/github/workflows/quality-monitor.yml {} \;

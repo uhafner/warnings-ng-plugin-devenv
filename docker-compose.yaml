@@ -5,6 +5,7 @@ services:
     container_name: devenv-jenkins
     build:
       context: docker/images/jenkins-controller
+    image: devenv/jenkins-controller
     volumes:
       - ./docker/volumes/jenkins-home:/var/jenkins_home # Mounts the local jenkins_home volume to the /var/jenkins_home path inside the container
       - agent-ssh-dir:/ssh-dir # Mounts the shared volume agent-ssh-dir to a path inside the container
@@ -30,6 +31,7 @@ services:
     container_name: devenv-key-generator
     build:
       context: docker/images/key-generator
+    image: devenv/key-generator
     stdin_open: true
     tty: true
     # The entrypoint script generates the SSH keys and outputs them to the /ssh-dir directory.
@@ -47,6 +49,7 @@ services:
   java-agent:
     container_name: devenv-java-agent
     build: docker/images/java-agent
+    image: devenv/java-agent
     ports:
       - 8001:8001   # Jenkins agent debugging port - HOST:CONTAINER
     depends_on:

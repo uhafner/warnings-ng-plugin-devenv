@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec ./_clone.sh "https://github.com/" "HTTPS"
+exec bin/_clone.sh "https://github.com/" "HTTPS"

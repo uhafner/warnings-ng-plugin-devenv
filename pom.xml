@@ -31,13 +31,14 @@
 
   <modules>
 
+    <module>codingstyle</module>
+
     <module>analysis-model</module>
     <module>analysis-model-api-plugin</module>
+    <module>warnings-ng-plugin</module>
 
     <module>coverage-model</module>
-
-    <module>code-coverage-api-plugin</module>
-    <module>warnings-ng-plugin</module>
+    <module>coverage-plugin</module>
 
   </modules>
 

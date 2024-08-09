@@ -66,7 +66,6 @@ services:
       retries: 5
     volumes:
       - agent-ssh-dir:/home/jenkins/.ssh:ro # Mounts the agent-ssh-dir volume to the /home/jenkins/.ssh path inside the container as read-only
-      - ${HOME}/.m2/repository:/home/jenkins/.m2/repository # Mounts the local Maven repository to the /home/jenkins/.m2 path inside the container
 
 volumes:
   agent-ssh-dir:

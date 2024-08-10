@@ -16,7 +16,7 @@ cp -fv warnings-ng-plugin/plugin/target/*hpi $JENKINS_HOME/plugins/warnings-ng.j
 
 CURRENT_UID="$(id -u):$(id -g)"
 export CURRENT_UID
-IS_RUNNING=$(docker compose ps -q devenv-jenkins)
+IS_RUNNING=$(docker compose ps -q jenkins)
 if [[ "$IS_RUNNING" != "" ]]; then
     docker compose restart
     echo "Restarting Jenkins (docker compose with user ID ${CURRENT_UID}) ..."

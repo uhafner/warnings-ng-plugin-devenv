@@ -22,6 +22,8 @@ echo
 
 git clone ${protocol}uhafner/codingstyle.git || { echo "Clone failed"; exit 1; }
 
+git clone ${protocol}jenkinsci/acceptance-test-harness.git || { echo "Clone failed"; exit 1; }
+
 git clone ${protocol}jenkinsci/analysis-model.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/analysis-model-api-plugin.git || { echo "Clone failed"; exit 1; }
 git clone ${protocol}jenkinsci/coverage-model.git || { echo "Clone failed"; exit 1; }

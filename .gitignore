@@ -11,6 +11,7 @@ analysis-dashboard
 *-pom
 *-plugin
 echarts-build-trends
+docker/volumes
 
 node_modules
 

@@ -1,9 +1,5 @@
-modules.xml
-compiler.xml
-encodings.xml
-saveactions_settings.xml
-jarRepositories.xml
-misc.xml
-workspace.xml
-vcs.xml
-dataSources.xml
+*.xml
+!checkstyle-idea.xml
+!inspectionProfiles
+!runConfigurations
+!codeStyles

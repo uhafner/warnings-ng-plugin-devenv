@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -12,7 +13,8 @@
 
   <name>Warnings plugin development environment</name>
   <description>Development environment for Jenkins' Warnings Next Generation Plugin.
-    Reduces the initial ramp-up time for new contributors. </description>
+    Reduces the initial ramp-up time for new contributors.
+  </description>
 
   <licenses>
     <license>
@@ -42,4 +44,23 @@
 
   </modules>
 
+  <properties>
+    <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+    <java.version>21</java.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <release>${java.version}</release>
+          <showWarnings>true</showWarnings>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
+

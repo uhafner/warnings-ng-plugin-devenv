@@ -12,6 +12,6 @@ export CURRENT_USER
 
 echo Running docker compose with user ID $CURRENT_USER
 
-docker pull jenkins/jenkins:lts-jdk21
+docker pull jenkins/jenkins:latest-jdk21
 docker compose build --pull
 docker compose up --always-recreate-deps

@@ -47,7 +47,7 @@
             recordIssues tools: [checkStyle(pattern: &apos;target/**/checkstyle-result.xml&apos;),
                 spotBugs(pattern: &apos;target/spotbugsXml.xml&apos;),
                 pmdParser(pattern: &apos;target/**/pmd.xml&apos;),
-                cpd(pattern: &apos;target/cpd.xml&apos;),
+                cpd(pattern: &apos;target/**/cpd.xml&apos;),
                 revApi(pattern: &apos;target/revapi-result.json&apos;),
                 taskScanner(highTags:&apos;FIXME&apos;, normalTags:&apos;TODO&apos;, includePattern: &apos;**/*.java&apos;, excludePattern: &apos;target/**/*&apos;)],
                 sourceCodeRetention: &apos;EVERY_BUILD&apos;,

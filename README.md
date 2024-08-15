@@ -36,7 +36,7 @@ Additionally, the latest versions of the following tools are required:
 
 If errors occur, note the troubleshooting hints [below](#installation---troubleshooting). For Windows users: Use the Git Bash to execute the Shell scripts.
 
-1. Clone and build the plugin modules using the script `./bin/clone-repos-https.sh`. You must wait until the build succeeds before opening IntelliJ, otherwise IntelliJ will not find all generated classes. First time Maven users need to wait a couple of minutes until all dependencies have been downloaded from Maven central. 
+1. Clone and build the plugin modules using the script `./bin/clone-repos-https.sh` (or `./bin/clone-repos.sh` if you already have set up an SSH key in GitHub). You must wait until the build succeeds before opening IntelliJ, otherwise IntelliJ will not find all generated classes. First time Maven users need to wait a couple of minutes until all dependencies have been downloaded from Maven central. 
 2. Import the project into Intellij:
     1. Start IntelliJ
     2. Select Open...
@@ -78,15 +78,13 @@ If tests fail due to a Jenkins test timeout, execute following steps:
 
 ## Cloning the modules
 
-You can use a simple shell script (`clone-repos.sh`) to clone the modules of the Warnings plugin in a single step. The script checks out the 
-following modules using the git SSH protocol. This requires that you have registered your public key in GitHub.
-If you have no keys in GitHub you can alternatively use the script `clone-repos-https.sh` that uses the HTTPS protocol.
+You can use a simple shell script (`./bin/clone-repos.sh`) to clone and build the modules in a single step. The script checks out the following modules using the git SSH protocol. This requires that you have registered your public key in GitHub. If you have no keys in GitHub you can alternatively use the script `./bin/clone-repos-https.sh` that uses the HTTPS protocol.
+- [codingstyle](https://github.com/uhafner/codingstyle): My codingstyle with preconfigured rules for CheckStyle, PMD, and SpotBugs. These configurations can be linked in IntelliJ to ensure that the code is compliant with the rules.
 - [analysis-model](https://github.com/jenkinsci/analysis-model): A library to read static analysis reports into a Java object model. This module is not depending on Jenkins.
 - [analysis-model-api-plugin](https://github.com/jenkinsci/analysis-model-api-plugin): A simple wrapper for the 
 analysis model library. It provides the analysis-model classes as a Jenkins plugin. This overhead is required to simplify upgrades of the analysis-model module in Jenkins.
-- [coverage-model](https://github.com/jenkinsci/coverage-model): A library to read coverage reports into a Java object model. This module is not depending on Jenkins.
-- [coverage-model](https://github.com/jenkinsci/code-coverage-api-plugin): A plugin to read coverage reports and show the corresponding results in Jenkins.
 - [warnings-ng-plugin](https://github.com/jenkinsci/warnings-ng-plugin): A plugin to read static analysis reports and show the corresponding results in Jenkins.
+- [coverage-model](https://github.com/jenkinsci/coverage-model): A library to read coverage reports into a Java object model. This module is not depending on Jenkins.
 - [coverage-plugin](https://github.com/jenkinsci/coverage-plugin): A plugin to read coverage reports and show the corresponding results in Jenkins.
 
 ## Forking some modules
@@ -99,46 +97,29 @@ IntelliJ (Ultimate) is the main supported development environment for the Warnin
 in the folder `.idea` that references all modules of the Warnings plugin. This project contains presets of my 
 [coding style](https://github.com/uhafner/codingstyle) and some other helpful configurations. 
 
-It should be possible to use other IDEs (Eclipse, Netbeans) as well. The analysis-model library has configuration files 
-(coding style, analysis configuration) for Eclipse. However, these files are not yet available for the other modules. 
+It should be possible to use other IDEs (Eclipse, Netbeans, Visual Studio Code) as well. 
 
 ### Running unit and integration tests
 
-Use the provided IntelliJ Run Configurations `All in [module-name]` to run the unit and integrations tests of the
-corrsponding module. These configurations are already configured
-to record the branch coverage of the corresponding module packages
-(use the `Run with Coverage` action).   
+Use the provided IntelliJ Run Configurations `All in [module-name]` to run the unit and integrations tests of the corresponding module. These configurations are already configured to record the branch coverage of the corresponding module packages (use the `Run with Coverage` action).   
 
 ### Debugging 
 
-Before you can debug your changes you first need to find out where your code is running: on the controller or on the agent? 
-If you are unsure, then run both remote
-debuggers, set some breakpoints and wait for the corresponding debugger to stop.
+Before you can debug your changes, you first need to find out where your code is running: on the controller or on the agent? If you are unsure, then run both remote debuggers, set some breakpoints and wait for the corresponding debugger to stop.
 
-#### Debugging Jenkins controller
+#### Debugging the Jenkins controller
 
-The docker compose configuration starts the Jenkins controller automatically in 'Debug' mode, i.e., it is listening to 
-remote debug requests. If your code runs in the controller then you simply need to attach a remote debugger at 
-`localhost:8000` (mapped to the same port in the docker container). Use the provided `Jenkins Controller (Remote Debugger)` 
-Debug configuration to connect a debugger in IntelliJ.
+The docker compose configuration starts the Jenkins controller automatically in 'Debug' mode, i.e., it is listening to remote debug requests. If your code runs in the controller, then you need to attach a remote debugger at `localhost:8000` (mapped to the same port in the docker container). Use the provided `Jenkins Controller (Remote Debugger)` Debug configuration to connect a debugger in IntelliJ.
 
-#### Debugging Jenkins agent
+#### Debugging the Jenkins agent
 
-The docker compose configuration also starts the Jenkins agent automatically in 'Debug' mode, i.e., it is listening to 
-remote debug requests. 
-In order to debug your changes you simply need to attach a remote debugger at `localhost:8001` (mapped to the same
-port in the docker container). Use the provided `Jenkins Agent (Remote Debugger)` Debug configuration to connect 
-a debugger in IntelliJ.
+The docker compose configuration also starts the Jenkins agent automatically in 'Debug' mode, i.e., it is listening to remote debug requests. Attach a remote debugger at `localhost:8001` (mapped to the same port in the docker container) to debug code that is running on the agent. Use the provided `Jenkins Agent (Remote Debugger)` Debug configuration to connect a debugger in IntelliJ.
 
 ### Running UI tests
 
-UI tests can be started using the corresponding launchers `UI Tests [module] (Firefox)` or `UI Tests [module] (Chrome)`. 
-Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not
-installed in `/opt/bin` on your local machine then you need to adapt the launcher configurations to match
-your setup.
+UI tests can be started using the corresponding launchers `UI Tests [module] (Firefox)` or `UI Tests [module] (Chrome)`. Note that both launchers require an installation of the corresponding Selenium drivers. If these drivers are not installed in `/opt/bin` on your local machine then you need to adapt the launcher configurations to match your setup.
 
-All UI tests require to run within a given subject under test (i.e, Jenkins under test, JUT), see
-[Acceptance Test Harness](https://github.com/jenkinsci/acceptance-test-harness) project for more details.
+All UI tests require running within a given subject under test (i.e, Jenkins under test, JUT), see [Acceptance Test Harness](https://github.com/jenkinsci/acceptance-test-harness) project for more details.
 
 ## Starting Jenkins 
 

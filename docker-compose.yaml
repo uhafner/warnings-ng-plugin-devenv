@@ -13,8 +13,9 @@ services:
       - 8080:8080   # Jenkins UI - HOST:CONTAINER
       - 8000:8000   # Jenkins controller debugging port - HOST:CONTAINER
     environment:
+      - GITHUB_APP=${GITHUB_APP_KEY}
       - TRY_UPGRADE_IF_NO_MARKER=true
-      - JAVA_OPTS= -Dstapler.jelly.noCache=true  -Dhudson.remoting.ClassFilter=com.google.common.collect.ImmutableListMultimap -DexecutableWar.jetty.disableCustomSessionIdCookieName=true -DexecutableWar.jetty.sessionIdCookieName=codingstyle
+      - JAVA_OPTS= -Dstapler.jelly.noCache=true  -Dhudson.remoting.ClassFilter=com.google.common.collect.ImmutableListMultimap -DexecutableWar.jetty.disableCustomSessionIdCookieName=true -DexecutableWar.jetty.sessionIdCookieName=devenv -agentlib:jdwp=transport=dt_socket,address=*:8000,suspend=n,server=y
     user: ${CURRENT_UID}
     restart: unless-stopped
     depends_on:

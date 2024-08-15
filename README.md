@@ -36,7 +36,7 @@ Additionally, the latest versions of the following tools are required:
 
 If errors occur, note the troubleshooting hints [below](#installation---troubleshooting). For Windows users: Use the Git Bash to execute the Shell scripts.
 
-1. Clone and build the plugin modules using the script `./bin/clone-repos.sh`. You must wait until the build succeeds before opening IntelliJ, otherwise IntelliJ will not find all generated classes. First time Maven users need to wait a couple of minutes until all dependencies have been downloaded from Maven central. 
+1. Clone and build the plugin modules using the script `./bin/clone-repos-https.sh`. You must wait until the build succeeds before opening IntelliJ, otherwise IntelliJ will not find all generated classes. First time Maven users need to wait a couple of minutes until all dependencies have been downloaded from Maven central. 
 2. Import the project into Intellij:
     1. Start IntelliJ
     2. Select Open...

@@ -1,27 +1,16 @@
-# Development Environment for Jenkins Quality Assurance Plugins 
+# Development Environment for Jenkins Plugins 
 
-This docker-based development environment is for new contributors of the Warnings Next Generation 
-and Coverage Plugins to reduce the initial ramp-up time. 
-It consists of the following parts:
+This docker-based development environment is for new contributors of the Jenkins Warnings and Coverage Plugins to reduce the initial ramp-up time. It consists of the following parts:
 
-- Scripts to check out all modules of these Jenkins plugins from GitHub.
-Depending on the part where you want to contribute to, you usually work with just one of these modules.
-However, it simplifies the development if all modules are already part of the workspace. Then you
-can switch at any time to one of the other modules.
-- Docker-based Jenkins controller that has all required plugins installed to see these plugins in action.
-This Jenkins controller is already configured properly using [JCasC](https://github.com/jenkinsci/configuration-as-code-plugin) 
-to build Java modules on a Linux based agent (also provided as docker container). 
-It already contains some jobs that use all of these plugins (tests, coverage, static analysis).
-- IntelliJ project that configures these plugins as Maven modules.
-This project contains presets of my [coding style](https://github.com/uhafner/codingstyle) and some other helpful 
-configurations. Especially, it has runners configured to debug Jenkins plugins either on the controller or agent.
+- Scripts to check out all modules of these Jenkins plugins from GitHub. Depending on the part where you want to contribute to, you usually work with just one of these modules. However, it simplifies the development if all modules are already part of the workspace. Then you can switch at any time to one of the other modules.
+- Docker-based Jenkins controller that has all required plugins installed to see these plugins in action. This Jenkins controller is already configured properly using [JCasC](https://github.com/jenkinsci/configuration-as-code-plugin) to build Java modules on a Linux based agent (also provided as docker container). It already contains some jobs that use all of these plugins (tests, coverage, static analysis).
+- IntelliJ project that configures these plugins as Maven modules. This project contains presets of my [coding style](https://github.com/uhafner/codingstyle) and some other helpful configurations. Especially, it has runners configured to debug Jenkins plugins either on the controller or agent.
 
 I presented this development environment in a [recorded Jenkins Online Meetup](https://youtu.be/u3eCEw6l8t0) in January 2022.
 
 ## Supported operating systems
 
-The development environment has been tested on macOS, Ubuntu Linux (in a virtual machine running on
-macOS), and Windows. Pull requests are always welcome.
+The development environment has been tested on macOS, Ubuntu Linux (in a virtual machine running on macOS), and Windows. Pull requests are always welcome.
 
 ## TLDR
 
@@ -30,49 +19,42 @@ macOS), and Windows. Pull requests are always welcome.
 #### Main Development
 
 Latest version of the following tools:
-- Docker and Docker Compose (for Windows and macOS: install [Docker Desktop](https://www.docker.com/products/docker-desktop))
+- Docker (for Windows and macOS: install [Docker Desktop](https://www.docker.com/products/docker-desktop))
 - IntelliJ Ultimate (or Community)
 - Maven
-- JDK 11
+- JDK 21
 - Git
 
 #### UI Testing
 
-Latest version of the following tools:
+Additionally, the latest versions of the following tools are required:
+
 - firefox and gecko-driver
 - chrome and chrome-driver
 
 ### Installation Steps
 
-If errors occur, note the troubleshooting hints [below](#installation---troubleshooting).
+If errors occur, note the troubleshooting hints [below](#installation---troubleshooting). For Windows users: Use the Git Bash to execute the Shell scripts.
 
-**For Windows users:**
-In order to execute the Shell scripts, use the Git Bash.
-
-1. Clone and build the plugin modules using the script `clone-repos.sh`. You must wait until the build succeeds
-before opening IntelliJ, otherwise IntelliJ will not find all generated classes. First time Maven users need to wait a couple
-of minutes until all dependencies have been downloaded from Maven central. 
+1. Clone and build the plugin modules using the script `./bin/clone-repos.sh`. You must wait until the build succeeds before opening IntelliJ, otherwise IntelliJ will not find all generated classes. First time Maven users need to wait a couple of minutes until all dependencies have been downloaded from Maven central. 
 2. Import the project into Intellij:
     1. Start IntelliJ
     2. Select Open...
     3. Select the folder `warnings-ng-plugin-devenv`
-    4. When IntelliJ asks : *Maven projects need to be imported* select *Enable Auto-Import*. 
-    5. When IntelliJ asks : *Trust And Open Maven project* select *Trust Project* (see [IntelliJ Online Help](https://www.jetbrains.com/help/idea/project-security.html))
-3. Run the Test Launchers in IntelliJ for analysis-model, code-covarege-api, forensics-api, git-forensics, and warnings-ng.
-4. For Windows users: start Docker Desktop
-5. Start Jenkins with `jenkins.sh`. This command builds the Jenkins Docker image, downloads all registered plugins and 
-initializes the Jenkins workspace with some jobs. This requires some minutes as well (see Step 9).
+    4. Optional (only when IntelliJ asks): *Maven projects need to be imported* select *Enable Auto-Import*. 
+    5. Optional (only when IntelliJ asks): *Trust And Open Maven project* select *Trust Project* (see [IntelliJ Online Help](https://www.jetbrains.com/help/idea/project-security.html))
+3. Run the Test Launchers in IntelliJ for the analysis-model and coverage-model projects.
+4. For Windows users: start Docker Desktop if not already done
+5. Start Jenkins with `./bin/jenkins.sh`. This command builds the Jenkins Docker image, downloads all registered plugins and initializes the Jenkins workspace with some jobs. This requires some minutes as well (see Step 9).
 6. Login to Jenkins at: http://localhost:8080/
 7. Use the following credentials: 
     - User: admin
     - Password: admin
-8. Start the provided Jenkins jobs that show the analysis results for the modules analysis-model and warnings-ng. 
-9. Due to a [severe performance problem](https://issues.jenkins.io/browse/JENKINS-60125) in Jenkins' Job DSL Plugin the
-   configuration of the jobs requires a lot of time during startup of Jenkins. So we need to remove that section after
-   all jobs have been successfully created: simply delete the `jobs` section from the JCasC configuration file  
-   `docker/volumes/jenkins-home/jenkins.yml` (see original
-   file [jenkins.yaml](https://github.com/uhafner/warnings-ng-plugin-devenv/blob/main/docker/images/jenkins-controller/jenkins.yaml#L156-L292))
-10. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
+8. Start the provided Jenkins jobs that show the plugins in action:
+    - **freestyle-analysis-model**: A Jenkins FreeStyle job that builds the analysis-model library. This job groups all warnings in a single Jenkins report and additionally shows the code coverage results of JaCoCo.
+    - **pipeline-codingstyle**: A scripted Jenkins Pipeline that builds the codingstyle library. This job shows individual results for the different warnings parsers. Additionally, this job shows details of the JaCoCo code coverage and PIT mutation coverage.
+    - **history-coverage-model**: A scripted Jenkins Pipeline that builds all existing releases of the coverage model project. The builds will take a while but show how the trend charts are working and how the delta calculations are done. The job produces results for all static analysis tools, the JaCoCo code coverage, and the PIT mutation coverage.
+9. Deploy the current HEAD of the plugins to the Jenkins instance using the Launchers in IntelliJ.
 
 ### Installation - Troubleshooting
 
@@ -99,27 +81,17 @@ If tests fail due to a Jenkins test timeout, execute following steps:
 You can use a simple shell script (`clone-repos.sh`) to clone the modules of the Warnings plugin in a single step. The script checks out the 
 following modules using the git SSH protocol. This requires that you have registered your public key in GitHub.
 If you have no keys in GitHub you can alternatively use the script `clone-repos-https.sh` that uses the HTTPS protocol.
-- [analysis-model](https://github.com/jenkinsci/analysis-model): A library to read static analysis reports into a 
-Java object model. This module is not depending on Jenkins.
+- [analysis-model](https://github.com/jenkinsci/analysis-model): A library to read static analysis reports into a Java object model. This module is not depending on Jenkins.
 - [analysis-model-api-plugin](https://github.com/jenkinsci/analysis-model-api-plugin): A simple wrapper for the 
-analysis model library. It provides the analysis-model classes as a Jenkins plugin. This overhead is required
-to simplify upgrades of the analysis-model module in Jenkins.
-- [code-coverage-api-plugin](https://github.com/jenkinsci/code-coverage-api-plugin): A plugin to read code coverage 
-reports and show the corresponding results in Jenkins.
-- [forensics-api-plugin](https://github.com/jenkinsci/forensics-api-plugin): A Jenkins plug-in that defines 
-an API to mine and analyze data from a source control repository. 
-- [git-forensics-plugin](https://github.com/jenkinsci/git-forensics-plugin): A Jenkins plugin that 
-mines and analyzes data from a Git repository. It implements all extension points of 
-the [forensics-api-plugin](https://github.com/jenkinsci/forensics-api-plugin). 
-- [warnings-ng-plugin](https://github.com/jenkinsci/warnings-ng-plugin): The main plugin that contains all steps 
-and UI classes. 
+analysis model library. It provides the analysis-model classes as a Jenkins plugin. This overhead is required to simplify upgrades of the analysis-model module in Jenkins.
+- [coverage-model](https://github.com/jenkinsci/coverage-model): A library to read coverage reports into a Java object model. This module is not depending on Jenkins.
+- [coverage-model](https://github.com/jenkinsci/code-coverage-api-plugin): A plugin to read coverage reports and show the corresponding results in Jenkins.
+- [warnings-ng-plugin](https://github.com/jenkinsci/warnings-ng-plugin): A plugin to read static analysis reports and show the corresponding results in Jenkins.
+- [coverage-plugin](https://github.com/jenkinsci/coverage-plugin): A plugin to read coverage reports and show the corresponding results in Jenkins.
 
 ## Forking some modules
 
-When you are planning to provide a pull request for one of the plugins you need to create a fork of the repository
-and make all changes in this fork. I created 
-[a GitHub collaboration documentation](https://github.com/uhafner/codingstyle/blob/main/doc/Arbeiten-mit-GitHub.md) 
-in my coding style project. Currently, this guide is only available in German.
+When you are planning to provide a pull request for one of the plugins you need to create a fork of the repository and make all changes in this fork. I created [a GitHub collaboration documentation](https://github.com/uhafner/codingstyle/blob/main/doc/Working-with-Github.md) in my coding style project.
 
 ## Modifying and debugging code with IntelliJ
 

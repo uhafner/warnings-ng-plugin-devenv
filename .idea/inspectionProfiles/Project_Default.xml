@@ -10,6 +10,7 @@
       <option name="REPORT_CATCH_PARAMETERS" value="false" />
       <option name="REPORT_FOREACH_PARAMETERS" value="false" />
       <option name="REPORT_IMPLICIT_FINALS" value="false" />
+      <option name="REPORT_PATTERN_VARIABLES" value="false" />
     </inspection_tool>
     <inspection_tool class="MavenPackageUpdate" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="excludeList">

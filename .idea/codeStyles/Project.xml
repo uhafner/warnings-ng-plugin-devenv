@@ -17,7 +17,7 @@
       </option>
       <option name="IMPORT_LAYOUT_TABLE">
         <value>
-          <package name="java" withSubpackages="true" static="false" />
+          <package name="" withSubpackages="true" static="false" />
           <package name="javax" withSubpackages="true" static="false" />
           <emptyLine />
           <package name="org" withSubpackages="true" static="false" />

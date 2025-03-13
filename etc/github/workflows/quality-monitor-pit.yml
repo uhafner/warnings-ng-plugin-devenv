@@ -40,7 +40,7 @@ jobs:
         env:
           BROWSER: chrome-container
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
-        run: mvn -V --color always -ntp clean verify -Pci -Powasp | tee maven.log
+        run: mvn -V --color always -ntp clean verify -Ppit -Pci -Powasp | tee maven.log
       - name: Extract pull request number
         uses: jwalton/gh-find-current-pr@v1
         id: pr
@@ -132,6 +132,23 @@ jobs:
                       "metric": "branch",
                       "sourcePath": "src/main/java",
                       "pattern": "**/target/site/jacoco/jacoco.xml"
+                    }
+                  ]
+                },
+                {
+                  "name": "Mutation Coverage",
+                  "tools": [
+                    {
+                      "id": "pit",
+                      "metric": "mutation",
+                      "sourcePath": "src/main/java",
+                      "pattern": "**/target/pit-reports/mutations.xml"
+                    },
+                    {
+                      "id": "pit",
+                      "metric": "test-strength",
+                      "sourcePath": "src/main/java",
+                      "pattern": "**/target/pit-reports/mutations.xml"
                     }
                   ]
                 }

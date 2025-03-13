@@ -19,7 +19,10 @@
 
 #find . -maxdepth 4 -path '*plugin*autograding.yml' -exec rm -f {} \;
 
-find . -name codeql.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/codeql.yml {} \;
-find . -name coverage.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/coverage.yml {} \;
-find . -name ci.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/ci.yml {} \;
+#find . -name ci.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/ci.yml {} \;
+#find . -name codeql.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/codeql.yml {} \;
+#find . -name coverage.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/coverage.yml {} \;
+#find . -name quality-monitor.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/quality-monitor.yml {} \;
+#find . -name update-badges.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/update-badges.yml {} \;
+find . -name quality-monitor-pit.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/quality-monitor-pit.yml {} \;
 find . -name quality-monitor.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/quality-monitor.yml {} \;

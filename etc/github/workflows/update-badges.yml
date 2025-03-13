@@ -25,23 +25,13 @@ jobs:
         with:
           maven-version: 3.9.9
       - name: Build and test with Maven
-        run: mvn -V --color always -ntp clean verify -Dgpg.skip -Pdepgraph | tee maven.log
+        run: mvn -V --color always -ntp clean verify -Pci -Ppit -Pdepgraph | tee maven.log
       - name: Run Quality Monitor
-        uses: uhafner/quality-monitor@v1
+        uses: uhafner/quality-monitor@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           config: >
             {
-            "tests": {
-              "tools": [
-                {
-                  "id": "test",
-                  "name": "Tests",
-                  "pattern": "**/target/*-reports/TEST*.xml"
-                }
-              ],
-              "name": "Tests"
-            },
             "analysis": [
               {
                 "name": "Style",
@@ -49,13 +39,11 @@ jobs:
                 "tools": [
                   {
                     "id": "checkstyle",
-                    "name": "CheckStyle",
-                    "pattern": "**/target/checkstyle-result.xml"
+                    "pattern": "**/target/checkstyle-*/checkstyle-result.xml"
                   },
                   {
                     "id": "pmd",
-                    "name": "PMD",
-                    "pattern": "**/target/pmd.xml"
+                    "pattern": "**/target/pmd-*/pmd.xml"
                   }
                 ]
               },
@@ -66,9 +54,12 @@ jobs:
                 "tools": [
                   {
                     "id": "spotbugs",
-                    "name": "SpotBugs",
                     "sourcePath": "src/main/java",
                     "pattern": "**/target/spotbugsXml.xml"
+                    },
+                    {
+                      "id": "error-prone",
+                      "pattern": "**/maven.log"
                   }
                 ]
               }
@@ -79,19 +70,34 @@ jobs:
                 "tools": [
                   {
                     "id": "jacoco",
-                    "name": "Line Coverage",
                     "metric": "line",
                     "sourcePath": "src/main/java",
                     "pattern": "**/target/site/jacoco/jacoco.xml"
                   },
                   {
                     "id": "jacoco",
-                    "name": "Branch Coverage",
                     "metric": "branch",
                     "sourcePath": "src/main/java",
                     "pattern": "**/target/site/jacoco/jacoco.xml"
                   }
                 ]
+                },
+                {
+                  "name": "Mutation Coverage",
+                  "tools": [
+                    {
+                      "id": "pit",
+                      "metric": "mutation",
+                      "sourcePath": "src/main/java",
+                      "pattern": "**/target/pit-reports/mutations.xml"
+                    },
+                    {
+                      "id": "pit",
+                      "metric": "test-strength",
+                      "sourcePath": "src/main/java",
+                      "pattern": "**/target/pit-reports/mutations.xml"
+                    }
+                  ]
               }
             ]
             }
@@ -114,6 +120,13 @@ jobs:
           status: ${{ steps.metrics.outputs.branch }}%
           color: 'green'
           path: badges/branch-coverage.svg
+      - name: Generate the badge SVG image for the mutation coverage
+        uses: emibcn/badge-action@v2.0.3
+        with:
+          label: 'Mutations'
+          status: ${{ steps.metrics.outputs.mutation }}%
+          color: 'green'
+          path: badges/mutation-coverage.svg
       - name: Generate the badge SVG image for the style warnings
         uses: emibcn/badge-action@v2.0.3
         with:
@@ -128,9 +141,7 @@ jobs:
           status: ${{ steps.metrics.outputs.bugs }}
           color: 'orange'
           path: badges/bugs.svg
-      - name: Build and test with Maven
-        run: mvn -V --color always -ntp test -Dtest=UpdateSupportedFormats#run
-      - name: Commit updated files
+      - name: Commit updated badges
         continue-on-error: true
         run: |
           git config --local user.email "action@github.com"
@@ -139,8 +150,6 @@ jobs:
           git commit -m "Update badges with results from latest autograding" || true
           git add doc/dependency-graph.puml
           git commit -m "Update dependency graph to latest versions from POM" || true
-          git add SUPPORTED-FORMATS.md
-          git commit -m "Generate list of supported formats" || true
       - name: Push updated badges to GitHub repository
         uses: ad-m/github-push-action@master
         if: ${{ success() }}

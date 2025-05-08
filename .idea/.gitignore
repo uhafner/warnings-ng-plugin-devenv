@@ -1,5 +1,6 @@
 *.xml
 !checkstyle-idea.xml
+!PMDPlugin.xml
 !inspectionProfiles
 !runConfigurations
 !codeStyles

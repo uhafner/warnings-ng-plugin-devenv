@@ -49,8 +49,7 @@ fork "jenkinsci" "coverage-model" || { exit 1; }
 fork "jenkinsci" "coverage-plugin" || { exit 1; }
 fork "jenkinsci" "warnings-ng-plugin" || { exit 1; }
 
-echo "${mark}${bold}Done cloning.${norm}"
-echo "${bold}Note that you need to change the remotes for each of the repositories you want to contribute to.${norm}"
+echo "${mark}${bold}Done forking and cloning.${norm}"
 
 read -n 1 -s -r -p "Press any key to compile the projects..."
 echo

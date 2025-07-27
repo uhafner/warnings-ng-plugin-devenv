@@ -24,6 +24,7 @@ Latest version of the following tools:
 - Maven
 - JDK 21
 - Git
+- Github CLI (optional)
 
 #### UI Testing
 
@@ -36,7 +37,12 @@ Additionally, the latest versions of the following tools are required:
 
 If errors occur, note the troubleshooting hints [below](#installation---troubleshooting). For Windows users: Use the Git Bash to execute the Shell scripts.
 
-1. Clone and build the plugin modules using the script `./bin/clone-repos-https.sh` (or `./bin/clone-repos.sh` if you already have set up an SSH key in GitHub). You must wait until the build succeeds before opening IntelliJ, otherwise IntelliJ will not find all generated classes. First time Maven users need to wait a couple of minutes until all dependencies have been downloaded from Maven central. 
+1. Clone and build the plugin modules using one of the scripts:
+   1. `./bin/clone-repos-https.sh` to clone over http.
+   2. `./bin/clone-repos.sh` if you already have set up an SSH key in GitHub.
+   3. `./bin/fork-repos.sh` to fork and clone the repos using Github CLI.
+
+   You must wait until the build succeeds before opening IntelliJ, otherwise IntelliJ will not find all generated classes. First time Maven users need to wait a couple of minutes until all dependencies have been downloaded from Maven central. 
 2. Import the project into Intellij:
     1. Start IntelliJ
     2. Select Open...
@@ -62,14 +68,14 @@ If errors occur, note the troubleshooting hints [below](#installation---troubles
 If all downloads have succeeded, but the installation failed due to errors, fix them 
 and execute `mvn -V -U -e install –DskipTests` to retry only the installation.
 
-#### Step 3 - "Command line is too long."
+#### Step 2 - "Command line is too long."
 If the error "Command line is too long." occurs, execute following steps:
 1. Click *Edit Configuration* and select the failed run configuration 
    (or click on the Test Launcher's name within the error message)
-3. Click *Build and run* > *Modify options* > *Shorten command line*
-4. Within the appeared field *Shorten command line*, select `@argfile (Java9+)`
-5. Click *Apply* and *OK* and execute the Test Launcher again
-6. (Possibly, IntelliJ has to be restarted if no tests has been found)
+2. Click *Build and run* > *Modify options* > *Shorten command line*
+3. Within the appeared field *Shorten command line*, select `@argfile (Java9+)`
+4. Click *Apply* and *OK* and execute the Test Launcher again
+5. (Possibly, IntelliJ has to be restarted if no tests has been found)
 
 #### Step 3 - Jenkins test timeout
 If tests fail due to a Jenkins test timeout, execute following steps:

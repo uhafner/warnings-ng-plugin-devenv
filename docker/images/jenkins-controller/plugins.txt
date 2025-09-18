@@ -14,6 +14,7 @@ credentials
 credentials-binding
 dark-theme
 dashboard-view
+design-library
 display-url-api
 docker-commons
 docker-workflow
@@ -46,6 +47,7 @@ mock-security-realm
 pam-auth
 pipeline-build-step
 pipeline-graph-analysis
+pipeline-graph-view
 pipeline-input-step
 pipeline-maven
 pipeline-milestone-step

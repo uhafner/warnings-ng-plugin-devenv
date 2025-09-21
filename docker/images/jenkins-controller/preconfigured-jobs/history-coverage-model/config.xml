@@ -5,7 +5,7 @@
   <keepDependencies>false</keepDependencies>
   <properties/>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@4018.vf02e01888da_f">
-    <script>node (&apos;jdk21&apos;) {./
+    <script>node (&apos;jdk21&apos;) {
     def url = &quot;https://github.com/jenkinsci/coverage-model.git&quot;
     def tags = &quot;git ls-remote -t --sort v:refname --refs $url | cut -f1 | tail -n +28&quot;
     env.COUNT = sh(script: tags + &quot; | wc -l&quot;, returnStdout: true).trim()

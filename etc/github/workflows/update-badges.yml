@@ -25,7 +25,11 @@ jobs:
         with:
           maven-version: 3.9.11
       - name: Build and test with Maven
-        run: mvn -V --color always -ntp clean verify -Pci -Ppit -Pdepgraph | tee maven.log
+        run: |
+          mvn -V --color always -ntp clean verify -Pci -Ppit -Pdepgraph | tee maven.log
+          if [ "${PIPESTATUS[0]}" != "0" ]; then
+            exit 1;
+          fi
       - name: Run Quality Monitor
         uses: uhafner/quality-monitor@v2
         with:

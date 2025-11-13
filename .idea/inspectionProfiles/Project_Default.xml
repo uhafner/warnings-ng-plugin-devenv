@@ -9,6 +9,7 @@
           <option value="jakarta.*" />
           <option value="javax.*" />
           <option value="org.springframework.*" />
+          <option value="*.ToolConfiguration" />
         </list>
       </option>
     </inspection_tool>

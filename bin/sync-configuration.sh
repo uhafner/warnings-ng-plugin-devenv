@@ -12,6 +12,7 @@
 #find . -name .github -exec cp -vR etc/github/release-drafter.yml {} \;
 #find . -name .github -exec cp -vR etc/github/dependabot.yml {} \;
 #find . -name assign-pr.yml -exec cp -vR etc/github/workflows/assign-pr.yml {} \;
+find . -name auto_assign.yml -exec cp -vR etc/github/auto_assign.yml {} \;
 #find . -name check-md-links.yml -exec cp -vR etc/github/workflows/check-md-links.yml {} \;
 #find . -name linkspector.yml -exec cp -vR etc/github/linkspector.yml {} \;
 #find . -name enforce-labels.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/enforce-labels.yml {} \;
@@ -29,4 +30,4 @@
 # find . -name quality-monitor.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/quality-monitor.yml {} \;
 
 #find . -name dependabot.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/dependabot.yml {} \;
-find . -name jenkins-security-scan.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/jenkins-security-scan.yml {} \;
+#find . -name jenkins-security-scan.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/jenkins-security-scan.yml {} \;

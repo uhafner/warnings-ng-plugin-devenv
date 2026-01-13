@@ -12,7 +12,7 @@
 #find . -name .github -exec cp -vR etc/github/release-drafter.yml {} \;
 #find . -name .github -exec cp -vR etc/github/dependabot.yml {} \;
 #find . -name assign-pr.yml -exec cp -vR etc/github/workflows/assign-pr.yml {} \;
-find . -name auto_assign.yml -exec cp -vR etc/github/auto_assign.yml {} \;
+#find . -name auto_assign.yml -exec cp -vR etc/github/auto_assign.yml {} \;
 #find . -name check-md-links.yml -exec cp -vR etc/github/workflows/check-md-links.yml {} \;
 #find . -name linkspector.yml -exec cp -vR etc/github/linkspector.yml {} \;
 #find . -name enforce-labels.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/enforce-labels.yml {} \;
@@ -27,7 +27,12 @@ find . -name auto_assign.yml -exec cp -vR etc/github/auto_assign.yml {} \;
 #find . -name quality-monitor-build.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/quality-monitor-build.yml {} \;
 #find . -name update-badges.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/update-badges.yml {} \;
 # find . -name quality-monitor-pit.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/quality-monitor-pit.yml {} \;
-# find . -name quality-monitor.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/quality-monitor.yml {} \;
+#find . -name quality-monitor-comment.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/quality-monitor-comment.yml {} \;
+#find . -name quality-monitor-comment.yml -prune -not -regex '.*target.*' -execdir cp -vR /Users/hafner/git/warnings-ng-plugin-devenv/etc/github/workflows/quality-monitor-comment-pr.yml quality-monitor-comment-pr.yml \;
+find . -name quality-monitor.json -prune -not -regex '.*target.*' -exec cp -vR etc/github/quality-monitor.json {} \;
+find . -name quality-gates.json -prune -not -regex '.*target.*' -exec cp -vR etc/github/quality-gates.json {} \;
+find . -name quality-monitor.json -prune -not -regex '.*target.*' -execdir cp -vR /Users/hafner/git/warnings-ng-plugin-devenv/etc/github/quality-monitor-pr.json quality-monitor-pr.json \;
+find . -name quality-monitor.json -prune -not -regex '.*target.*' -execdir cp -vR /Users/hafner/git/warnings-ng-plugin-devenv/etc/github/quality-gates-pr.json quality-gates-pr.json \;
 
 #find . -name dependabot.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/dependabot.yml {} \;
 #find . -name jenkins-security-scan.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/jenkins-security-scan.yml {} \;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CheckStyle-IDEA" serialisationVersion="2">
-    <checkstyleVersion>12.3.0</checkstyleVersion>
+    <checkstyleVersion>13.0.0</checkstyleVersion>
     <scanScope>JavaOnlyWithTests</scanScope>
     <suppressErrors>true</suppressErrors>
     <scanBeforeCheckin>true</scanBeforeCheckin>
@@ -14,8 +14,8 @@
       <list>
         <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">(bundled)</ConfigurationLocation>
         <ConfigurationLocation id="bundled-google-checks" type="BUNDLED" scope="All" description="Google Checks">(bundled)</ConfigurationLocation>
-        <ConfigurationLocation id="0d3bd91e-bc5b-4af1-848c-05bff6ceb0ec" type="PROJECT_RELATIVE" scope="Production" description="Ullrich Hafner's Production Code Checks">$PROJECT_DIR$/../codingstyle/etc/checkstyle-java-configuration.xml</ConfigurationLocation>
-        <ConfigurationLocation id="d72c3a00-8f8b-423b-9b88-a39364604475" type="PROJECT_RELATIVE" scope="Tests" description="Ullrich Hafner's Testing Code Checks">$PROJECT_DIR$/../codingstyle/etc/checkstyle-tests-configuration.xml</ConfigurationLocation>
+        <ConfigurationLocation id="0d3bd91e-bc5b-4af1-848c-05bff6ceb0ec" type="PROJECT_RELATIVE" scope="Production" description="Ullrich Hafner's Production Code Checks">$PROJECT_DIR$/../../codingstyle/etc/checkstyle-java-configuration.xml</ConfigurationLocation>
+        <ConfigurationLocation id="d72c3a00-8f8b-423b-9b88-a39364604475" type="PROJECT_RELATIVE" scope="Tests" description="Ullrich Hafner's Testing Code Checks">$PROJECT_DIR$/../../codingstyle/etc/checkstyle-tests-configuration.xml</ConfigurationLocation>
       </list>
     </option>
   </component>

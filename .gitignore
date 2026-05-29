@@ -12,6 +12,7 @@ analysis-dashboard
 echarts-build-trends
 quality-monitor
 java2-*
+*autograding*
 
 node_modules
 

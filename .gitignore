@@ -2,8 +2,7 @@
 github-app.pem
 
 acceptance-test-harness
-analysis-model*
-coverage-model*
+*-model*
 codingstyle*
 *-action
 analysis-dashboard
@@ -11,6 +10,8 @@ analysis-dashboard
 *-pom
 *-plugin
 echarts-build-trends
+quality-monitor
+java2-*
 
 node_modules
 

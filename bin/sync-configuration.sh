@@ -17,7 +17,7 @@
 #find . -name linkspector.yml -exec cp -vR etc/github/linkspector.yml {} \;
 #find . -name enforce-labels.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/enforce-labels.yml {} \;
 #find . -name run-release-drafter.yml -exec cp -vR etc/github/workflows/run-release-drafter.yml {} \;
-#find . -name sync-labels.yml -exec cp -vR etc/github/workflows/sync-labels.yml {} \;
+find . -name sync-labels.yml -exec cp -vR etc/github/workflows/sync-labels.yml {} \;
 
 #find . -maxdepth 4 -path '*plugin*autograding.yml' -exec rm -f {} \;
 
@@ -30,7 +30,7 @@
 #find . -name fetch-artifacts.sh -prune -not -regex '.*target.*' -exec cp -vR etc/github/scripts/fetch-artifacts.sh {} \;
 find . -name quality-monitor-build.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/quality-monitor-build.yml {} \;
 find . -name quality-monitor-comment-pr.yml -prune -not -regex '.*target.*' -exec cp -vR etc/github/workflows/quality-monitor-comment-pr.yml {} \;
-find . -name quality-monitor-comment.yml -prune -not -regex '.*target.*' -execdir cp -vR /Users/hafner/git/warnings-ng-plugin-devenv/etc/github/workflows/quality-monitor-comment-pr.yml quality-monitor-comment-pr.yml \;
+find . -name quality-monitor-comment.yml -prune -not -regex '.*target.*' -execdir cp -vR /Users/hafner/git/warnings-ng-plugin-devenv/etc/github/workflows/quality-monitor-comment.yml quality-monitor-comment.yml \;
 #find . -name quality-monitor.json -prune -not -regex '.*target.*' -exec cp -vR etc/github/quality-monitor.json {} \;
 #find . -name quality-gates.json -prune -not -regex '.*target.*' -exec cp -vR etc/github/quality-gates.json {} \;
 #find . -name quality-monitor.json -prune -not -regex '.*target.*' -execdir cp -vR /Users/hafner/git/warnings-ng-plugin-devenv/etc/github/quality-monitor-pr.json quality-monitor-pr.json \;

@@ -1,8 +1,8 @@
-name: 'Quality Monitor > HEAD'
+name: 'Quality Monitor » HEAD'
 
 on:
   workflow_run:
-    workflows: ['Quality Monitor Build', 'Dependency Check']
+    workflows: ['Quality Monitor » Build', 'Dependency Check']
     types: [completed]
 
 permissions:

@@ -1,0 +1,10 @@
+[*.java]
+# Palantir order: static block first, blank line, then all non-static imports in a single
+# ASCII-sorted group (no per-package grouping, no java/javax special-casing).
+ij_java_imports_layout = $*, |, *
+# Palantir never emits wildcard imports — stop IntelliJ collapsing to '*'.
+ij_java_class_count_to_use_import_on_demand = 999
+ij_java_names_count_to_use_import_on_demand = 999
+# IntelliJ forces java.awt.* / javax.swing.* to wildcard by default regardless of the counts
+# above — clear that list so those packages aren't collapsed either.
+ij_java_packages_to_use_import_on_demand =

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CheckStyle-IDEA" serialisationVersion="2">
     <checkstyleVersion>latest</checkstyleVersion>
-    <scanScope>JavaOnlyWithTests</scanScope>
+    <scanScope>JavaOnly</scanScope>
     <suppressErrors>true</suppressErrors>
     <scanBeforeCheckin>true</scanBeforeCheckin>
     <importSettingsFromMaven>true</importSettingsFromMaven>

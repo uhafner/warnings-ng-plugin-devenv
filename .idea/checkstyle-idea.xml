@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CheckStyle-IDEA" serialisationVersion="2">
-    <checkstyleVersion>13.4.2</checkstyleVersion>
+    <checkstyleVersion>latest</checkstyleVersion>
     <scanScope>JavaOnlyWithTests</scanScope>
     <suppressErrors>true</suppressErrors>
     <scanBeforeCheckin>true</scanBeforeCheckin>
+    <importSettingsFromMaven>true</importSettingsFromMaven>
     <option name="thirdPartyClasspath" />
     <option name="activeLocationIds">
       <option value="0d3bd91e-bc5b-4af1-848c-05bff6ceb0ec" />
@@ -12,8 +13,8 @@
     </option>
     <option name="locations">
       <list>
-        <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">(bundled)</ConfigurationLocation>
-        <ConfigurationLocation id="bundled-google-checks" type="BUNDLED" scope="All" description="Google Checks">(bundled)</ConfigurationLocation>
+        <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">bundled-sun-checks</ConfigurationLocation>
+        <ConfigurationLocation id="bundled-google-checks" type="BUNDLED" scope="All" description="Google Checks">bundled-google-checks</ConfigurationLocation>
         <ConfigurationLocation id="0d3bd91e-bc5b-4af1-848c-05bff6ceb0ec" type="PROJECT_RELATIVE" scope="Production" description="Ullrich Hafner's Production Code Checks">$PROJECT_DIR$/codingstyle/etc/checkstyle-java-configuration.xml</ConfigurationLocation>
         <ConfigurationLocation id="d72c3a00-8f8b-423b-9b88-a39364604475" type="PROJECT_RELATIVE" scope="Tests" description="Ullrich Hafner's Testing Code Checks">$PROJECT_DIR$/codingstyle/etc/checkstyle-tests-configuration.xml</ConfigurationLocation>
       </list>

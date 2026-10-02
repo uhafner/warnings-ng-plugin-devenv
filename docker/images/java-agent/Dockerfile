@@ -1,4 +1,4 @@
-FROM jenkins/ssh-agent:latest-jdk21
+FROM jenkins/ssh-agent:latest-jdk25
 
 # Install prerequisites for Java and Maven
 RUN apt-get update \
@@ -7,7 +7,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Maven
-ARG MAVEN_VERSION=3.9.16
+ARG MAVEN_VERSION=3.10.0
 
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 RUN curl -sS -L -O --output-dir /tmp/ --create-dirs  https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \

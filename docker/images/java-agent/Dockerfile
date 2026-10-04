@@ -1,4 +1,10 @@
+FROM eclipse-temurin:25-jdk AS jdk
+
 FROM jenkins/ssh-agent:latest-jdk25
+
+# Replace JRE with JDK (contains jdwp, javac, ...)
+RUN rm -rf "${JAVA_HOME}"
+COPY --from=jdk /opt/java/openjdk ${JAVA_HOME}
 
 # Install prerequisites for Java and Maven
 RUN apt-get update \

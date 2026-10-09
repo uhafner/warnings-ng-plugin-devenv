@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CheckStyle-IDEA" serialisationVersion="2">
-    <checkstyleVersion>latest</checkstyleVersion>
+    <checkstyleVersion>14.3.0</checkstyleVersion>
     <scanScope>JavaOnly</scanScope>
     <suppressErrors>true</suppressErrors>
     <scanBeforeCheckin>true</scanBeforeCheckin>

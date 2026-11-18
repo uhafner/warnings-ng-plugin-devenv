@@ -31,7 +31,7 @@ jobs:
             exit 1;
           fi
       - name: Run Quality Monitor
-        uses: uhafner/quality-monitor@v2
+        uses: uhafner/quality-monitor@v4.17.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           config: >

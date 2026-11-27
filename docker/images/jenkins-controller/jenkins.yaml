@@ -51,7 +51,6 @@ jenkins:
       allowsSignup: false
       enableCaptcha: false
   slaveAgentPort: 50000
-  systemMessage: "<h1>Java and Maven Showcase</h1>"
   updateCenter:
     sites:
       - id: "default"
